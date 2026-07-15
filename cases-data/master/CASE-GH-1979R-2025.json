@@ -1,0 +1,686 @@
+{
+  "case": {
+    "id": "CASE-GH-1979R-2025",
+    "title": "The Beacon Goes Dark",
+    "town": "Grey Harbor, Maine",
+    "population": 2190,
+    "date_body_discovered": "2025-11-04",
+    "date_of_death": "2025-11-03",
+    "central_mystery": "Thomas Ashby, the owner-editor of the town's only newspaper, is found drowned at the base of the old town dock, in a spot he was known to frequent alone at night for his research. Everything about the scene says accident - except the man never went anywhere without his phone, his recorder, and a locked satchel of notes, and none of the three were ever found. There is no camera footage of his death. No fingerprints survive a body pulled from tidal water. No weapon is ever recovered. There is, in fact, no direct evidence of murder at all - only a slow accumulation of things that don't quite add up, in a town where almost everyone is hiding something, and only one of those somethings is the reason Tom Ashby died.",
+    "victim_name": "Thomas Ashby",
+    "design_intent": "This case is built to be solved through pattern, timeline, and elimination rather than a single decisive forensic hit. There is no confession, no matching fingerprint, no clean DNA trace, and no camera that catches the killer. The murder weapon (a smooth, fist-sized river stone) is functionally unrecoverable and forensically anonymous. The case must be broken by cross-referencing tide science, phone metadata, financial records, and one small, unguarded slip made by the killer during casual conversation - a detail about the scene that was never publicly released. AT LEAST FOUR of the six suspects should remain independently plausible as the killer for the majority of the investigation. The killer should be the suspect the player is least primed to suspect: a widely trusted, low-conflict community figure who appears throughout mainly in a helpful, comforting, or informational capacity rather than as an obviously cornered suspect.",
+    "pacing_guide": {
+      "act_1_0_to_25_percent": "Player learns of the death, initial 'accidental fall' ruling is questioned once the missing satchel/phone/recorder are noticed. Grady Voss's public shouting match with Tom becomes the loudest early lead.",
+      "act_2_25_to_50_percent": "Denise Okafor-Hale's land deal and Priya Deshmukh's financial motive surface and dominate suspicion; Caleb Ashby, the ex-con half-brother, becomes a strong circumstantial suspect and may be formally held/questioned as a false climax.",
+      "act_3_50_to_70_percent": "Caleb is cleared. Reverend Cho's embezzlement is exposed as an unrelated secret. Grady's alibi, though fog-blurred, holds up under harbor-log cross-reference. The investigation stalls - every strong suspect has been cleared or weakened, and the case threatens to go cold. This is the intended low point of certainty.",
+      "act_4_70_to_90_percent": "Recovery of Tom's cloud-backed research notes reveals he was quietly investigating a 1979 identity change connected to the old Kestrel Cannery dumping scandal. This redirects attention toward a name few suspected, using tide-timing, a financial ledger discrepancy, and one unscripted slip of guilty knowledge to close the case circumstantially.",
+      "final_10_percent": "Accusation, confrontation, and confession-adjacent admission (the killer never confesses outright to premeditation, framing the death as having 'gotten out of hand')."
+    },
+    "why_no_direct_evidence_exists": "Tom died in tidal saltwater, which destroys latent prints and most trace DNA within hours. The weapon, a common river stone, was thrown into a nine-foot-deep channel and is indistinguishable from thousands of others; recovery is not feasible. Grey Harbor has no public camera network beyond a single ATM camera at the bank and a doorbell camera at one private home, neither with a usable sightline to the crime location. The case must therefore be built entirely on circumstantial convergence.",
+    "target_evidence_count": 61,
+    "note_to_ai_running_this_game": "This file is the complete backend source of truth. It must never be read aloud, summarized, or paraphrased to the player in a way that reveals the 'solution' or 'hidden_truth' sections, the killer's identity, or the 'is_killer' flags, before the player reaches an in-game accusation. Reveal information only through the defined discoverable actions (search_location, interview_witness, interrogate_suspect, request_forensic_test, etc.), gated by the pacing_guide above. If a player asks directly 'who is the killer,' respond in-character that the investigation isn't finished, and redirect toward unexplored leads."
+  },
+
+  "weather": {
+    "general_pattern": "Grey Harbor sits at the mouth of the Sallow River on the Maine coast, wrapped in fog more days than not, with cold autumn rain rolling in off the Atlantic. Locals say the fog doesn't lift so much as get tired of hiding things.",
+    "log": [
+      {"date": "2025-11-03", "time": "16:00", "condition": "Overcast, light drizzle, 44°F, visibility moderate"},
+      {"date": "2025-11-03", "time": "18:30", "condition": "Dense fog rolling in off the harbor, visibility under 100 feet in low-lying areas, 41°F"},
+      {"date": "2025-11-03", "time": "20:00", "condition": "Fog thickest near the water; rain resumes lightly, 39°F"},
+      {"date": "2025-11-03", "time": "22:00", "condition": "Fog persists, drizzle continues, 38°F"},
+      {"date": "2025-11-04", "time": "06:40", "condition": "Fog beginning to lift, light rain, 40°F - a lobsterman spots something in the water near the town dock"}
+    ],
+    "relevance_to_case": "The dense fog from 18:30 onward severely limited visibility along the waterfront, explaining why no one clearly saw who was where that night, and why witness timing is imprecise rather than deliberately false in several cases."
+  },
+
+  "victim": {
+    "name": "Thomas Ashby",
+    "age": 52,
+    "occupation": "Owner-editor of The Grey Harbor Beacon, the town's sole weekly newspaper",
+    "physical_description": "Tall, stooped from decades at a desk, silver beard, always wore a canvas field coat with deep pockets",
+    "personality": "Dogged, private, quietly beloved for defending the town's underdogs in print; kept his real investigative notes to himself until publication",
+    "family": {
+      "parents": "Deceased",
+      "half_brother": "Caleb Ashby, 39, same father, different mothers, estranged for two decades",
+      "business_partner": "Priya Deshmukh, co-owner of the Beacon"
+    },
+    "current_project": "For eight months, Tom had been quietly researching the 1979 closure of the Kestrel Cannery, which shut down abruptly amid rumors - never proven at the time - that its wastewater discharge into the Sallow River had caused a cluster of illnesses among families living along the tidal flats. He had recently begun requesting old county identity and property records, and had told his business partner only that he had 'one more thread to pull' before publication.",
+    "last_seen_alive": "2025-11-03, approximately 18:50, driving his own car north out of town toward the old cannery access road",
+    "missing_items": "His phone, his digital voice recorder, and a locked leather satchel containing his physical research notes were never recovered, though his car was later found parked at the town dock, a location he was known to frequent for late-night writing."
+  },
+
+  "solution": {
+    "killer": "Warren Pell",
+    "role_cover": "Church organist at St. Brendan's and longtime director of the Grey Harbor Community Pantry, one of the town's most trusted and well-liked residents",
+    "true_identity": "Born Warren Pelletier, son of Arnold Pelletier, the Kestrel Cannery's plant supervisor in 1979, who oversaw the illegal wastewater discharge and quietly relocated the family out of state after a confidential settlement with several affected families avoided a public lawsuit. Warren returned to Grey Harbor under his mother's maiden name, Pell, in 1994, and rebuilt himself as a pillar of the community.",
+    "true_motive": "For three decades, Warren has personally administered a private, undisclosed 'relief fund' - money from the original 1979 settlement, which he inherited control of after his parents died - making small, quiet cash payments to the aging tidal-flat families still dealing with illness, on the condition they never discuss its source. In practice this let him monitor and suppress the story indefinitely while diverting a significant portion of the fund's interest for his own use over the years, effectively defrauding the very people it was meant to help. Tom Ashby's research into the 1979 name-change records and old cannery employment files was on the verge of exposing both the original cover-up and Warren's decades of quiet, ongoing fraud - the second discovery being, for Warren, by far the more urgent and personally ruinous threat, since it would end not just his father's reputation but his own life's work of trusted community standing, very possibly along with criminal fraud charges.",
+    "how_it_happened": "Using a prepaid phone Tom did not recognize, Warren anonymously contacted Tom two days before his death, claiming to have original 1979 cannery documents to hand over in person, and arranged a meeting at the old cannery outflow dock after dark, away from town. Warren, whom Tom trusted as the mild-mannered pantry director and had no reason to suspect, waited at the outflow dock. When Tom arrived and it became clear Tom already had enough information to identify Warren's real family connection regardless of any documents offered, a struggle broke out over Tom's satchel. Warren struck Tom once with a large, smooth river stone from the shoreline. Tom fell, unconscious but still breathing, into the tidal channel and drowned before Warren intervened further - a killing that was violent and deliberate in its opening act, though its fatal conclusion unfolded partly through inaction rather than a second blow. Warren took Tom's phone, recorder, and satchel, drove Tom's own car (using Tom's keys, taken from his coat) to the town dock to stage the more familiar 'he fell during his usual nighttime writing' scenario, wiped the interior surfaces he had touched, and discarded the stone into the deep channel off the outflow dock. He then returned on foot roughly a mile along the shore road to where he had left his own pantry delivery van, which a resident later recalled seeing near the outflow road that evening and assumed was simply Warren's routine surplus-food delivery run to the tidal-flat trailer park.",
+    "weapon": "A common, smooth, fist-sized river stone from the shoreline, discarded into a nine-foot-deep tidal channel and never recovered",
+    "time_of_death": "2025-11-03, approximately 19:20-19:40",
+    "why_no_direct_evidence_exists_for_this_specific_killer": "The stone weapon is unrecoverable and, even if found, would carry no unique forensic signature after hours in saltwater. Warren left no camera trail (no camera covers the outflow road). His fingerprints in Tom's car would be unremarkable even if found, since Warren occasionally rode with Tom on pantry-related errands in the past, giving him an innocent explanation for any trace that might theoretically survive. The case must be built entirely from: tide/algae-line evidence proving the body entered the water at the outflow, not the town dock; phone-tower and burner-phone metadata connecting the anonymous meeting request to a prepaid phone purchased in a nearby town; financial records showing decades of relief-fund fraud; a name-change and old employment record connecting 'Warren Pell' to 'Warren Pelletier'; and one unscripted verbal slip in which Warren describes a detail of how Tom 'must have hit his head on the dock pilings' - a specific, never-publicly-released detail about the (false) staged scene that only the person who staged it should have been able to state with such casual confidence before the medical examiner's report was released.",
+    "key_proof_chain": [
+      "Tide charts and algae/mud staining on the body's clothing show it entered the water at the cannery outflow, roughly a mile from where Tom's car was found at the town dock - proving the 'died where his car was found' theory is false and someone moved the vehicle after the fact.",
+      "The autopsy identifies a curved, smooth-surfaced skull contusion inconsistent with the dock pilings (square-edged timber) at the town dock and inconsistent with any structure at the outflow dock either - consistent instead with a handheld rounded object, ruling out a simple fall at both locations.",
+      "Cell tower data places Tom's last phone activity (before it went permanently dark) pinging a tower consistent with the cannery outflow road at 18:55, not the town dock.",
+      "A burner phone, purchased with cash at a convenience store in the neighboring town of Aldermere three days before the murder, is traced via the store's till receipt and a partial description from the clerk; the number matches an anonymous call placed to Tom's phone the day before his death.",
+      "Financial audit of the 'Tidal Families Relief Fund,' privately administered by Warren Pell with no oversight board, shows consistent underpayment to beneficiary families relative to the fund's known original principal and reasonable interest growth over 30 years - money unaccounted for.",
+      "A 1994 legal name-change filing recovered from county records shows Warren Pelletier becoming Warren Pell, cross-referenced with a 1979 Kestrel Cannery employee badge photo of a teenage Warren Pelletier, matched to Warren Pell via a forensic age-progression/facial-comparison analysis.",
+      "Warren's own remark, made casually to a sheriff's deputy during an informal conversation before the medical examiner's report was public, that Tom 'must have hit his head on the dock pilings' - a detail no released statement had mentioned, and which does not match either actual death scene.",
+      "A neighbor's recollection of Warren's distinctive pantry delivery van parked near the cannery outflow road the evening of the murder, initially assumed innocuous, becomes significant only once cross-referenced against the tide/cell-tower timeline."
+    ],
+    "how_case_is_broken": "No single piece of evidence is sufficient alone. The investigation must first exhaust and eliminate the louder, more obvious suspects (Grady's temper, Denise's land deal, Priya's finances, Caleb's record, Reverend Cho's embezzlement) through alibi verification, at which point the case appears to stall. The breakthrough comes from re-examining the discovery scene itself rather than the suspects: the tide-chart and algae-staining mismatch proves the town dock was staged, which reopens the entire geography of the crime and points to the isolated cannery outflow instead. From there, cell-tower data anchors Tom there at 18:55, the burner-phone trail explains why he went there voluntarily, and the county name-change records - found only because Tom's own recovered research notes pointed investigators toward the 1979 employment files in the first place - identify Warren Pelletier/Pell as the only person with both a personal connection to the cannery scandal and control of the relief fund Tom was circling. His unscripted slip about the dock pilings, combined with the financial fraud in the fund he solely administers, closes the loop without ever requiring the murder weapon or a fingerprint."
+  },
+
+  "suspects": [
+    {
+      "id": "SUS1",
+      "name": "Grady Voss",
+      "age": 44,
+      "role": "Lobsterman, third-generation, works the tidal flats near the old cannery",
+      "relationship_to_victim": "Public shouting match with Tom one week before his death, witnessed by several people outside Moss's Diner, over Tom's forthcoming article implying contamination in Grady's traditional fishing grounds",
+      "personality": "Blunt, quick-tempered, fiercely protective of his family's livelihood and reputation",
+      "motive_on_paper": "Feared the article would destroy his business even if the contamination claims were decades old and unproven for his specific grounds; was overheard saying 'if that story runs, I'll make sure it's the last thing he writes'",
+      "secret": "Has been selling a portion of his daily catch off the books to avoid reporting reduced-quota income to his ex-wife's child support calculation - an unrelated financial concealment",
+      "alibi_claim": "Was out on his boat with a deckhand from 17:00 to nearly midnight, running a late set of traps before a forecasted storm",
+      "alibi_evidence": "Harbor departure/return log and independent deckhand corroboration place him on the water for the relevant window, though the exact minute of return is fog-blurred and imprecise enough to sustain suspicion for a long stretch of the investigation before being effectively confirmed"
+    },
+    {
+      "id": "SUS2",
+      "name": "Denise Okafor-Hale",
+      "age": 51,
+      "role": "Grey Harbor Select Board chair, pushing a redevelopment deal to convert the old cannery site into a private marina",
+      "relationship_to_victim": "Tom's forthcoming article threatened to derail the redevelopment deal by reviving the contamination history, which could trigger a costly environmental review",
+      "personality": "Polished, controlled, publicly warm but privately calculating",
+      "motive_on_paper": "Quietly purchased land upstream of the proposed marina under a shell LLC, positioned to profit enormously if the redevelopment proceeds, and stood to lose that investment if Tom's article stalled the project",
+      "secret": "The undisclosed land purchase and a conflict-of-interest violation of Select Board ethics rules",
+      "alibi_claim": "States she was at a public Select Board budget meeting until 21:00",
+      "alibi_evidence": "Confirmed false in the strict sense of her account - meeting minutes and five attendees confirm she left early, around 19:15, but her actual destination (a private meeting with the marina developer's financiers to finalize financing terms, at a restaurant in Aldermere, confirmed by a credit card receipt timestamped 19:40 and a hostess's recollection) has nothing to do with the murder and merely explains her evasiveness about the meeting's early end"
+    },
+    {
+      "id": "SUS3",
+      "name": "Reverend Elias Cho",
+      "age": 57,
+      "role": "Pastor, St. Brendan's Church",
+      "relationship_to_victim": "Publicly clashed with Tom after the Beacon ran a small item about the pastor's estranged adult son's arrest in a neighboring county; accused Tom of unnecessary cruelty toward his family",
+      "personality": "Warm in public, privately anxious and financially overextended",
+      "motive_on_paper": "Resentment over the article and a fear that Tom's larger cannery piece would somehow further embarrass the church, whose original land donation from the Pelletier family decades ago is a matter of some discomfort locally",
+      "secret": "Quietly used undesignated church discretionary funds, without full vestry approval, to post bail and hire a lawyer for his son - a financial impropriety unrelated to the murder",
+      "alibi_claim": "Initially claims he was at the church preparing Sunday materials alone all evening",
+      "alibi_evidence": "Actually drove to a county lockup ninety minutes away to see his son and arrange bail, confirmed by the jail's visitor log timestamped 19:05-20:20 that night, which he only admits once confronted, having lied purely to avoid revealing his son's situation and his own financial impropriety"
+    },
+    {
+      "id": "SUS4",
+      "name": "Priya Deshmukh",
+      "age": 49,
+      "role": "Co-owner of The Grey Harbor Beacon, Tom's business partner for eleven years",
+      "relationship_to_victim": "Close professional partnership strained in its final year by disagreement over the paper's finances",
+      "personality": "Pragmatic, guarded, exhausted from years of propping up a failing small business",
+      "motive_on_paper": "The Beacon was deeply in debt; Priya had been quietly negotiating with a regional media company to sell the paper, a deal Tom flatly refused, and Tom's death would leave her as sole owner free to sell without his objection, alongside a modest key-person life insurance policy on him the paper carried",
+      "secret": "Had continued sale negotiations behind Tom's back after his refusal, technically a breach of their partnership agreement, unrelated to his death",
+      "alibi_claim": "States she was visiting her elderly mother at Harborview Community Hospital that evening",
+      "alibi_evidence": "Confirmed true - hospital visitor sign-in log and a nurse's independent recollection place her there from 18:00 to nearly 22:30"
+    },
+    {
+      "id": "SUS5",
+      "name": "Caleb Ashby",
+      "age": 39,
+      "role": "Tom's estranged half-brother, recently returned to Grey Harbor after years away, currently unemployed",
+      "relationship_to_victim": "Estranged for two decades; recently reappeared seeking a share of a small piece of inherited family property Tom had been managing, leading to a tense confrontation witnessed by a neighbor",
+      "personality": "Defensive, evasive, carries a prior record for minor theft and one assault charge from years ago",
+      "motive_on_paper": "Financial desperation and resentment; the most circumstantially 'obvious' suspect given his record and the recent inheritance dispute, making him a strong candidate for a false mid-investigation arrest",
+      "secret": "Has been secretly sleeping in the abandoned family cabin on the disputed property without permission or utilities, and briefly poached from a neighbor's lobster pots to eat, both minor and unrelated to the murder, which is why he was cagey and evasive under initial questioning",
+      "alibi_claim": "Initially refuses to say where he was, fueling suspicion",
+      "alibi_evidence": "Eventually admits he was at the family cabin all night, which is corroborated once investigators find fresh signs of recent, repeated occupancy (a still-warm woodstove noted by a responding deputy checking the property two days later, and a store clerk in a nearby town who recalls him buying canned goods with exact-change cash that same evening at 19:30, timestamped by the till receipt, placing him well outside Grey Harbor at the relevant window)"
+    },
+    {
+      "id": "SUS6",
+      "name": "Warren Pell",
+      "age": 63,
+      "role": "Church organist at St. Brendan's and director of the Grey Harbor Community Pantry",
+      "is_killer": true,
+      "relationship_to_victim": "Warmly regarded acquaintance; occasionally assisted Tom with community-outreach errands for the pantry, and was seen by others as a helpful, informational town-history source, including for Tom's own research",
+      "personality": "Gentle, soft-spoken, endlessly patient, the kind of person other suspects and witnesses instinctively trust and confide in",
+      "motive_on_paper": "None visible at first - appears to be simply a helpful bystander with no conflict with Tom whatsoever; his surface-level 'secret,' when it surfaces, initially seems to fully explain his nervousness without implicating him in murder",
+      "secret_surface_layer": "Has been quietly taking small amounts from the community pantry's general donation box to help cover his wife's mounting prescription costs, a sympathetic, minor theft unrelated on its face to Tom's death - a red herring within the killer designed to feel like a satisfying, complete answer if discovered before the deeper layer",
+      "secret_true_layer": "Is the son of the Kestrel Cannery's 1979 plant supervisor, changed his name from Pelletier to his mother's maiden name Pell in 1994, and has for three decades privately and secretly administered - and substantially defrauded - a hush-money 'relief fund' paid to affected tidal-flat families as part of the original 1979 settlement, using it to monitor and suppress the story indefinitely",
+      "alibi_claim": "States he spent the evening alone at the church, preparing hymn selections and cleaning the organ pipes for Sunday service",
+      "alibi_evidence": "Entirely unverifiable - no one else was at the church that evening, and his account is never directly contradicted by any witness in the early investigation, allowing him to remain unsuspicious far longer than any other suspect; only later does a neighbor's recollection of his pantry van near the cannery outflow road become significant once cross-referenced against the true crime-scene geography"
+    }
+  ],
+
+  "witnesses": [
+    {
+      "id": "WIT1",
+      "name": "Marla Osei",
+      "role": "Waitress at Moss's Diner",
+      "statement": "Describes the public argument between Grady Voss and Tom Ashby a week before the murder, including Grady's exact words about it being 'the last thing he writes.'",
+      "truthfulness": "Truthful",
+      "reliability": "High, though the remark is later understood to be an angry exaggeration rather than a genuine threat, once Grady's alibi holds"
+    },
+    {
+      "id": "WIT2",
+      "name": "Deckhand Ollie Frank",
+      "role": "Works Grady Voss's boat",
+      "statement": "Confirms being out on the water with Grady from roughly 17:00 until close to midnight, though admits the fog made it hard to be precise about exact return timing",
+      "truthfulness": "Truthful",
+      "reliability": "High, corroborated independently by the harbor departure/return log"
+    },
+    {
+      "id": "WIT3",
+      "name": "Select Board Clerk Naomi Griggs",
+      "role": "Records Select Board meeting attendance",
+      "statement": "Confirms Denise Okafor-Hale left the budget meeting early, around 19:15, without explanation",
+      "truthfulness": "Truthful",
+      "reliability": "High - official meeting minutes support this"
+    },
+    {
+      "id": "WIT4",
+      "name": "Hostess Renata Cole",
+      "role": "Works at a restaurant in Aldermere",
+      "statement": "Recalls seating Denise Okafor-Hale and two men in business attire at 19:35 that evening",
+      "truthfulness": "Truthful",
+      "reliability": "Moderate-high, corroborated by a credit card receipt"
+    },
+    {
+      "id": "WIT5",
+      "name": "Deputy Warden at the County Lockup",
+      "role": "Logs visitor sign-ins",
+      "statement": "Confirms Reverend Elias Cho's visit from 19:05 to 20:20 that night",
+      "truthfulness": "Truthful",
+      "reliability": "High - official log"
+    },
+    {
+      "id": "WIT6",
+      "name": "Nurse Faye Delgado",
+      "role": "Works the evening shift at Harborview Community Hospital",
+      "statement": "Confirms Priya Deshmukh was present visiting her mother from roughly 18:00 to nearly 22:30",
+      "truthfulness": "Truthful",
+      "reliability": "High - independently corroborated by the hospital's visitor sign-in system"
+    },
+    {
+      "id": "WIT7",
+      "name": "Store Clerk Benny Trask",
+      "role": "Works the general store in the small town near the Ashby family cabin",
+      "statement": "Recalls Caleb Ashby buying canned goods with exact cash at 19:30 that evening",
+      "truthfulness": "Truthful",
+      "reliability": "High - till receipt timestamp confirms it"
+    },
+    {
+      "id": "WIT8",
+      "name": "Deputy Ronald Pike",
+      "role": "Responding deputy who checked the disputed family property two days after the murder",
+      "statement": "Notes signs of recent, repeated occupancy at the cabin, including a still-faintly-warm woodstove",
+      "truthfulness": "Truthful",
+      "reliability": "High"
+    },
+    {
+      "id": "WIT9",
+      "name": "Lobsterman Hollis Baird",
+      "role": "Found the body the morning of November 4th",
+      "statement": "Describes spotting Tom's body caught against pilings near the town dock at dawn",
+      "truthfulness": "Truthful",
+      "reliability": "High"
+    },
+    {
+      "id": "WIT10",
+      "name": "Neighbor Ida Marsh",
+      "role": "Lives along the cannery outflow road, near the tidal-flat trailer park",
+      "statement": "Recalls seeing the community pantry's distinctive van parked near the outflow road sometime in the early evening of November 3rd, and assumed it was a routine surplus-food delivery, as Warren Pell made such runs regularly",
+      "truthfulness": "Truthful, but her account is initially treated as trivial background color rather than a lead",
+      "reliability": "Moderate - her sense of the exact time is vague ('sometime before full dark'), but becomes significant once cross-referenced with the tide/cell-tower timeline much later in the investigation"
+    },
+    {
+      "id": "WIT11",
+      "name": "Convenience Store Clerk in Aldermere",
+      "role": "Sold a prepaid burner phone three days before the murder",
+      "statement": "Recalls an older male customer paying cash for a prepaid phone, but cannot confidently identify him from a photo lineup beyond general build and age range",
+      "truthfulness": "Truthful but limited",
+      "reliability": "Low-to-moderate on identification, high on the transaction record itself, which is what ultimately matters"
+    },
+    {
+      "id": "WIT12",
+      "name": "Deputy Sarah Kwan",
+      "role": "Responding deputy, present during an informal conversation with Warren Pell days before the medical examiner's report was released",
+      "statement": "Recalls Warren remarking, unprompted, that Tom 'must have hit his head on the dock pilings' - a detail she initially thought nothing of, since it seemed like reasonable townsfolk speculation",
+      "truthfulness": "Truthful",
+      "reliability": "High once its significance is recognized - this detail was never part of any public statement, official release, or town rumor mill traced back to any other source"
+    }
+  ],
+
+  "vehicles": [
+    {"owner": "Thomas Ashby", "vehicle": "1998 Volvo station wagon, faded green", "relevant_movement": "Left his house at approximately 18:50; later found parked at the town dock, though cell-tower and tide evidence eventually show he was actually at the cannery outflow, roughly a mile away, meaning the car was moved after his death"},
+    {"owner": "Warren Pell", "vehicle": "Grey Harbor Community Pantry delivery van, white with a hand-painted logo", "relevant_movement": "Recalled by a neighbor (Ida Marsh) near the cannery outflow road in the early evening of November 3rd, initially assumed to be a routine delivery"},
+    {"owner": "Grady Voss", "vehicle": "Lobster boat 'Second Wind'", "relevant_movement": "Departed the harbor at 17:00, returned close to midnight per the harbor log"},
+    {"owner": "Denise Okafor-Hale", "vehicle": "2022 Audi Q5, silver", "relevant_movement": "Drove to Aldermere after leaving the Select Board meeting early, arriving at the restaurant by 19:35"},
+    {"owner": "Reverend Elias Cho", "vehicle": "2015 Subaru Outback", "relevant_movement": "Drove to the county lockup, arriving 19:05, per the visitor log"},
+    {"owner": "Caleb Ashby", "vehicle": "None currently - travels on foot or borrows rides", "relevant_movement": "Walked to the general store near the family cabin at 19:30 per the till receipt"}
+  ],
+
+  "cctv": [
+    {"camera": "Grey Harbor Savings Bank ATM camera", "time_range": "18:00-22:00", "footage": "Covers only the bank's own small parking lot; shows nothing relevant to the case", "status": "Intact, but not useful"},
+    {"camera": "Private doorbell camera, Corbin residence on Elm Street", "time_range": "18:00-22:00", "footage": "Faces only the Corbin family's own front porch, well away from any relevant location", "status": "Intact, but not useful"},
+    {"camera": "None covering the town dock or the cannery outflow road", "time_range": "N/A", "footage": "No camera coverage exists at either location, which is precisely why the case hinges on tide science, cell data, and testimony rather than footage", "status": "N/A"}
+  ],
+
+  "phone_calls": [
+    {"from": "Unknown/Burner Number", "to": "Thomas Ashby", "time": "2025-11-02 20:15", "duration": "4 min", "content_summary": "Caller claims to have original 1979 Kestrel Cannery documents and offers to hand them over in person, proposing the cannery outflow dock, after dark, the following evening"},
+    {"from": "Thomas Ashby", "to": "Priya Deshmukh", "time": "2025-11-03 17:40", "duration": "3 min", "content_summary": "Tom tells Priya he has 'one more thread to pull' and will explain everything once he's sure, and not to expect him back at the office until late"},
+    {"from": "Thomas Ashby", "to": "County Records Office (voicemail)", "time": "2025-10-29 14:10", "duration": "1 min", "content_summary": "Requests copies of 1979 Kestrel Cannery employment records and any legal name-change filings from that era, a call logged by the office's own intake system"}
+  ],
+
+  "messages": [
+    {"from": "Thomas Ashby", "to": "Priya Deshmukh", "time": "2025-11-03 18:20", "text": "Heading out. If this checks out, we run it Thursday. Trust me on this one."},
+    {"from": "Caleb Ashby", "to": "Thomas Ashby", "time": "2025-10-20 11:05", "text": "You know that land is half mine. I'm not going anywhere this time."}
+  ],
+
+  "emails": [
+    {"from": "Denise Okafor-Hale", "to": "Marina Development Financiers (Aldermere)", "time": "2025-10-30 09:15", "content_summary": "Confirms a private dinner meeting to finalize financing terms for the marina redevelopment, scheduling it for the evening of November 3rd - unrelated to the murder but explaining her whereabouts"},
+    {"from": "Thomas Ashby", "to": "Himself (draft, cloud-synced)", "time": "2025-11-01 22:40", "content_summary": "A working outline for the planned article, noting 'name change filed 1994 - confirm connection to 1979 supervisor' and 'relief fund - who actually controls it now? follow the money forward, not just back' - recovered later from his cloud backup since his physical notes and phone were taken"}
+  ],
+
+  "bank_records": [
+    {"account_holder": "Tidal Families Relief Fund (privately administered by Warren Pell)", "transaction": "Thirty years of disbursement history showing payments to beneficiary families consistently below what the fund's documented original principal and reasonable interest accrual should support", "amount": "Approximate cumulative shortfall in the high six figures", "purpose_established": "Long-term diversion of settlement funds intended for affected families", "relevance": "Core financial proof of Warren's true motive, discoverable only once his real identity connects him to fund administration"},
+    {"account_holder": "Warren Pell (personal)", "transaction": "Modest but unexplained supplemental deposits over many years, inconsistent with his modest known income from part-time music instruction and a small pension", "amount": "Varies, cumulatively substantial", "purpose_established": "Personal benefit from the diverted relief fund", "relevance": "Corroborates the fund fraud once the fund itself is audited"},
+    {"account_holder": "Community Pantry donation box (Warren Pell, custodian)", "transaction": "Minor, irregular cash shortfalls over the past year", "amount": "Small, roughly $40-80 monthly", "purpose_established": "Personal use, later admitted to cover his wife's prescription costs", "relevance": "Red herring within the killer - a real but comparatively minor and sympathetic theft that, if discovered first, may feel like a satisfying but incomplete answer"},
+    {"account_holder": "Denise Okafor-Hale (shell LLC)", "transaction": "Undisclosed land purchase upstream of the proposed marina site", "amount": "$210,000", "purpose_established": "Personal investment ahead of a public redevelopment vote, an ethics violation", "relevance": "Red herring - strong motive on paper, fully explained by her verified alibi"},
+    {"account_holder": "Priya Deshmukh / The Grey Harbor Beacon", "transaction": "Mounting business debt and a key-person life insurance policy on Thomas Ashby", "amount": "Debt approx. $85,000; policy value $150,000", "purpose_established": "Financial strain and a policy motive on paper", "relevance": "Red herring - fully explained by her verified hospital alibi"},
+    {"account_holder": "Reverend Elias Cho / St. Brendan's discretionary fund", "transaction": "Undisclosed withdrawal to cover bail and legal fees for his son", "amount": "$6,400", "purpose_established": "Personal family crisis, financial impropriety", "relevance": "Red herring - fully explained by his verified jail-visitor-log alibi"}
+  ],
+
+  "locations": [
+    {
+      "id": "LOC1",
+      "name": "Town Dock (Grey Harbor waterfront)",
+      "description": "A weathered municipal dock where fishing boats tie up and where Tom Ashby was known to sit alone at night writing in his car or on a bench, headphones in, working through drafts. His car was found parked here the morning after his death.",
+      "searchable_objects": ["Tom's parked Volvo", "The dock's square timber pilings", "A bench Tom frequently used", "Nearby tide gauge marker"],
+      "possible_tests": ["Tide-timing analysis", "Comparison of dock piling shape/material to the skull wound", "Vehicle interior forensic sweep"],
+      "hidden_items": ["Absence of Tom's phone, recorder, and satchel from the car - a negative clue", "No mud/algae staining on the car's floor mats consistent with someone soaked from the water having driven it, suggesting someone else drove it here afterward"],
+      "repeat_search_changes": "A second, more careful search of the car reveals faint wipe-marks on the steering wheel and door handle inconsistent with normal use, prompting the question of who else might have driven it"
+    },
+    {
+      "id": "LOC2",
+      "name": "Kestrel Cannery Outflow Dock (abandoned)",
+      "description": "A crumbling, half-collapsed dock structure at the mouth of the old cannery's discharge channel, a mile up the shore road from town, rarely visited and unlit at night.",
+      "searchable_objects": ["Loose shoreline stones (identical in kind to the murder weapon, none individually identifiable)", "Rotted dock boards", "A faint drag mark in the mud near the water's edge", "Scattered rusted cannery equipment nearby"],
+      "possible_tests": ["Tide/algae-line comparison to determine where a body entered the water", "Soil/mud composition comparison to trace found on the victim's clothing"],
+      "hidden_items": ["A distinct algae staining line on nearby rocks that, cross-referenced with tide charts, indicates the water level and likely point of entry at approximately 19:20-19:40 on November 3rd - matching mud composition later found on Tom's trouser cuffs, which does not match the town dock's mud composition"],
+      "repeat_search_changes": "Only searched at all once investigators begin questioning the town-dock staging; yields the case's most decisive circumstantial finding once examined"
+    },
+    {
+      "id": "LOC3",
+      "name": "The Grey Harbor Beacon office",
+      "description": "A cramped two-room newspaper office above the hardware store, run by Tom and Priya for over a decade.",
+      "searchable_objects": ["Tom's desk", "A locked filing cabinet", "His computer (password-protected, unlocked via IT recovery)", "A corkboard of story leads"],
+      "possible_tests": ["Cloud backup recovery of deleted or synced drafts"],
+      "hidden_items": ["Tom's cloud-synced draft email outlining 'name change filed 1994' and 'relief fund - who actually controls it now?' - the single most important documentary lead in the case, requiring a warrant or Priya's consent to access"],
+      "repeat_search_changes": "A second, technically assisted search (IT forensic recovery) surfaces the cloud draft that a manual search of the physical office would never find, since his physical notes were stolen"
+    },
+    {
+      "id": "LOC4",
+      "name": "Grey Harbor Public Library, local history room",
+      "description": "A small room of bound old newspapers, county records microfilm, and donated historical materials.",
+      "searchable_objects": ["Microfilm reels of 1979 Beacon issues covering the cannery closure", "A donated box of old Kestrel Cannery employee photographs", "County record request logs"],
+      "possible_tests": ["Facial comparison between a 1979 employee badge photo and a present-day photo"],
+      "hidden_items": ["A 1979 Kestrel Cannery employee badge photograph of a teenage 'Warren Pelletier,' son of supervisor Arnold Pelletier, discoverable once investigators know to look for cannery family records rather than just the dumping story itself"],
+      "repeat_search_changes": "Not searched meaningfully until the killer's true identity becomes a live question; yields the badge photo only on a targeted second visit"
+    },
+    {
+      "id": "LOC5",
+      "name": "Grey Harbor County Records Office (in the county seat, Aldermere)",
+      "description": "Houses property records, legal filings, and historical name-change petitions for the county.",
+      "searchable_objects": ["1994 legal name-change filings", "1979-1980 property/relocation records for the Pelletier family"],
+      "possible_tests": ["Cross-reference name-change filing against library badge photo"],
+      "hidden_items": ["The 1994 filing showing Warren Pelletier's legal name change to Warren Pell"],
+      "repeat_search_changes": "None additional - the filing is fully legible once requested, but investigators must know to request it, which only becomes apparent after Tom's recovered draft notes point toward 'name change filed 1994'"
+    },
+    {
+      "id": "LOC6",
+      "name": "St. Brendan's Church",
+      "description": "A modest stone church with a small organ loft, where Warren Pell serves as organist and where Reverend Cho ministers.",
+      "searchable_objects": ["Organ loft and sheet music", "Reverend Cho's office and discretionary fund ledger", "Sunday sign-in/volunteer schedule"],
+      "possible_tests": ["Discretionary fund reconciliation"],
+      "hidden_items": ["Reverend Cho's unauthorized withdrawal for his son's bail", "No independent confirmation of Warren's claimed evening alone at the church, since the building's schedule shows no one else present that night"],
+      "repeat_search_changes": "A second search of the discretionary fund ledger, prompted by Reverend Cho's evasiveness, surfaces the specific withdrawal"
+    },
+    {
+      "id": "LOC7",
+      "name": "Grey Harbor Community Pantry",
+      "description": "A small donation-based food pantry run out of a converted storefront, directed for over 25 years by Warren Pell.",
+      "searchable_objects": ["Donation box and its log", "Delivery van mileage log", "The 'Tidal Families Relief Fund' ledger, kept separately in a locked drawer"],
+      "possible_tests": ["Donation box reconciliation", "Relief fund audit against known original settlement principal"],
+      "hidden_items": ["Minor donation-box shortfalls (the sympathetic red herring)", "The far larger, decades-long Tidal Families Relief Fund discrepancy, accessible only via warrant once Warren's true identity and the 1979 settlement connection are established"],
+      "repeat_search_changes": "Initial search finds only the minor donation-box shortfall; a second search, specifically for the relief fund ledger, requires knowing such a fund exists at all, which surfaces only through interviews with older tidal-flat family members"
+    },
+    {
+      "id": "LOC8",
+      "name": "Tidal Flats Trailer Park",
+      "description": "A modest residential community along the Sallow River tidal flats, home to several families long affected by the old cannery's reputation for contamination-linked illness.",
+      "searchable_objects": ["Resident recollections of quiet cash payments over the years", "Ida Marsh's home, near the outflow road"],
+      "possible_tests": ["Witness interviews regarding the source and conditions of the payments"],
+      "hidden_items": ["Multiple residents' consistent, independent descriptions of receiving unmarked cash 'relief' envelopes for decades, always delivered personally by Warren Pell with a request for discretion"],
+      "repeat_search_changes": "Only meaningfully explored once investigators begin asking about the 1979 settlement specifically, rather than treating the neighborhood as generic background"
+    },
+    {
+      "id": "LOC9",
+      "name": "Moss's Diner",
+      "description": "The town's central gathering spot and the site of the public argument between Grady Voss and Tom Ashby.",
+      "searchable_objects": ["Staff recollections", "Table seating arrangement from the night of the argument"],
+      "possible_tests": ["None beyond witness corroboration"],
+      "hidden_items": [],
+      "repeat_search_changes": "None additional"
+    },
+    {
+      "id": "LOC10",
+      "name": "The Sallow Inn",
+      "description": "The town's small motel, occasionally used by visiting officials and, on one occasion, by Denise Okafor-Hale's financier contacts.",
+      "searchable_objects": ["Guest registry"],
+      "possible_tests": ["Registry cross-reference"],
+      "hidden_items": ["Confirms the financiers' overnight stay tied to the Aldermere dinner meeting, corroborating Denise's account"],
+      "repeat_search_changes": "None additional"
+    },
+    {
+      "id": "LOC11",
+      "name": "Sailor's Rest Cemetery",
+      "description": "The town cemetery, bordering the church grounds, of largely incidental relevance except as a quiet place where several residents, including Ida Marsh, are known to walk in the evenings.",
+      "searchable_objects": ["Visitor patterns (informal, no sign-in book)"],
+      "possible_tests": [],
+      "hidden_items": [],
+      "repeat_search_changes": "None additional - included primarily as an atmospheric location and a place from which Ida Marsh's recollection of the van originates"
+    },
+    {
+      "id": "LOC12",
+      "name": "Harborview Community Hospital",
+      "description": "The town's small hospital, without a full pathology department; autopsies are referred to the county Medical Examiner in Aldermere.",
+      "searchable_objects": ["Visitor sign-in log"],
+      "possible_tests": ["Wound morphology comparison, conducted at the county Medical Examiner's office rather than here"],
+      "hidden_items": ["Priya Deshmukh's visitor log entry"],
+      "repeat_search_changes": "None additional"
+    },
+    {
+      "id": "LOC13",
+      "name": "Aldermere Convenience Store",
+      "description": "A gas station and convenience store in the neighboring town, where the burner phone was purchased.",
+      "searchable_objects": ["Till receipts", "The clerk's memory"],
+      "possible_tests": ["Till receipt timestamp and payment-method verification"],
+      "hidden_items": ["The cash till receipt for a prepaid phone, three days before the murder"],
+      "repeat_search_changes": "None additional"
+    }
+  ],
+
+  "building_layout": {
+    "St_Brendans_Church": {
+      "ground_floor": ["Nave", "Reverend Cho's office", "Organ loft (accessible from the nave)"],
+      "access_summary": "A small, single-key building; Warren Pell has a personal key as organist, as does Reverend Cho and the church secretary. No log exists for after-hours access, meaning his solitary evening claim is genuinely unverifiable rather than provably false or true."
+    },
+    "Community_Pantry_Building": {
+      "ground_floor": ["Public donation/distribution room", "Warren Pell's small office with a locked drawer"],
+      "access_summary": "Warren has sole regular access to the office and its locked drawer containing the relief fund ledger."
+    }
+  },
+
+  "crime_scene": {
+    "location": "Officially discovered at LOC1 (Town Dock); actually occurred at LOC2 (Kestrel Cannery Outflow Dock)",
+    "condition_on_discovery": "Tom Ashby's body was found floating against the pilings near the town dock at dawn on November 4th, his car parked nearby as though he had gone there to write, as was his habit. No phone, recorder, or satchel were found on him or in the car.",
+    "initial_assumption": "Accidental drowning after a nighttime fall from the dock, consistent with his known habits and the fog and dark conditions that night",
+    "actual_nature": "A homicide that occurred a mile away, staged to look like it happened at his usual, expected spot",
+    "key_scene_contradiction": "Tide charts and algae staining prove the water level and mud composition at the town dock do not match what is found on the body's clothing, while both precisely match conditions at the cannery outflow dock at the estimated time of death - meaning the body, or at minimum the vehicle, was moved after the fact, since a truly accidental fall at the town dock could never produce that particular staining pattern."
+  },
+
+  "autopsy": {
+    "victim": "Thomas Ashby",
+    "cause_of_death": "Drowning, with water present in the lungs consistent with the victim being alive upon entering the water",
+    "time_of_death_estimate": "19:00-20:00 on 2025-11-03, based on stomach contents, water temperature, and body condition at discovery",
+    "additional_findings": [
+      "A single curved, smooth-surfaced contusion on the left parietal region of the skull, sufficient to cause unconsciousness but survivable on its own",
+      "The contusion's shape is inconsistent with the town dock's square-edged timber pilings and inconsistent with any structure at the cannery outflow dock as well - consistent instead with a smooth, rounded handheld object",
+      "Defensive-type abrasions on both hands, consistent with a brief physical struggle immediately before the head injury",
+      "No alcohol or drugs in his system",
+      "Mud and algae composition on the trouser cuffs and shoes does not match the town dock's shoreline composition, but does match the cannery outflow dock's composition when independently sampled and compared"
+    ],
+    "conclusion": "Death resulted from unconsciousness caused by a deliberate blow with a rounded object, followed by drowning while incapacitated, at a location different from where the body and vehicle were later found - conclusively establishing homicide with a staged discovery scene."
+  },
+
+  "forensics": [
+    {"item": "Skull contusion", "finding": "Curved, smooth wound pattern inconsistent with either dock's structural surfaces, consistent with a handheld rounded stone or similar object", "plausibility_note": "Standard forensic wound-pattern differential analysis"},
+    {"item": "Mud/algae composition on clothing", "finding": "Matches the cannery outflow dock's shoreline sediment, not the town dock's", "plausibility_note": "Comparative soil/sediment forensic analysis, an established technique"},
+    {"item": "Tide chart cross-reference", "finding": "Water level and algae-line staining at the outflow dock are consistent with body/clothing contact occurring between 19:20-19:40 that evening", "plausibility_note": "Straightforward application of tide tables and shoreline staining analysis"},
+    {"item": "Cell tower data (Tom's phone, before it went dark)", "finding": "Last activity pings a tower consistent with the cannery outflow road at 18:55, not the town dock", "plausibility_note": "Standard cell-site location analysis"},
+    {"item": "Vehicle interior sweep (Tom's Volvo)", "finding": "Faint wipe-marks on the steering wheel and door handle inconsistent with normal use patterns; absence of expected water/mud transfer consistent with a driver who was not soaked, suggesting someone other than Tom drove it to the town dock afterward", "plausibility_note": "Reasonable trace-evidence and wear-pattern inference, appropriately treated as suggestive rather than individually conclusive"},
+    {"item": "Burner phone till receipt (Aldermere)", "finding": "Cash purchase three days before the murder, times and matches the anonymous call placed to Tom's phone", "plausibility_note": "Standard retail transaction record correlation"},
+    {"item": "1994 name-change filing vs. 1979 badge photo", "finding": "Consistent facial correspondence between a present-day photo of Warren Pell and the 1979 badge photo of teenage Warren Pelletier, supported by the legal filing itself", "plausibility_note": "Documentary record correlation supported by a professional facial-comparison opinion, appropriately treated as strong corroboration rather than an infallible match"},
+    {"item": "Tidal Families Relief Fund audit", "finding": "Thirty years of underpayment relative to documented principal and reasonable interest accrual, with Warren Pell as sole administrator", "plausibility_note": "Standard forensic accounting"}
+  ],
+
+  "evidence": [
+    {"id": "EV01", "name": "Tom Ashby's body", "description": "Found floating near the town dock", "location": "LOC1", "discoverable": true, "required_action": "Initial scene response", "linked_evidence": ["EV02", "EV03"], "importance": "critical", "why_it_exists": "The starting point of the investigation"},
+    {"id": "EV02", "name": "Absence of Tom's phone, recorder, and satchel", "description": "None of his usual carried items were recovered with the body or in the car", "location": "LOC1", "discoverable": true, "required_action": "Initial scene inventory", "linked_evidence": ["EV14"], "importance": "high", "why_it_exists": "The killer took these items to remove Tom's research and disrupt the investigation"},
+    {"id": "EV03", "name": "Tom's parked Volvo", "description": "Found at the town dock, his usual writing spot", "location": "LOC1", "discoverable": true, "required_action": "Initial scene search", "linked_evidence": ["EV04"], "importance": "high", "why_it_exists": "Central to the staged-scene theory once examined closely"},
+    {"id": "EV04", "name": "Wipe marks on steering wheel/door handle", "description": "Inconsistent with normal use", "location": "LOC1 (vehicle forensic sweep)", "discoverable": true, "required_action": "Request vehicle forensic sweep", "linked_evidence": ["EV03"], "importance": "high", "why_it_exists": "The killer wiped surfaces after driving the car to stage the scene"},
+    {"id": "EV05", "name": "Skull contusion wound pattern", "description": "Curved, smooth surface inconsistent with either dock's structures", "location": "Autopsy", "discoverable": true, "required_action": "Request full autopsy", "linked_evidence": ["EV06"], "importance": "critical", "why_it_exists": "Directly proves the death was not an accidental fall at either dock"},
+    {"id": "EV06", "name": "Mud/algae composition mismatch", "description": "Clothing sediment matches the outflow dock, not the town dock", "location": "Autopsy/forensic lab", "discoverable": true, "required_action": "Request sediment comparison analysis", "linked_evidence": ["EV07"], "importance": "critical", "why_it_exists": "Proves the true location of death differs from the discovery location"},
+    {"id": "EV07", "name": "Tide chart and algae-line staining at the outflow dock", "description": "Confirms water level/timing consistent with 19:20-19:40 on Nov 3", "location": "LOC2", "discoverable": true, "required_action": "Search the outflow dock once the mud mismatch is known", "linked_evidence": ["EV06", "EV08"], "importance": "critical", "why_it_exists": "Pinpoints the true time and place of death"},
+    {"id": "EV08", "name": "Cell tower ping at 18:55", "description": "Tom's phone's last activity near the cannery outflow road", "location": "Carrier records (subpoenaed)", "discoverable": true, "required_action": "Request phone carrier tower data", "linked_evidence": ["EV07"], "importance": "critical", "why_it_exists": "Establishes Tom went there voluntarily shortly before death"},
+    {"id": "EV09", "name": "Anonymous call to Tom's phone (Nov 2, 20:15)", "description": "Caller offers 1979 cannery documents, proposes the outflow dock meeting", "location": "Phone call log", "discoverable": true, "required_action": "Request Tom's phone call log", "linked_evidence": ["EV10"], "importance": "critical", "why_it_exists": "Establishes why Tom went to an isolated location voluntarily"},
+    {"id": "EV10", "name": "Burner phone purchase record", "description": "Cash purchase at an Aldermere convenience store 3 days before the murder", "location": "LOC13", "discoverable": true, "required_action": "Trace the anonymous number to a retail transaction", "linked_evidence": ["EV09", "EV11"], "importance": "critical", "why_it_exists": "The killer used a prepaid phone specifically to avoid identification"},
+    {"id": "EV11", "name": "Convenience store clerk's limited recollection", "description": "Describes an older male customer, general build only", "location": "WIT11 interview", "discoverable": true, "required_action": "Interview the clerk", "linked_evidence": ["EV10"], "importance": "low", "why_it_exists": "A genuine but weak identification lead, appropriately inconclusive on its own"},
+    {"id": "EV12", "name": "Tom's cloud-synced draft notes", "description": "References 'name change filed 1994' and 'relief fund - who controls it now?'", "location": "LOC3", "discoverable": true, "required_action": "Request IT/cloud forensic recovery of Tom's account", "linked_evidence": ["EV13", "EV18"], "importance": "critical", "why_it_exists": "Tom's own careful research habit (cloud backups) survives even though his physical notes were stolen"},
+    {"id": "EV13", "name": "Tom's voicemail to the County Records Office", "description": "Requesting 1979 cannery employment and name-change records", "location": "LOC5 intake log", "discoverable": true, "required_action": "Request County Records Office call intake log", "linked_evidence": ["EV12"], "importance": "high", "why_it_exists": "Confirms the direction of Tom's research independently of his stolen notes"},
+    {"id": "EV14", "name": "Tom's final message to Priya Deshmukh", "description": "'One more thread to pull,' won't be back until late", "location": "Priya's phone / carrier records", "discoverable": true, "required_action": "Interview Priya, request her phone records", "linked_evidence": ["EV12"], "importance": "medium", "why_it_exists": "Establishes Tom's state of mind and intent that evening"},
+    {"id": "EV15", "name": "1979 Kestrel Cannery employee badge photo of teenage Warren Pelletier", "description": "Found in a donated photo box", "location": "LOC4", "discoverable": true, "required_action": "Search library local history room for cannery employee records", "linked_evidence": ["EV16"], "importance": "critical", "why_it_exists": "The key documentary link between the 1979 scandal and Warren's present identity"},
+    {"id": "EV16", "name": "1994 legal name-change filing, Pelletier to Pell", "description": "County record of Warren's name change", "location": "LOC5", "discoverable": true, "required_action": "Search county records for 1994 name-change filings once EV12/EV13 point that direction", "linked_evidence": ["EV15", "EV17"], "importance": "critical", "why_it_exists": "Legally documents the identity change that let Warren rebuild himself unrecognized"},
+    {"id": "EV17", "name": "Facial comparison analysis, badge photo vs. present-day Warren Pell", "description": "Consistent facial correspondence supporting the same-person conclusion", "location": "Forensic lab analysis", "discoverable": true, "required_action": "Request facial comparison analysis once EV15 and EV16 are both found", "linked_evidence": ["EV15", "EV16"], "importance": "critical", "why_it_exists": "Provides expert corroboration linking the two identities"},
+    {"id": "EV18", "name": "Tidal Families Relief Fund ledger", "description": "Shows 30 years of underpayment relative to documented principal", "location": "LOC7 (requires warrant)", "discoverable": true, "required_action": "Obtain warrant for the pantry office's locked drawer once Warren's identity is established", "linked_evidence": ["EV19"], "importance": "critical", "why_it_exists": "Documents the true financial motive - decades of fraud against victim families"},
+    {"id": "EV19", "name": "Warren Pell's personal bank records", "description": "Unexplained supplemental deposits over many years", "location": "Bank records (subpoenaed)", "discoverable": true, "required_action": "Subpoena Warren's personal bank records once the fund audit raises suspicion", "linked_evidence": ["EV18"], "importance": "critical", "why_it_exists": "Shows personal benefit from the diverted relief fund"},
+    {"id": "EV20", "name": "Tidal-flat residents' consistent testimony about cash payments", "description": "Multiple residents describe decades of discreet cash 'relief' envelopes delivered personally by Warren Pell", "location": "LOC8", "discoverable": true, "required_action": "Interview tidal-flat trailer park residents about the 1979 settlement", "linked_evidence": ["EV18"], "importance": "high", "why_it_exists": "Corroborates the existence and nature of the fund independent of the ledger itself"},
+    {"id": "EV21", "name": "Neighbor Ida Marsh's recollection of the pantry van near the outflow road", "description": "Seen in the early evening of Nov 3, assumed to be a routine delivery", "location": "WIT10 interview", "discoverable": true, "required_action": "Interview Ida Marsh", "linked_evidence": ["EV07", "EV08"], "importance": "high", "why_it_exists": "Places Warren's vehicle near the true crime scene, though innocuously interpreted until cross-referenced with the timeline"},
+    {"id": "EV22", "name": "Warren Pell's remark about 'dock pilings'", "description": "States casually to Deputy Sarah Kwan, before the ME report's release, that Tom 'must have hit his head on the dock pilings'", "location": "WIT12 interview", "discoverable": true, "required_action": "Interview Deputy Kwan about early conversations with townspeople, or re-interview Warren directly and note his phrasing", "linked_evidence": ["EV05"], "importance": "critical", "why_it_exists": "An unscripted slip revealing knowledge of a false detail only the person who staged the scene would confidently assert before official release"},
+    {"id": "EV23", "name": "Warren Pell's unverifiable alibi", "description": "Claims to have been alone at the church all evening", "location": "Interrogation/interview", "discoverable": true, "required_action": "Interview Warren Pell, attempt to corroborate", "linked_evidence": [], "importance": "medium", "why_it_exists": "Genuinely unverifiable rather than provably false, which is precisely why he remains unsuspicious for so long"},
+    {"id": "EV24", "name": "Church after-hours access records (nonexistent)", "description": "St. Brendan's has no sign-in system for after-hours use", "location": "LOC6", "discoverable": true, "required_action": "Search church for an access log", "linked_evidence": ["EV23"], "importance": "low", "why_it_exists": "Explains why Warren's alibi can never be independently confirmed or refuted through records alone"},
+    {"id": "EV25", "name": "Donation box shortfall records", "description": "Minor, irregular shortfalls over the past year", "location": "LOC7", "discoverable": true, "required_action": "Search the pantry's donation box log", "linked_evidence": ["EV26"], "importance": "medium", "why_it_exists": "The killer's more sympathetic, minor secret, designed to feel like a satisfying but incomplete discovery"},
+    {"id": "EV26", "name": "Warren's admission regarding his wife's prescription costs", "description": "Explains the donation box shortfall once confronted", "location": "Interrogation", "discoverable": true, "required_action": "Present EV25 to Warren directly", "linked_evidence": ["EV25"], "importance": "low", "why_it_exists": "A believable, sympathetic explanation that could plausibly end investigative interest in Warren if the deeper relief-fund thread is never pursued"},
+
+    {"id": "EV27", "name": "Grady Voss's public threat, witnessed", "description": "'If that story runs, I'll make sure it's the last thing he writes'", "location": "LOC9", "discoverable": true, "required_action": "Interview Marla Osei and other diner witnesses", "linked_evidence": ["EV28"], "importance": "medium", "red_herring": true, "why_it_exists": "A real, angry public statement that reads as highly suspicious in isolation but is later understood as hyperbole once his alibi holds"},
+    {"id": "EV28", "name": "Harbor departure/return log for Grady's boat", "description": "Shows departure at 17:00, return near midnight", "location": "Harbor master's office", "discoverable": true, "required_action": "Request harbor log", "linked_evidence": ["EV29"], "importance": "medium", "red_herring": true, "why_it_exists": "Establishes Grady's alibi, though timing remains fog-blurred enough to sustain doubt for a long stretch of play"},
+    {"id": "EV29", "name": "Deckhand Ollie Frank's corroborating statement", "description": "Confirms being with Grady the whole window", "location": "WIT2 interview", "discoverable": true, "required_action": "Interview Ollie Frank", "linked_evidence": ["EV28"], "importance": "low", "red_herring": true, "why_it_exists": "Independent corroboration that ultimately clears Grady"},
+    {"id": "EV30", "name": "Grady's off-the-books catch sales", "description": "Unrelated income concealment from his ex-wife's support calculation", "location": "Interrogation", "discoverable": true, "required_action": "Press Grady about financial inconsistencies", "linked_evidence": [], "importance": "low", "red_herring": true, "why_it_exists": "Explains his general evasiveness and defensiveness without connecting to the murder"},
+
+    {"id": "EV31", "name": "Denise Okafor-Hale's shell LLC land purchase", "description": "Undisclosed upstream land purchase ahead of the marina vote", "location": "Property records", "discoverable": true, "required_action": "Request property ownership records tied to Denise", "linked_evidence": ["EV32"], "importance": "medium", "red_herring": true, "why_it_exists": "A strong financial motive on paper, later fully explained by her alibi"},
+    {"id": "EV32", "name": "Select Board meeting minutes showing Denise's early departure", "description": "Left at 19:15 without explanation", "location": "LOC-Town Hall records", "discoverable": true, "required_action": "Request meeting minutes/attendance", "linked_evidence": ["EV33"], "importance": "medium", "red_herring": true, "why_it_exists": "Raises suspicion about her unexplained early departure"},
+    {"id": "EV33", "name": "Aldermere restaurant credit card receipt, 19:40", "description": "Confirms Denise's actual whereabouts", "location": "LOC10 area / restaurant records", "discoverable": true, "required_action": "Request restaurant receipts/credit card records", "linked_evidence": ["EV32"], "importance": "low", "red_herring": true, "why_it_exists": "Fully clears Denise once her true, unrelated destination is confirmed"},
+
+    {"id": "EV34", "name": "Priya Deshmukh's key-person insurance policy on Tom", "description": "$150,000 policy the paper carried on him", "location": "Insurance records", "discoverable": true, "required_action": "Request the Beacon's business insurance records", "linked_evidence": ["EV35"], "importance": "medium", "red_herring": true, "why_it_exists": "A textbook financial motive that draws early suspicion"},
+    {"id": "EV35", "name": "Evidence of Priya's continued, unauthorized sale negotiations", "description": "Emails with a regional media company after Tom's refusal", "location": "Priya's business email (with consent/warrant)", "discoverable": true, "required_action": "Request Priya's business correspondence", "linked_evidence": ["EV34"], "importance": "medium", "red_herring": true, "why_it_exists": "A real breach of trust between partners, unrelated to the murder itself"},
+    {"id": "EV36", "name": "Hospital visitor log confirming Priya's alibi", "description": "Present from 18:00 to nearly 22:30", "location": "LOC12", "discoverable": true, "required_action": "Search hospital visitor log", "linked_evidence": ["EV37"], "importance": "low", "red_herring": true, "why_it_exists": "Clears Priya definitively"},
+    {"id": "EV37", "name": "Nurse Faye Delgado's corroborating statement", "description": "Independently confirms Priya's presence and approximate timing", "location": "WIT6 interview", "discoverable": true, "required_action": "Interview Nurse Delgado", "linked_evidence": ["EV36"], "importance": "low", "red_herring": true, "why_it_exists": "Strengthens the alibi with independent testimony"},
+
+    {"id": "EV38", "name": "Caleb Ashby's prior criminal record", "description": "Minor theft and one old assault charge", "location": "County records", "discoverable": true, "required_action": "Request background check", "linked_evidence": [], "importance": "medium", "red_herring": true, "why_it_exists": "Makes Caleb the most circumstantially 'obvious' suspect, ideal for a false mid-game arrest"},
+    {"id": "EV39", "name": "Witnessed inheritance-dispute confrontation between Caleb and Tom", "description": "A neighbor overhears a tense exchange about the family property", "location": "Neighbor interview", "discoverable": true, "required_action": "Canvass neighbors near the disputed property", "linked_evidence": ["EV40"], "importance": "medium", "red_herring": true, "why_it_exists": "Establishes clear motive-on-paper"},
+    {"id": "EV40", "name": "Caleb's initial refusal to state his whereabouts", "description": "Evasive under early questioning", "location": "Interrogation", "discoverable": true, "required_action": "Interrogate Caleb Ashby", "linked_evidence": ["EV41", "EV42"], "importance": "medium", "red_herring": true, "why_it_exists": "His unrelated illicit cabin-squatting and minor poaching make him look far guiltier than he is"},
+    {"id": "EV41", "name": "Deputy Pike's observation of recent cabin occupancy", "description": "A still-warm woodstove two days after the murder", "location": "LOC- family cabin", "discoverable": true, "required_action": "Have a deputy check the disputed property", "linked_evidence": ["EV40"], "importance": "low", "red_herring": true, "why_it_exists": "Supports Caleb's eventual admission and alibi"},
+    {"id": "EV42", "name": "Store clerk Benny Trask's till receipt, 19:30", "description": "Places Caleb at a store near the cabin, well outside Grey Harbor, at the relevant time", "location": "WIT7 / LOC13-adjacent store", "discoverable": true, "required_action": "Interview Benny Trask, request the till receipt", "linked_evidence": ["EV40"], "importance": "medium", "red_herring": true, "why_it_exists": "Definitively clears Caleb once cross-referenced with timing"},
+
+    {"id": "EV43", "name": "Reverend Cho's public dispute with Tom over the son's arrest article", "description": "Witnessed confrontation at the church", "location": "Witness interviews", "discoverable": true, "required_action": "Interview parishioners", "linked_evidence": ["EV44"], "importance": "medium", "red_herring": true, "why_it_exists": "Establishes visible motive-on-paper"},
+    {"id": "EV44", "name": "Reverend Cho's initial false alibi", "description": "Claims to have been at the church alone all evening", "location": "Interrogation", "discoverable": true, "required_action": "Interrogate Reverend Cho", "linked_evidence": ["EV45"], "importance": "medium", "red_herring": true, "why_it_exists": "His unrelated shame about his son's situation and the discretionary fund misuse drives the initial lie"},
+    {"id": "EV45", "name": "County lockup visitor log confirming Reverend Cho's true whereabouts", "description": "Present 19:05-20:20", "location": "WIT5 record", "discoverable": true, "required_action": "Request the county lockup visitor log", "linked_evidence": ["EV44"], "importance": "medium", "red_herring": true, "why_it_exists": "Clears Reverend Cho once his true, unrelated reason for lying is confirmed"},
+    {"id": "EV46", "name": "St. Brendan's discretionary fund withdrawal", "description": "$6,400 for bail and legal fees", "location": "LOC6", "discoverable": true, "required_action": "Search the church's financial ledger", "linked_evidence": ["EV45"], "importance": "low", "red_herring": true, "why_it_exists": "Explains the specific financial impropriety behind Reverend Cho's shame and evasiveness"},
+
+    {"id": "EV47", "name": "A stray set of boot prints near the town dock, degraded by fog-dampened ground", "description": "Too degraded for a useful cast", "location": "LOC1", "discoverable": true, "required_action": "Attempt to cast footprints during initial scene canvass", "linked_evidence": [], "importance": "trivial", "red_herring": true, "why_it_exists": "A realistic but forensically useless trace, included so the initial scene doesn't feel artificially barren, and to reinforce that this case will not be solved through a lucky physical trace"},
+    {"id": "EV48", "name": "An anonymous tip letter received by the sheriff's office a week after the murder", "description": "Claims 'the newspaper editor knew too much about the wrong people' without specifics", "location": "Sheriff's substation", "discoverable": true, "required_action": "Investigate the letter's origin", "linked_evidence": [], "importance": "low", "red_herring": true, "why_it_exists": "Traced to a bored local teenager who had heard rumors around town and wanted to feel involved, ultimately a dead end that nonetheless keeps the 'who knew too much' theme alive"},
+    {"id": "EV49", "name": "Tom's old, unrelated article about a zoning dispute involving Denise Okafor-Hale from three years prior", "description": "A minor past conflict, unrelated to the murder", "location": "LOC4 microfilm archive", "discoverable": true, "required_action": "Search old Beacon issues for prior conflicts involving suspects", "linked_evidence": [], "importance": "low", "red_herring": true, "why_it_exists": "Deepens Denise's plausibility as a suspect by suggesting a pattern of friction with Tom, without adding any new true evidence"},
+    {"id": "EV50", "name": "A rumor, later disproven, that Tom had been having an affair with a Select Board member's spouse", "description": "Baseless small-town gossip", "location": "Multiple witness interviews", "discoverable": true, "required_action": "Interview several townspeople about Tom's personal life", "linked_evidence": [], "importance": "trivial", "red_herring": true, "why_it_exists": "Realistic small-town noise that briefly muddies the motive picture before being explicitly disproven by the people involved"},
+    {"id": "EV51", "name": "Tom's own overdue library fines", "description": "A handful of minor overdue fines on historical books", "location": "LOC4", "discoverable": true, "required_action": "Search library records related to Tom", "linked_evidence": [], "importance": "trivial", "red_herring": true, "why_it_exists": "A mundane detail confirming Tom's research habits without carrying investigative weight itself"},
+    {"id": "EV52", "name": "A partial, illegible page fragment caught in dock debris", "description": "Water-damaged beyond recovery", "location": "LOC1", "discoverable": true, "required_action": "Search debris near the town dock", "linked_evidence": [], "importance": "trivial", "red_herring": true, "why_it_exists": "Suggests, without confirming, that some of Tom's notes may have ended up in the water near the town dock, briefly reinforcing the false 'died here' theory before the tide evidence overturns it"},
+    {"id": "EV53", "name": "Tom's calendar entry for November 3rd reading only 'Outflow - 7pm - bring recorder'", "description": "A terse personal calendar note", "location": "LOC3 (recovered alongside the cloud draft)", "discoverable": true, "required_action": "Request calendar/cloud recovery alongside the draft notes", "linked_evidence": ["EV07", "EV08"], "importance": "high", "why_it_exists": "Directly corroborates Tom's intended destination that evening, reinforcing the true crime scene location"},
+    {"id": "EV54", "name": "Warren Pell's decades of quiet community reputation-building", "description": "Extensive, well-documented history of charitable work, church service, and personal warmth toward nearly everyone in town, including several other suspects", "location": "General town knowledge / multiple witness interviews", "discoverable": true, "required_action": "Interview various townspeople about Warren Pell generally", "linked_evidence": [], "importance": "medium", "why_it_exists": "Establishes precisely why Warren was never an early suspect - not through any specific alibi, but through the simple, human bias of trusting a beloved figure, which the investigation must consciously overcome"},
+    {"id": "EV55", "name": "Warren's occasional past assistance to Tom on pantry-related community stories", "description": "Warren had, on more than one occasion, given Tom background quotes or historical color for unrelated Beacon stories", "location": "Old Beacon articles / Priya's recollection", "discoverable": true, "required_action": "Interview Priya about Tom's typical sources, or review old Beacon bylines", "linked_evidence": [], "importance": "medium", "why_it_exists": "Explains why Tom might have been willing to consider information from a familiar, trusted community source, and why his guard may have been lower in a face-to-face encounter with Warren specifically, even without foreknowledge of the burner-phone caller's identity"},
+    {"id": "EV56", "name": "The Kestrel Cannery's original 1979 closure coverage in the Beacon's own archives", "description": "Contemporary reporting noting rumors of contamination, never substantiated at the time, and the abrupt, unexplained departure of the Pelletier family from town", "location": "LOC4", "discoverable": true, "required_action": "Review 1979 Beacon microfilm", "linked_evidence": ["EV15"], "importance": "medium", "why_it_exists": "Establishes the historical baseline scandal that Tom was investigating, and the Pelletier family's abrupt, suspicious departure as the first documentary thread"},
+    {"id": "EV57", "name": "A former cannery worker's recollection (now elderly) of the 1979 settlement being handled 'quietly, through the family, not the courts'", "description": "Vague but consistent oral history", "location": "Witness interview with a retired cannery worker", "discoverable": true, "required_action": "Interview elderly former cannery employees", "linked_evidence": ["EV20"], "importance": "medium", "why_it_exists": "Corroborates the private, non-litigated nature of the 1979 settlement, explaining why no public legal record of the payments exists"},
+    {"id": "EV58", "name": "Warren's wife's medical billing records", "description": "Confirms genuine, significant prescription costs", "location": "Medical billing records (with consent)", "discoverable": true, "required_action": "Request Warren's household medical billing records once the donation box shortfall is raised", "linked_evidence": ["EV25", "EV26"], "importance": "low", "why_it_exists": "Corroborates the sympathetic surface-layer secret, reinforcing why it might be mistaken for the whole truth"},
+    {"id": "EV59", "name": "A discrepancy between Warren's claimed modest income and his lifestyle", "description": "A comfortable home and reliable car on a part-time music instructor's income and small pension", "location": "General financial background check", "discoverable": true, "required_action": "Request a general financial background check on Warren once he becomes a serious suspect", "linked_evidence": ["EV19"], "importance": "medium", "why_it_exists": "A subtle, easily overlooked inconsistency that only becomes meaningful once the relief fund fraud is suspected"},
+    {"id": "EV60", "name": "Deputy Sarah Kwan's full incident notes from the days following the discovery", "description": "Includes the offhand 'dock pilings' remark buried among many other routine, unremarkable notes", "location": "Sheriff's substation case file", "discoverable": true, "required_action": "Request and carefully review all deputy incident notes from the early investigation, not just formal interviews", "linked_evidence": ["EV22"], "importance": "critical", "why_it_exists": "The critical slip is easy to miss because it was never treated as a formal statement - it's buried in routine notes, exactly where an important detail from a trusted, un-suspected townsperson would be overlooked"},
+    {"id": "EV61", "name": "Medical Examiner's report release date and distribution list", "description": "Confirms the specific 'dock pilings' detail was never mentioned in the report itself, nor released to the public or press before Warren's remark", "location": "County Medical Examiner's office", "discoverable": true, "required_action": "Request the ME report's release timeline and distribution list to confirm what was and wasn't public knowledge when Warren made his remark", "linked_evidence": ["EV22", "EV60"], "importance": "critical", "why_it_exists": "Establishes that Warren's remark could not have come from public information, making it a genuine, damning slip of guilty knowledge rather than reasonable speculation"}
+  ],
+
+  "timeline": [
+    {"time": "2025-10-29 14:10", "event": "Tom leaves a voicemail with the County Records Office requesting 1979 Kestrel Cannery employment and name-change records."},
+    {"time": "2025-11-01 22:40", "event": "Tom saves a cloud-synced draft outline noting 'name change filed 1994' and 'relief fund - who actually controls it now?'"},
+    {"time": "2025-11-02 20:15", "event": "An anonymous caller using a burner phone offers Tom original 1979 cannery documents, proposing a meeting at the cannery outflow dock the following evening."},
+    {"time": "2025-11-03 16:00", "event": "Light drizzle over Grey Harbor."},
+    {"time": "2025-11-03 17:40", "event": "Tom calls Priya Deshmukh, mentions 'one more thread to pull.'"},
+    {"time": "2025-11-03 18:20", "event": "Tom texts Priya: 'Heading out. If this checks out, we run it Thursday.'"},
+    {"time": "2025-11-03 18:30", "event": "Dense fog rolls in off the harbor."},
+    {"time": "2025-11-03 18:50", "event": "Tom leaves his house, driving north out of town toward the cannery access road, calendar noting 'Outflow - 7pm - bring recorder.'"},
+    {"time": "2025-11-03 18:55", "event": "Tom's phone last pings a cell tower consistent with the cannery outflow road."},
+    {"time": "2025-11-03 19:00-19:15", "event": "Warren Pell, having left his pantry delivery van near the outflow road (seen by neighbor Ida Marsh, who assumes a routine delivery run), waits near the outflow dock."},
+    {"time": "2025-11-03 19:05", "event": "Reverend Elias Cho arrives at the county lockup to see his son (unrelated to the murder)."},
+    {"time": "2025-11-03 19:15", "event": "Denise Okafor-Hale leaves the Select Board meeting early."},
+    {"time": "2025-11-03 19:15-19:20", "event": "Tom arrives at the cannery outflow dock and meets Warren, expecting to receive documents."},
+    {"time": "2025-11-03 19:20-19:35", "event": "A confrontation occurs; it becomes clear to Warren that Tom already has enough information to identify his true family connection. A struggle breaks out over Tom's satchel."},
+    {"time": "2025-11-03 19:30", "event": "Caleb Ashby buys canned goods with cash at a store near the family cabin, well outside Grey Harbor (unrelated to the murder)."},
+    {"time": "2025-11-03 19:20-19:40", "event": "Warren strikes Tom once with a smooth river stone; Tom falls unconscious into the tidal channel and drowns. Tide/algae evidence later anchors this window precisely."},
+    {"time": "2025-11-03 19:35", "event": "Denise Okafor-Hale is seated at a restaurant in Aldermere (unrelated to the murder)."},
+    {"time": "2025-11-03 19:40-20:00", "event": "Warren takes Tom's phone, recorder, and satchel, and discards the murder weapon into the deep channel."},
+    {"time": "2025-11-03 20:00-20:30", "event": "Warren drives Tom's car (using keys taken from his coat) from the outflow area to the town dock, wipes surfaces he touched inside it, and stages the scene to resemble Tom's usual nighttime writing spot."},
+    {"time": "2025-11-03 20:30-21:15", "event": "Warren walks roughly a mile back along the shore road to retrieve his own pantry delivery van, left near the outflow road."},
+    {"time": "2025-11-03 22:00", "event": "Fog persists over the harbor; light drizzle continues."},
+    {"time": "2025-11-04 06:40", "event": "Lobsterman Hollis Baird spots Tom's body caught against the pilings near the town dock at dawn."},
+    {"time": "2025-11-04 07:10", "event": "Sheriff's deputies arrive on scene, find Tom's car parked nearby, and note the absence of his phone, recorder, and satchel."},
+    {"time": "2025-11-04 09:00", "event": "The body is transported to the county Medical Examiner's office in Aldermere."},
+    {"time": "2025-11-05", "event": "In an informal conversation with Deputy Sarah Kwan, days before the Medical Examiner's report is released, Warren Pell remarks that Tom 'must have hit his head on the dock pilings' - a detail not yet public."},
+    {"time": "2025-11-07", "event": "The Medical Examiner's report is completed and released to the sheriff's office only, confirming the skull contusion is inconsistent with the town dock's pilings; the report is not made public at this stage."}
+  ],
+
+  "relationship_graph": {
+    "nodes": [
+      {"id": "Thomas Ashby", "type": "victim"},
+      {"id": "Warren Pell", "type": "suspect_killer"},
+      {"id": "Grady Voss", "type": "suspect"},
+      {"id": "Denise Okafor-Hale", "type": "suspect"},
+      {"id": "Reverend Elias Cho", "type": "suspect"},
+      {"id": "Priya Deshmukh", "type": "suspect"},
+      {"id": "Caleb Ashby", "type": "suspect"},
+      {"id": "Arnold Pelletier", "type": "deceased_background"},
+      {"id": "Ida Marsh", "type": "witness"},
+      {"id": "Deputy Sarah Kwan", "type": "witness"}
+    ],
+    "edges": [
+      {"from": "Thomas Ashby", "to": "Warren Pell", "relationship": "Trusted community acquaintance and occasional informal source; ultimately his murderer, motivated by Tom's research into Warren's true identity and decades-long fund fraud"},
+      {"from": "Thomas Ashby", "to": "Grady Voss", "relationship": "Public conflict over the pending contamination article"},
+      {"from": "Thomas Ashby", "to": "Denise Okafor-Hale", "relationship": "Professional friction over the marina redevelopment story"},
+      {"from": "Thomas Ashby", "to": "Reverend Elias Cho", "relationship": "Personal conflict over a prior article about the reverend's son"},
+      {"from": "Thomas Ashby", "to": "Priya Deshmukh", "relationship": "Long business partnership strained by financial disagreement"},
+      {"from": "Thomas Ashby", "to": "Caleb Ashby", "relationship": "Estranged half-brothers in a property dispute"},
+      {"from": "Warren Pell", "to": "Arnold Pelletier", "relationship": "Son; inherited control of the private relief fund after his parents' deaths"},
+      {"from": "Warren Pell", "to": "Tidal Flats families", "relationship": "Decades-long, secretly self-serving 'benefactor' relationship built on the original 1979 settlement"}
+    ]
+  },
+
+  "interrogations": {
+    "Grady_Voss": {
+      "initial_interview": "Admits to the argument and the remark, insists it was anger, not intent.",
+      "contradictions_presented": ["The overheard threat"],
+      "pressure_points": ["Precise timing of his return to harbor given the fog"],
+      "resolution_only_no_confession_summary": "Harbor log and deckhand corroboration clear him; his off-the-books catch sales are noted separately as an unrelated matter for the harbor authority."
+    },
+    "Denise_Okafor_Hale": {
+      "initial_interview": "Claims to have been at the Select Board meeting the whole evening.",
+      "contradictions_presented": ["Meeting minutes showing her early departure"],
+      "pressure_points": ["Direct question about where she went after leaving early"],
+      "resolution_only_no_confession_summary": "Admits to the Aldermere financing meeting and the undisclosed land purchase once confronted; both are real but unconnected to the murder."
+    },
+    "Reverend_Elias_Cho": {
+      "initial_interview": "Claims to have been alone at the church all evening.",
+      "contradictions_presented": ["No access log to confirm his presence; later, the county lockup visitor log directly contradicting his claim"],
+      "pressure_points": ["Compassionate but direct questioning about his son"],
+      "resolution_only_no_confession_summary": "Admits to visiting his son and the discretionary fund withdrawal, ashamed but fully cooperative and unconnected to the murder."
+    },
+    "Priya_Deshmukh": {
+      "initial_interview": "Cooperative, downplays the extent of her financial disagreement with Tom.",
+      "contradictions_presented": ["The insurance policy and continued sale negotiations"],
+      "pressure_points": ["Direct but respectful questioning about the negotiations"],
+      "resolution_only_no_confession_summary": "Admits to continuing sale talks against Tom's wishes; hospital visitor log and nurse testimony fully clear her of the murder."
+    },
+    "Caleb_Ashby": {
+      "initial_interview": "Refuses to state his whereabouts, visibly defensive.",
+      "contradictions_presented": ["His record, the inheritance dispute, his evasiveness - enough to justify a formal hold for questioning at the investigation's midpoint"],
+      "pressure_points": ["Direct confrontation about what he's hiding"],
+      "resolution_only_no_confession_summary": "Eventually admits to squatting at the family cabin and minor poaching, both corroborated by the deputy's cabin observation and the store clerk's till receipt, fully clearing him of the murder despite his initial, strong circumstantial profile."
+    },
+    "Warren_Pell": {
+      "initial_interview": "Warm, cooperative, offers helpful town-history context and expresses genuine-seeming grief over Tom's death; his account of a quiet evening alone at the church raises no immediate flags",
+      "contradictions_presented_early": "None initially - he is not seriously pressed until very late in the investigation",
+      "contradictions_presented_late": ["The donation box shortfall (addressed first, and initially seems to fully explain his nervousness)", "The 1994 name-change filing and 1979 badge photo", "The relief fund audit discrepancy", "His unscripted 'dock pilings' remark, shown to predate any public release of that detail", "Ida Marsh's van sighting, now understood in light of the true timeline"],
+      "pressure_points": ["Confronting him with his true former identity, not his current one", "Asking him directly how he knew about the dock pilings before the report was public"],
+      "breaking_point": "When shown the 1979 badge photo alongside the 1994 name-change filing, and asked to explain the relief fund's thirty-year shortfall, Warren's composure finally breaks.",
+      "final_admission_summary": "Warren admits to his true identity and to administering, and substantially diverting, the relief fund for decades. Regarding the killing itself, he insists he only meant to talk Tom out of publishing, that the meeting 'got out of hand' when Tom recognized him and reached for his satchel, and that he 'never meant for him to go in the water' - stopping short of admitting the blow was struck with clear intent to kill, though the physical evidence and the deliberate staging afterward establish it as murder regardless of his characterization."
+    }
+  },
+
+  "hidden_truth": {
+    "full_narrative": "In 1979, the Kestrel Cannery's wastewater discharge sickened several families along the Sallow River's tidal flats. Plant supervisor Arnold Pelletier, facing potential ruin, quietly negotiated a private settlement with the most vocal affected families rather than let the matter reach a courtroom or the press, and moved his family out of state within the year. His teenage son, Warren, absorbed both the shame of the cover-up and, eventually, control of the settlement fund itself after his parents' deaths. In 1994, Warren returned to Grey Harbor under his mother's maiden name, Pell, and spent three decades quietly rebuilding himself as one of the town's most trusted figures - church organist, food pantry director, a soft-spoken presence everyone confided in. He continued making the relief fund's payments personally, in cash, to the aging tidal-flat families, always with a gentle request for discretion - a request that let him monitor the story's containment indefinitely, while he steadily diverted a significant share of the fund's value for his own benefit over the years, a fraud layered directly on top of his father's original crime. Tom Ashby's eight-month investigation into the 1979 closure - begun as ordinary local history for the paper - led him to request old employment and name-change records that would eventually connect Warren Pell to Warren Pelletier, and from there to the relief fund's true, uninspected finances. Sensing exposure closing in, Warren contacted Tom anonymously using a prepaid phone, offering original 1979 documents in exchange for a meeting at the isolated cannery outflow dock after dark - a location and time chosen specifically because no camera or casual passerby would ever be present. When Tom arrived, it became clear during their conversation that he already possessed enough to identify Warren regardless of any documents on offer; a struggle broke out over Tom's satchel, and Warren, in a moment of panic rather than long premeditated intent to kill (though the meeting itself was very much premeditated), struck him once with a stone from the shoreline. Tom fell into the tidal channel, unconscious but alive, and drowned before Warren did anything to help him. Warren took the phone, recorder, and satchel to erase Tom's physical research, drove Tom's own car to the town dock to invoke the far more mundane and expected story of an accidental fall at his usual writing spot, wiped what he'd touched, and discarded the stone into deep water on his way back. He then walked back along the shore road to his own van, which a neighbor noticed and dismissed as an ordinary pantry delivery. In the days that followed, Warren was never treated as a serious suspect - he had no known conflict with Tom, a spotless reputation, and was, if anything, one of the more comforting, helpful presences around other suspects and witnesses during the investigation. His only real error was an entirely human one: mentioning, in passing, a detail about how Tom must have died that no public statement had yet described, because it was the detail from the story he himself had staged.",
+    "why_every_suspect_lied": {
+      "Grady_Voss": "Made an angry, hyperbolic threat in public out of genuine fear for his livelihood, unrelated to any actual intent to harm Tom",
+      "Denise_Okafor_Hale": "Concealed an unrelated ethics violation (a personal land investment ahead of a public vote) and a private business meeting, unrelated to the murder",
+      "Reverend_Elias_Cho": "Concealed a family crisis (his son's arrest and bail) and an unauthorized use of church funds, out of personal shame, unrelated to the murder",
+      "Priya_Deshmukh": "Concealed an ongoing breach of her partnership agreement (continued sale negotiations against Tom's wishes), unrelated to the murder, and had no need to lie about her alibi since it was always true",
+      "Caleb_Ashby": "Concealed minor illegal squatting and poaching out of fear of further legal trouble, unrelated to the murder",
+      "Warren_Pell": "Concealed both a minor, sympathetic theft (donation box funds for his wife's medical bills) and, far more significantly, his entire true identity and thirty years of financial fraud against the very families his fund was meant to help - the second concealment being the actual motive for murder"
+    },
+    "why_every_red_herring_exists": "Grey Harbor is a small, financially strained town where nearly every prominent figure is managing some private shame, debt, or impropriety; Tom's death, and his general reputation for uncomfortable reporting, meant that virtually anyone he'd recently crossed looked briefly plausible. The true killer, by contrast, was someone with no publicly visible conflict with Tom at all - which is precisely what allowed him to remain unexamined until the investigation ran out of louder alternatives and was forced to look instead at the physical geography of the death itself.",
+    "exact_reasoning_path_required_to_solve_the_case": [
+      "1. Establish, through autopsy and mud/algae composition, that the death did not occur where the body and car were found - the town dock scene was staged.",
+      "2. Use tide charts and cell-tower data to relocate the true time and place of death to the isolated cannery outflow dock.",
+      "3. Recognize that Tom went there voluntarily, which requires finding out who summoned him and why - leading to the burner phone and the anonymous documents offer.",
+      "4. Recover Tom's own research trail (cloud-synced notes, calendar entry, records office voicemail) to learn he was investigating a 1979 name change connected to the cannery scandal, redirecting suspicion away from the six suspects' obvious present-day conflicts and toward a hidden historical identity.",
+      "5. Cross-reference the 1979 employee badge photo archive with 1994 county name-change filings to identify Warren Pelletier as Warren Pell - a connection invisible without deliberately pursuing Tom's own research direction rather than the more obvious suspects' motives.",
+      "6. Audit the relief fund Warren privately controls to establish ongoing financial motive independent of, and far more serious than, his admitted minor donation-box theft.",
+      "7. Recognize the significance of Warren's offhand 'dock pilings' remark only by comparing it against the Medical Examiner's actual report and its release timeline, proving he could not have known that detail innocently.",
+      "8. Only with all of the above converging - none sufficient alone - does an accusation of Warren Pell become evidentially supportable, despite the complete absence of any single decisive forensic match, confession, or camera image."
+    ]
+  },
+
+  "game_state_template": {
+    "case_id": "CASE-GH-1979R-2025",
+    "player_progress": {
+      "locations_visited": [],
+      "locations_researched_second_pass": [],
+      "evidence_discovered": [],
+      "forensic_tests_requested": [],
+      "warrants_obtained": [],
+      "witnesses_interviewed": [],
+      "witnesses_reinterviewed": [],
+      "suspects_interrogated": [],
+      "contradictions_presented_to_suspects": {},
+      "timeline_reconstructed_percent": 0,
+      "town_dock_staging_identified": false,
+      "outflow_dock_discovered_as_true_scene": false,
+      "burner_phone_traced": false,
+      "toms_cloud_notes_recovered": false,
+      "warren_true_identity_established": false,
+      "relief_fund_audited": false,
+      "dock_pilings_slip_recognized": false,
+      "case_solved": false,
+      "accused_suspect": null,
+      "accusation_correct": null,
+      "suggested_minimum_progress_before_accusation_is_allowed_to_feel_earned": "70 percent of available evidence/actions explored, including at minimum: town_dock_staging_identified, outflow_dock_discovered_as_true_scene, warren_true_identity_established, relief_fund_audited, and dock_pilings_slip_recognized"
+    },
+    "available_actions": [
+      "search_location(location_id)",
+      "research_location_again(location_id)",
+      "request_forensic_test(evidence_id, test_type)",
+      "compare_evidence(evidence_id_1, evidence_id_2)",
+      "review_cctv(camera_id)",
+      "request_phone_records(person_id)",
+      "request_bank_records(person_id)",
+      "obtain_warrant(target, justification_evidence_ids)",
+      "interview_witness(witness_id)",
+      "reinterview_witness(witness_id)",
+      "interrogate_suspect(suspect_id)",
+      "present_contradiction(suspect_id, evidence_id)",
+      "reconstruct_timeline()",
+      "make_accusation(suspect_id)"
+    ],
+    "win_condition": "Player accuses the correct suspect after having independently discovered the town-dock staging, the true outflow-dock crime scene, the killer's concealed true identity, the relief-fund fraud, and the significance of the unscripted scene-detail slip - not merely a lucky early guess.",
+    "lose_condition": "Player accuses any incorrect suspect, or accuses the correct suspect without having assembled the required convergence of circumstantial evidence, which the system should flag as an unsupported accusation regardless of whether the identity guessed happens to be correct."
+  }
+}
