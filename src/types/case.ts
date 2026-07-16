@@ -182,6 +182,12 @@ export interface RelationshipEdge {
   relationship: string;
 }
 
+export interface TimelineEntry {
+  time: string;
+  event: string;
+  [key: string]: unknown;
+}
+
 export interface InterrogationRecord {
   initial_interview: string;
   contradictions_presented?: string[];
@@ -241,7 +247,8 @@ interface CaseBody {
   autopsy: Autopsy;
   forensics: ForensicsEntry[];
   evidence: EvidenceItem[];
-  relationships: { edges: RelationshipEdge[] };
+  timeline: TimelineEntry[];
+  relationship_graph: RelationshipEdge[];
   interrogations: Record<string, InterrogationRecord>;
   game_state_template: GameStateTemplate;
 }
