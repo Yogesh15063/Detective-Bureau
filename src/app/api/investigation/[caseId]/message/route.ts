@@ -1,8 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
 import { connectDB } from "@/lib/db/connect";
 import { Investigation } from "@/models/Investigation";
 import { loadPlayerCase } from "@/lib/cases/loadCase";
 import { runNarratorTurn } from "@/lib/ai/narrator";
+import { validateStateUpdate } from "@/lib/evidence/validate";
 
 /**
  * POST /api/investigation/[caseId]/message
@@ -26,17 +28,19 @@ export async function POST(
   try {
     const { caseId } = await params;
     const body = await req.json();
-    const { message, userId } = body;
+    const { message } = body;
+
+    const { userId } = await auth();
+    if (!userId) {
+      return NextResponse.json(
+        { error: "You must be signed in to investigate a case." },
+        { status: 401 }
+      );
+    }
 
     if (!message || typeof message !== "string") {
       return NextResponse.json(
         { error: "Missing 'message' in request body." },
-        { status: 400 }
-      );
-    }
-    if (!userId || typeof userId !== "string") {
-      return NextResponse.json(
-        { error: "Missing 'userId' in request body." },
         { status: 400 }
       );
     }
@@ -58,11 +62,28 @@ export async function POST(
 
     const playerCase = await loadPlayerCase(caseId);
 
-    const { narrative, stateUpdate } = await runNarratorTurn(
+    const { narrative, stateUpdate: rawStateUpdate } = await runNarratorTurn(
       playerCase,
       investigation,
       message
     );
+
+    const { stateUpdate, warnings } = validateStateUpdate(
+      playerCase,
+      investigation,
+      rawStateUpdate
+    );
+
+    if (warnings.length > 0) {
+      // These indicate the AI hallucinated an id or skipped a
+      // prerequisite. Not fatal to the player's turn, but worth
+      // watching during testing — if these show up a lot, the system
+      // prompt likely needs tightening.
+      console.warn(
+        `Narrator state validation warnings for case ${caseId}:`,
+        warnings
+      );
+    }
 
     // Merge state update into the investigation doc (dedupe with Sets)
     const mergeUnique = (existing: string[], incoming?: string[]) =>

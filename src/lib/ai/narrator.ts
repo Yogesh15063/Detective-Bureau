@@ -1,4 +1,4 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI, ThinkingLevel } from "@google/genai";
 import type { PlayerCase } from "@/types/case";
 import type { InvestigationDocument, ChatMessage } from "@/models/Investigation";
 
@@ -133,7 +133,9 @@ export async function runNarratorTurn(
       // level), which adds significant latency. For a fast-turn chat
       // game, low is a better fit — bump to "medium" later if you find
       // the narrator's reasoning/consistency suffers.
-      thinkingLevel: "low",
+      thinkingConfig: {
+        thinkingLevel: ThinkingLevel.LOW,
+      },
     },
   });
 
