@@ -80,10 +80,26 @@ export async function POST(
     const correct =
       normalize(accusedSuspect.name) === normalize(masterCase.solution.killer);
 
-    investigation.status = correct ? "accused_correct" : "accused_incorrect";
     investigation.accusedSuspectId = suspectId;
     investigation.accusationCorrect = correct;
+
+    if (correct) {
+      investigation.status = "accused_correct";
+    } else {
+      investigation.wrongAccusationCount += 1;
+      // Two failed accusations and the file goes cold. Otherwise the
+      // investigation stays open — the player can keep gathering
+      // evidence and try again.
+      investigation.status =
+        investigation.wrongAccusationCount >= 2 ? "cold" : "in_progress";
+    }
     await investigation.save();
+
+    const concluded = investigation.status !== "in_progress";
+    const attemptsRemaining = Math.max(
+      0,
+      2 - investigation.wrongAccusationCount
+    );
 
     const evidenceFound = investigation.evidenceDiscovered.length;
     const evidenceTarget = playerCase.case.target_evidence_count;
@@ -94,14 +110,21 @@ export async function POST(
 
     return NextResponse.json({
       correct,
+      concluded,
+      attemptsRemaining: concluded ? 0 : attemptsRemaining,
       accusedSuspectId: suspectId,
-      actualKiller: masterCase.solution.killer,
-      verdict: {
-        howItHappened: masterCase.solution.how_it_happened,
-        trueMotive: masterCase.solution.true_motive,
-        keyProofChain: masterCase.solution.key_proof_chain,
-        fullNarrative: masterCase.hidden_truth.full_narrative,
-      },
+      // Solution only revealed once the file is actually closed
+      // (correct, or out of attempts) — a wrong guess with retries
+      // left should not spoil the case.
+      actualKiller: concluded ? masterCase.solution.killer : null,
+      verdict: concluded
+        ? {
+            howItHappened: masterCase.solution.how_it_happened,
+            trueMotive: masterCase.solution.true_motive,
+            keyProofChain: masterCase.solution.key_proof_chain,
+            fullNarrative: masterCase.hidden_truth.full_narrative,
+          }
+        : null,
       score: {
         evidenceFound,
         evidenceTarget,

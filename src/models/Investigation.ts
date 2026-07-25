@@ -16,7 +16,10 @@ export interface ChatMessage {
 export interface InvestigationDocument extends Document {
   userId: string; // Clerk user id (placeholder string until auth step)
   caseId: string; // matches Case.caseId
-  status: "in_progress" | "accused_correct" | "accused_incorrect";
+  // "cold": two failed accusations used up. Investigating/accusing is
+  // blocked until a future "reopen the file" mechanic is added.
+  status: "in_progress" | "accused_correct" | "cold";
+  wrongAccusationCount: number;
 
   // Mirrors game_state_template.player_progress shape from the case file,
   // but this is the LIVE, mutable copy for this specific player.
@@ -55,9 +58,10 @@ const InvestigationSchema = new Schema<InvestigationDocument>(
     caseId: { type: String, required: true, index: true },
     status: {
       type: String,
-      enum: ["in_progress", "accused_correct", "accused_incorrect"],
+      enum: ["in_progress", "accused_correct", "cold"],
       default: "in_progress",
     },
+    wrongAccusationCount: { type: Number, default: 0 },
 
     locationsVisited: { type: [String], default: [] },
     locationsResearchedSecondPass: { type: [String], default: [] },
