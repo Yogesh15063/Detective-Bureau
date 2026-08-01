@@ -32,6 +32,7 @@ async function seed() {
         title: master.case.title,
         town: master.case.town,
         targetEvidenceCount: master.case.target_evidence_count,
+        coverImage: master.case.cover_image ?? null,
         masterData: master,
         isPublished: true,
         isPremium: false,

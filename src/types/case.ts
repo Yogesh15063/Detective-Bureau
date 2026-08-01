@@ -15,6 +15,7 @@ export interface CaseMeta {
   victim_name: string;
   why_no_direct_evidence_exists: string;
   target_evidence_count: number;
+  cover_image?: string;
 }
 
 // Master-only fields on top of CaseMeta

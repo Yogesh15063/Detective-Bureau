@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { copy } from '@/lib/copy'
+import AuthNav from '@/components/AuthNav'
 
 export function Header() {
   return (
@@ -37,12 +38,15 @@ export function Header() {
           </Link>
         </nav>
 
-        <Link
-          href={copy.hero.ctaHref}
-          className="border border-brass px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-parchment transition-colors hover:bg-brass"
-        >
-          {copy.nav.enter}
-        </Link>
+        <div className="flex items-center gap-4">
+          <AuthNav />
+          <Link
+            href={copy.hero.ctaHref}
+            className="border border-brass px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-parchment transition-colors hover:bg-brass"
+          >
+            {copy.nav.enter}
+          </Link>
+        </div>
       </div>
     </header>
   )

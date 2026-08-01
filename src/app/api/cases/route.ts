@@ -14,7 +14,7 @@ export async function GET() {
     await connectDB();
 
     const cases = await Case.find({ isPublished: true })
-      .select("caseId title town isPremium targetEvidenceCount")
+      .select("caseId title town isPremium targetEvidenceCount coverImage")
       .lean();
 
     return NextResponse.json({
@@ -24,6 +24,7 @@ export async function GET() {
         town: c.town,
         isPremium: c.isPremium,
         targetEvidenceCount: c.targetEvidenceCount,
+        coverImage: c.coverImage ?? null,
       })),
     });
   } catch (err) {

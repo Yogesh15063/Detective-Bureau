@@ -32,7 +32,10 @@ export async function GET(
           status: investigation.status,
           evidenceDiscovered: investigation.evidenceDiscovered,
           locationsVisited: investigation.locationsVisited,
-          messageCount: investigation.conversationHistory.length,
+          witnessesInterviewed: investigation.witnessesInterviewed,
+          suspectsInterrogated: investigation.suspectsInterrogated,
+          wrongAccusationCount: investigation.wrongAccusationCount,
+          conversationHistory: investigation.conversationHistory,
         };
       }
     }
@@ -43,6 +46,11 @@ export async function GET(
         id: s.id,
         name: s.name,
         role: s.role,
+      })),
+      witnesses: playerCase.witnesses.map((w) => ({
+        id: w.id,
+        name: w.name,
+        role: w.role,
       })),
       locations: playerCase.locations.map((l) => ({
         id: l.id,
