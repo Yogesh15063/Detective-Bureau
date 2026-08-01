@@ -20,6 +20,7 @@ export interface CaseDocument extends Document {
   isPremium: boolean;
   isPublished: boolean;
   targetEvidenceCount: number;
+  coverImage: string | null;
   masterData: MasterCase; // full source of truth, NEVER sent to client as-is
   createdAt: Date;
   updatedAt: Date;
@@ -33,6 +34,7 @@ const CaseSchema = new Schema<CaseDocument>(
     isPremium: { type: Boolean, default: false },
     isPublished: { type: Boolean, default: false },
     targetEvidenceCount: { type: Number, required: true },
+    coverImage: { type: String, default: null },
     masterData: { type: Schema.Types.Mixed, required: true },
   },
   { timestamps: true }

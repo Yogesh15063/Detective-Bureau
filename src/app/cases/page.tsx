@@ -25,6 +25,7 @@ interface CaseSummary {
   town: string;
   isPremium: boolean;
   targetEvidenceCount: number;
+  coverImage: string | null;
 }
 
 interface MyInvestigation {
@@ -367,7 +368,21 @@ export default function CasesDashboardPage() {
                     href={`/cases/${c.caseId}`}
                     className="group bg-charcoal border border-white/10 rounded-lg overflow-hidden hover:border-brass/30 transition-colors"
                   >
-                    <div className="relative aspect-[16/10] bg-ink/60 flex items-center justify-center">
+                    <div className="relative aspect-[16/10] bg-ink/60 overflow-hidden">
+                      {c.coverImage ? (
+                        <img
+                          src={c.coverImage}
+                          alt=""
+                          className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      ) : (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="font-mono text-[10px] text-fog/40">
+                            {c.caseId}
+                          </span>
+                        </div>
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
                       {(isCompleted || isCold || isInProgress) && (
                         <span
                           className={`absolute top-2 left-2 text-[9px] font-mono tracking-widest px-2 py-1 rounded ${
@@ -386,9 +401,6 @@ export default function CasesDashboardPage() {
                           NEW
                         </span>
                       )}
-                      <span className="font-mono text-[10px] text-fog/40">
-                        {c.caseId}
-                      </span>
                     </div>
 
                     <div className="p-4">
