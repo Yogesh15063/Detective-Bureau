@@ -1,26 +1,29 @@
-import fs from "fs/promises";
-import path from "path";
+import { put } from "@vercel/blob";
 
 /**
- * The ONE function to swap when moving to real cloud storage
- * (Vercel Blob, S3, Cloudinary, etc). Right now it just writes to
- * public/case-covers/ on disk, which works fine for local dev but
- * won't persist on most serverless hosts. Everything else in the app
- * only ever deals with the returned URL string — nothing else needs
- * to change when this function's internals change.
+ * The ONE function to swap when moving storage providers. Uses Vercel
+ * Blob — a natural fit since the app deploys to Vercel, and unlike
+ * writing to public/ on disk, this actually works in a serverless
+ * environment (Vercel's functions run on a read-only filesystem
+ * except an ephemeral /tmp that doesn't persist between requests).
+ *
+ * Requires a BLOB_READ_WRITE_TOKEN in your environment — Vercel
+ * creates this automatically once you enable Blob storage for your
+ * project (Vercel dashboard → Storage → Create Database → Blob).
+ * Vercel injects the token automatically for deployed environments;
+ * for local dev, pull it with `vercel env pull .env.local`.
  */
 export async function saveCoverImage(
   caseId: string,
   file: File
 ): Promise<string> {
   const ext = file.name.split(".").pop() || "jpg";
-  const filename = `${caseId}.${ext}`;
+  const filename = `case-covers/${caseId}.${ext}`;
 
-  const dir = path.join(process.cwd(), "public", "case-covers");
-  await fs.mkdir(dir, { recursive: true });
+  const blob = await put(filename, file, {
+    access: "public",
+    addRandomSuffix: false, // overwrite on re-upload rather than accumulate
+  });
 
-  const buffer = Buffer.from(await file.arrayBuffer());
-  await fs.writeFile(path.join(dir, filename), buffer);
-
-  return `/case-covers/${filename}`;
+  return blob.url;
 }

@@ -7,15 +7,22 @@ import { loadPlayerCase, loadMasterCase } from "@/lib/cases/loadCase";
 /**
  * POST /api/investigation/[caseId]/accuse
  *
- * Body: { userId: string, suspectId: string }
+ * Body: { suspectId: string }
  *
  * This is the ONLY place in the entire app allowed to load the master
  * case and compare against `solution.killer`. The result (correct or
  * not) is computed server-side and only the verdict is returned —
  * never the raw master object before this point.
  *
- * Once an investigation concludes (correct or incorrect), it's fair
- * game to reveal the full solution — that's the verdict screen's job.
+ * Two-strike rule: a wrong accusation with attempts remaining keeps
+ * the investigation open (no spoilers). A second wrong accusation, or
+ * exhausting the limit, marks the case "cold" and reveals the truth.
+ *
+ * Evidence gate: an accusation cannot even be filed until the player
+ * has discovered the case's curated key_proof_chain — prevents a
+ * lucky shallow guess from succeeding without actually building the
+ * case. The threshold is server-side only; the player never sees
+ * which specific items count toward it.
  */
 export async function POST(
   req: NextRequest,
@@ -71,6 +78,27 @@ export async function POST(
     // gameplay — for solution comparison only, never sent to the client
     // until the case is already concluded below.
     const masterCase = await loadMasterCase(caseId);
+
+    // --- Evidence gate: an accusation can't even be filed until the
+    // player has actually built the case, not just guessed a name.
+    // Uses the case's own curated key_proof_chain as the bar — this
+    // is server-side only, the player never sees which items count.
+    const keyProof = masterCase.solution.key_proof_chain ?? [];
+    const discovered = new Set(investigation.evidenceDiscovered);
+    const missingKeyEvidence = keyProof.filter((id) => !discovered.has(id));
+
+    if (keyProof.length > 0 && missingKeyEvidence.length > 0) {
+      return NextResponse.json(
+        {
+          blocked: true,
+          error:
+            "You don't have enough to make this stick yet, Detective. Keep digging.",
+          evidenceFound: investigation.evidenceDiscovered.length,
+          evidenceTarget: playerCase.case.target_evidence_count,
+        },
+        { status: 400 }
+      );
+    }
 
     // solution.killer is stored as the killer's NAME (e.g. "Warren Pell"),
     // not a suspect id — so we compare the accused suspect's name, not
