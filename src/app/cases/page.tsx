@@ -16,6 +16,8 @@ import {
   Bell,
   Grid3x3,
   List,
+  Menu,
+  X,
 } from "lucide-react";
 import AuthNav from "@/components/AuthNav";
 
@@ -84,6 +86,7 @@ export default function CasesDashboardPage() {
   const [activeFilter, setActiveFilter] = useState<FilterTab>("All Cases");
   const [page, setPage] = useState(1);
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   useEffect(() => {
     async function load() {
@@ -163,18 +166,39 @@ export default function CasesDashboardPage() {
   return (
     <div className="min-h-screen bg-ink text-parchment flex">
       {/* SIDEBAR */}
-      <aside className="hidden lg:flex flex-col w-60 border-r border-white/10 shrink-0">
-        <Link href="/" className="flex items-center gap-2.5 px-5 py-5">
-          <span className="flex h-8 w-8 items-center justify-center border border-brass bg-brass font-display text-sm leading-none text-parchment">
-            DB
-          </span>
-          <span className="font-display text-lg uppercase leading-none tracking-wide">
-            Detective
-            <span className="block text-[10px] text-fog tracking-[0.2em]">
-              Bureau
+      {mobileSidebarOpen && (
+        <div
+          onClick={() => setMobileSidebarOpen(false)}
+          className="fixed inset-0 bg-ink/80 z-30 lg:hidden"
+        />
+      )}
+      <aside
+        className={`
+          fixed lg:static inset-y-0 left-0 z-40 lg:z-auto
+          flex flex-col w-60 border-r border-white/10 shrink-0 bg-ink
+          transition-transform duration-200 lg:translate-x-0
+          ${mobileSidebarOpen ? "translate-x-0" : "-translate-x-full"}
+        `}
+      >
+        <div className="flex items-center justify-between px-5 py-5">
+          <Link href="/" className="flex items-center gap-2.5">
+            <span className="flex h-8 w-8 items-center justify-center border border-brass bg-brass font-display text-sm leading-none text-parchment">
+              DB
             </span>
-          </span>
-        </Link>
+            <span className="font-display text-lg uppercase leading-none tracking-wide">
+              Detective
+              <span className="block text-[10px] text-fog tracking-[0.2em]">
+                Bureau
+              </span>
+            </span>
+          </Link>
+          <button
+            onClick={() => setMobileSidebarOpen(false)}
+            className="lg:hidden text-fog hover:text-parchment"
+          >
+            <X size={20} />
+          </button>
+        </div>
 
         <nav className="flex-1 px-3 space-y-1 mt-2">
           <SidebarLink href="/" icon={<Home size={16} />} label="Home" />
@@ -266,6 +290,12 @@ export default function CasesDashboardPage() {
         {/* TOP BAR */}
         <header className="sticky top-0 z-20 border-b border-white/10 bg-ink">
           <div className="flex items-center gap-4 px-6 py-3">
+            <button
+              onClick={() => setMobileSidebarOpen(true)}
+              className="lg:hidden text-fog hover:text-parchment"
+            >
+              <Menu size={20} />
+            </button>
             <div className="flex-1 max-w-xl relative">
               <Search
                 size={15}

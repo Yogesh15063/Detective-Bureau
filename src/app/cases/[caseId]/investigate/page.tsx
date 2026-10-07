@@ -3,6 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { ChevronUp } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
 
 interface NamedEntity {
   id: string;
@@ -64,6 +71,8 @@ export default function InvestigatePage() {
   const [selectedSuspect, setSelectedSuspect] = useState<string | null>(null);
   const [verdict, setVerdict] = useState<Verdict | null>(null);
   const [accusing, setAccusing] = useState(false);
+
+  const [mobileSheetOpen, setMobileSheetOpen] = useState(false);
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -191,6 +200,89 @@ export default function InvestigatePage() {
 
   const concluded = caseStatus !== "in_progress";
 
+  const progressPanelContent = (
+    <>
+      <div>
+        <p className="font-mono text-[10px] tracking-widest text-brass mb-2">
+          LOCATIONS SEARCHED
+        </p>
+        {progress.locationsVisited.length === 0 ? (
+          <p className="text-xs text-fog font-mono">None yet.</p>
+        ) : (
+          <ul className="space-y-1">
+            {progress.locationsVisited.map((id) => (
+              <li key={id} className="text-xs text-parchment/80">
+                {nameOf(locations, id)}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div>
+        <p className="font-mono text-[10px] tracking-widest text-brass mb-2">
+          EVIDENCE DISCOVERED
+        </p>
+        {progress.evidenceDiscovered.length === 0 ? (
+          <p className="text-xs text-fog font-mono">None yet.</p>
+        ) : (
+          <ul className="space-y-1">
+            {progress.evidenceDiscovered.map((id) => (
+              <li key={id} className="text-xs font-mono text-parchment/80">
+                {id}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div>
+        <p className="font-mono text-[10px] tracking-widest text-brass mb-2">
+          WITNESSES INTERVIEWED
+        </p>
+        {progress.witnessesInterviewed.length === 0 ? (
+          <p className="text-xs text-fog font-mono">None yet.</p>
+        ) : (
+          <ul className="space-y-1">
+            {progress.witnessesInterviewed.map((id) => (
+              <li key={id} className="text-xs text-parchment/80">
+                {nameOf(witnesses, id)}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <div>
+        <p className="font-mono text-[10px] tracking-widest text-brass mb-2">
+          SUSPECTS INTERROGATED
+        </p>
+        {progress.suspectsInterrogated.length === 0 ? (
+          <p className="text-xs text-fog font-mono">None yet.</p>
+        ) : (
+          <ul className="space-y-1">
+            {progress.suspectsInterrogated.map((id) => (
+              <li key={id} className="text-xs text-parchment/80">
+                {nameOf(suspects, id)}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      <button
+        onClick={() => {
+          setMobileSheetOpen(false);
+          setShowAccuse(true);
+        }}
+        disabled={concluded}
+        className="w-full bg-rust text-parchment font-medium text-sm py-3 rounded hover:bg-rust/80 transition-colors disabled:opacity-40"
+      >
+        File an Accusation
+      </button>
+    </>
+  );
+
   return (
     <div className="min-h-screen bg-ink text-parchment flex flex-col">
       <header className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-ink">
@@ -199,8 +291,8 @@ export default function InvestigatePage() {
             ←
           </Link>
           <h1 className="font-display uppercase text-lg tracking-wide">
-            {caseTitle}
-          </h1>
+  TESTING 123
+</h1>
         </div>
         <div className="text-right">
           <p className="font-mono text-[10px] text-fog tracking-wider">
@@ -214,8 +306,8 @@ export default function InvestigatePage() {
 
       <div className="flex-1 grid md:grid-cols-[1fr_320px] overflow-hidden">
         {/* CHAT */}
-        <div className="flex flex-col overflow-hidden border-r border-white/10">
-          <div ref={scrollRef} className="flex-1 overflow-y-auto px-6 py-6 space-y-5">
+        <div className="flex flex-col overflow-hidden md:border-r border-white/10">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto px-6 py-6 space-y-5 pb-24 md:pb-6">
             {messages.length === 0 && (
               <p className="font-mono text-sm text-fog">
                 The file is open. What would you like to investigate?
@@ -257,7 +349,7 @@ export default function InvestigatePage() {
             )}
           </div>
 
-          <div className="border-t border-white/10 p-4 flex gap-3">
+          <div className="border-t border-white/10 p-4 flex gap-3 pb-[calc(1rem+52px)] md:pb-4">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -280,89 +372,41 @@ export default function InvestigatePage() {
           </div>
         </div>
 
-        {/* SIDEBAR */}
-        <aside className="overflow-y-auto p-5 space-y-6 bg-charcoal/40">
-          <div>
-            <p className="font-mono text-[10px] tracking-widest text-brass mb-2">
-              LOCATIONS SEARCHED
-            </p>
-            {progress.locationsVisited.length === 0 ? (
-              <p className="text-xs text-fog font-mono">None yet.</p>
-            ) : (
-              <ul className="space-y-1">
-                {progress.locationsVisited.map((id) => (
-                  <li key={id} className="text-xs text-parchment/80">
-                    {nameOf(locations, id)}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          <div>
-            <p className="font-mono text-[10px] tracking-widest text-brass mb-2">
-              EVIDENCE DISCOVERED
-            </p>
-            {progress.evidenceDiscovered.length === 0 ? (
-              <p className="text-xs text-fog font-mono">None yet.</p>
-            ) : (
-              <ul className="space-y-1">
-                {progress.evidenceDiscovered.map((id) => (
-                  <li key={id} className="text-xs font-mono text-parchment/80">
-                    {id}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          <div>
-            <p className="font-mono text-[10px] tracking-widest text-brass mb-2">
-              WITNESSES INTERVIEWED
-            </p>
-            {progress.witnessesInterviewed.length === 0 ? (
-              <p className="text-xs text-fog font-mono">None yet.</p>
-            ) : (
-              <ul className="space-y-1">
-                {progress.witnessesInterviewed.map((id) => (
-                  <li key={id} className="text-xs text-parchment/80">
-                    {nameOf(witnesses, id)}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          <div>
-            <p className="font-mono text-[10px] tracking-widest text-brass mb-2">
-              SUSPECTS INTERROGATED
-            </p>
-            {progress.suspectsInterrogated.length === 0 ? (
-              <p className="text-xs text-fog font-mono">None yet.</p>
-            ) : (
-              <ul className="space-y-1">
-                {progress.suspectsInterrogated.map((id) => (
-                  <li key={id} className="text-xs text-parchment/80">
-                    {nameOf(suspects, id)}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-
-          <button
-            onClick={() => setShowAccuse(true)}
-            disabled={concluded}
-            className="w-full bg-rust text-parchment font-medium text-sm py-3 rounded hover:bg-rust/80 transition-colors disabled:opacity-40"
-          >
-            File an Accusation
-          </button>
+        {/* SIDEBAR — desktop/tablet, permanently visible */}
+        <aside className="hidden md:flex md:flex-col overflow-y-auto p-5 space-y-6 bg-charcoal/40">
+          {progressPanelContent}
         </aside>
       </div>
 
+      {/* MOBILE: collapsed handle bar — visually hidden on md+ via Tailwind,
+          but shadcn's Sheet below handles the actual open/close mechanics,
+          so this bar just needs to trigger it. */}
+      <button
+        onClick={() => setMobileSheetOpen(true)}
+        className="md:hidden fixed bottom-0 left-0 right-0 z-20 flex items-center justify-between bg-charcoal border-t border-white/10 px-5 py-3"
+      >
+        <span className="font-mono text-xs text-brass tracking-wide">
+          {progress.evidenceDiscovered.length} / {targetEvidence} Evidence — Case Progress
+        </span>
+        <ChevronUp size={16} className="text-fog" />
+      </button>
+
+      {/* shadcn Sheet, bottom variant — handles its own animation, backdrop,
+          focus trap, and dismiss behavior via Radix. */}
+      <Sheet open={mobileSheetOpen} onOpenChange={setMobileSheetOpen}>
+        <SheetContent side="bottom" className="bg-charcoal border-white/10 max-h-[80vh] overflow-y-auto">
+          <SheetHeader>
+            <SheetTitle className="font-mono text-xs text-fog tracking-widest">
+              CASE PROGRESS
+            </SheetTitle>
+          </SheetHeader>
+          <div className="space-y-6 px-4 pb-4">{progressPanelContent}</div>
+        </SheetContent>
+      </Sheet>
+
       {/* ACCUSATION MODAL */}
       {showAccuse && !verdict && (
-        <div className="fixed inset-0 bg-ink/90 flex items-center justify-center z-30 p-6">
+        <div className="fixed inset-0 bg-ink/90 flex items-center justify-center z-40 p-6">
           <div className="bg-charcoal border border-white/10 rounded-lg max-w-md w-full p-6">
             <h2 className="font-display uppercase text-xl mb-2">Name Your Suspect</h2>
             <p className="text-xs text-fog font-mono mb-5">
@@ -411,7 +455,7 @@ export default function InvestigatePage() {
 
       {/* VERDICT */}
       {verdict && (
-        <div className="fixed inset-0 bg-ink/95 flex items-center justify-center z-30 p-6 overflow-y-auto">
+        <div className="fixed inset-0 bg-ink/95 flex items-center justify-center z-40 p-6 overflow-y-auto">
           <div className="bg-charcoal border border-white/10 rounded-lg max-w-lg w-full p-7 my-10">
             <h2 className="font-display uppercase text-2xl mb-4">
               {verdict.correct
