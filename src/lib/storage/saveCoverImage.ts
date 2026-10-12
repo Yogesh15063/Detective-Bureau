@@ -23,6 +23,7 @@ export async function saveCoverImage(
   const blob = await put(filename, file, {
     access: "public",
     addRandomSuffix: false, // overwrite on re-upload rather than accumulate
+    allowOverwrite: true,
   });
 
   return blob.url;
