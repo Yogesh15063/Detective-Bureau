@@ -1,0 +1,376 @@
+{
+ "source_file": "case_last_seance_MASTER.json",
+ "case_id": "CASE-BM-2025S",
+ "suspects": [
+  {
+   "id": "SUS1",
+   "name": "Leo Bennett",
+   "role": "Medical student, engaged to be married in the spring"
+  },
+  {
+   "id": "SUS2",
+   "name": "Sam Ostrowski",
+   "role": "IT support technician, amateur electronics hobbyist"
+  },
+  {
+   "id": "SUS3",
+   "name": "Priya Anand",
+   "role": "Paralegal, applying to law school"
+  },
+  {
+   "id": "SUS4",
+   "name": "Mia Torres",
+   "role": "Recently engaged, works in event planning"
+  },
+  {
+   "id": "SUS5",
+   "name": "Daniel Reyes",
+   "role": "Part-time caretaker of the Blackwood estate grounds"
+  }
+ ],
+ "witnesses": [
+  {
+   "id": "WIT1",
+   "name": "Ruth Calloway",
+   "role": "Night clerk, Millhaven Fuel and Grocery"
+  },
+  {
+   "id": "WIT2",
+   "name": "Denise Okafor",
+   "role": "Waitress, The Copper Kettle Diner"
+  },
+  {
+   "id": "WIT3",
+   "name": "Frank Doyle",
+   "role": "Bartender, Frank's Tavern"
+  },
+  {
+   "id": "WIT4",
+   "name": "Helen Reyes",
+   "role": "Daniel's mother, Elena's mother"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "EV001",
+   "name": "Seance Table Underside Residue",
+   "location": "LOC1",
+   "importance": "medium"
+  },
+  {
+   "id": "EV002",
+   "name": "Vibration Motor Device",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV003",
+   "name": "Device Internal Fingerprints",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV004",
+   "name": "Bag Zipper Print Mismatch",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV005",
+   "name": "Online Hobbyist Forum Post",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV006",
+   "name": "Gas Station Till Log, 19:40",
+   "location": "LOC5",
+   "importance": "high"
+  },
+  {
+   "id": "EV007",
+   "name": "Gas Station CCTV, 19:35-19:45",
+   "location": "LOC5",
+   "importance": "critical"
+  },
+  {
+   "id": "EV008",
+   "name": "Tavern Tab Receipt",
+   "location": "LOC7",
+   "importance": "medium"
+  },
+  {
+   "id": "EV009",
+   "name": "Gate Log Book Entry",
+   "location": "LOC4",
+   "importance": "medium"
+  },
+  {
+   "id": "EV010",
+   "name": "Tire Tread Near Gate",
+   "location": "LOC4",
+   "importance": "high"
+  },
+  {
+   "id": "EV011",
+   "name": "Jake's Therapy Appointment Log",
+   "location": "LOC1",
+   "importance": "medium"
+  },
+  {
+   "id": "EV012",
+   "name": "Jake's Personal Journal",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV013",
+   "name": "Text Message: Jake to Leo, Oct 16",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV014",
+   "name": "Poker Partial Print",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV015",
+   "name": "Fireplace Ash Disturbance",
+   "location": "LOC1",
+   "importance": "medium"
+  },
+  {
+   "id": "EV016",
+   "name": "Autopsy Report",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV017",
+   "name": "Wound Angle Analysis",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV018",
+   "name": "Diner Staff Statement",
+   "location": "LOC6",
+   "importance": "high"
+  },
+  {
+   "id": "EV019",
+   "name": "Text Message: Mia to Jake, Oct 17",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV020",
+   "name": "Text Message: Jake to Mia, Oct 17",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV021",
+   "name": "Mia's Own Alibi Statement",
+   "location": "LOC2",
+   "importance": "medium"
+  },
+  {
+   "id": "EV022",
+   "name": "Study Room Dust Disturbance",
+   "location": "LOC2",
+   "importance": "medium"
+  },
+  {
+   "id": "EV023",
+   "name": "Old Police Report, 2022 Hit-and-Run",
+   "location": "LOC8",
+   "importance": "critical"
+  },
+  {
+   "id": "EV024",
+   "name": "Elena Reyes Obituary",
+   "location": "LOC8",
+   "importance": "medium"
+  },
+  {
+   "id": "EV025",
+   "name": "Body Shop Repair Receipt",
+   "location": "LOC4",
+   "importance": "critical"
+  },
+  {
+   "id": "EV026",
+   "name": "Group Chat Fragment (Recovered)",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV027",
+   "name": "Insurance Claim Inconsistency",
+   "location": "LOC4",
+   "importance": "high"
+  },
+  {
+   "id": "EV028",
+   "name": "Priya's Bank Transfer Records",
+   "location": "LOC8",
+   "importance": "high"
+  },
+  {
+   "id": "EV029",
+   "name": "Helen Reyes' Witness Statement",
+   "location": "LOC8",
+   "importance": "high"
+  },
+  {
+   "id": "EV030",
+   "name": "Jake's Voicemail to Daniel Reyes",
+   "location": "LOC8",
+   "importance": "critical"
+  },
+  {
+   "id": "EV031",
+   "name": "Seance Circle Position Diagram",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV032",
+   "name": "Leo's Inconsistent Position Statement",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV033",
+   "name": "Leo's Shoe Soil Analysis",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV034",
+   "name": "Fuse Box Repair Log",
+   "location": "LOC3",
+   "importance": "high"
+  },
+  {
+   "id": "EV035",
+   "name": "Daniel's Toolbox",
+   "location": "LOC3",
+   "importance": "low"
+  },
+  {
+   "id": "EV036",
+   "name": "Manor Blackout Duration Log",
+   "location": "LOC3",
+   "importance": "critical"
+  },
+  {
+   "id": "EV037",
+   "name": "Sam's Panic Text to a Friend (Not in Group)",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV038",
+   "name": "Sam's Purchase Record",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV039",
+   "name": "Priya's Bag Position Statement",
+   "location": "LOC1",
+   "importance": "medium"
+  },
+  {
+   "id": "EV040",
+   "name": "Corroborating Friend Statement on Bag Placement",
+   "location": "LOC1",
+   "importance": "medium"
+  },
+  {
+   "id": "EV041",
+   "name": "Daniel's Employment Contract",
+   "location": "LOC3",
+   "importance": "low"
+  },
+  {
+   "id": "EV042",
+   "name": "Estate Booking Record",
+   "location": "LOC3",
+   "importance": "medium"
+  },
+  {
+   "id": "EV043",
+   "name": "Jake's Draft Police Statement",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV044",
+   "name": "Calendar Entry: Detective, Monday 9AM",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV045",
+   "name": "Elena's Memorial Shelf",
+   "location": "LOC8",
+   "importance": "low"
+  },
+  {
+   "id": "EV046",
+   "name": "Daniel's Recent Call Log",
+   "location": "LOC8",
+   "importance": "high"
+  },
+  {
+   "id": "EV047",
+   "name": "Candle Wax Pattern",
+   "location": "LOC1",
+   "importance": "medium"
+  },
+  {
+   "id": "EV048",
+   "name": "Group's Verbal Reactions Transcript",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV049",
+   "name": "Leo's Fiancee's Statement",
+   "location": "LOC1",
+   "importance": "medium"
+  },
+  {
+   "id": "EV050",
+   "name": "Medical School Acceptance Letter",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV051",
+   "name": "Final Forensic Poker Match",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV052",
+   "name": "Reconstructed 94-Second Timeline",
+   "location": "LOC1",
+   "importance": "critical"
+  }
+ ],
+ "killer": "Leo Bennett",
+ "key_proof_chain": [
+  "EV013 - Text proving Leo specifically knew about the confession two days prior",
+  "EV007 - CCTV proving Leo's unexplained early presence near the manor",
+  "EV032 - Leo's own inconsistent statement about his movement during the blackout",
+  "EV036 - The exact 94-second blackout window from the fuse box log",
+  "EV051 - Final fingerprint match on the poker",
+  "EV052 - The full reconstructed timeline tying all of the above into one sequence"
+ ]
+}

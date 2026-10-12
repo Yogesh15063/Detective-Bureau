@@ -70,7 +70,10 @@ export interface Suspect {
   motive_on_paper: string;
   secret: string;
   alibi_claim: string;
-  alibi_evidence: string; // master: full truth. player: generic pointer to "check elsewhere in file"
+  alibi_evidence: string;
+  // NEW — progressive reveal (master only, stripped in player view)
+  starts_visible?: boolean;
+  revealed_by?: string[]; // evidence IDs (or witness IDs); any one unlocks this suspect
 }
 
 export interface Witness {

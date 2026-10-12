@@ -2,24 +2,26 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { connectDB } from "@/lib/db/connect";
 import { Investigation } from "@/models/Investigation";
-import { loadPlayerCase } from "@/lib/cases/loadCase";
+import {
+  loadPlayerCase,
+  getUnlockedIds,
+  getSuspectBoard,
+} from "@/lib/cases/loadCase";
 import { runNarratorTurn } from "@/lib/ai/narrator";
 import { validateStateUpdate } from "@/lib/evidence/validate";
 
 /**
  * POST /api/investigation/[caseId]/message
  *
- * Body: { message: string, userId: string }
- * (userId is a temporary placeholder param until Clerk auth is wired in —
- * at that point this will come from the authenticated session instead.)
+ * Body: { message: string }
  *
  * Flow:
  * 1. Load or create this player's Investigation doc for this case.
- * 2. Load the player-safe case file.
- * 3. Run one narrator turn (Gemini call).
- * 4. Apply the returned state update to the Investigation doc.
- * 5. Save conversation history.
- * 6. Return the narrative text to the client.
+ * 2. Work out which suspects are on the board BEFORE this turn.
+ * 3. Load the player-safe case file (hidden suspects masked).
+ * 4. Run one narrator turn (Gemini call).
+ * 5. Apply the returned state update and save.
+ * 6. Work out who is on the board AFTER, so new suspects can be announced.
  */
 export async function POST(
   req: NextRequest,
@@ -47,7 +49,6 @@ export async function POST(
 
     await connectDB();
 
-    // Load or create the investigation doc for this (user, case) pair
     let investigation = await Investigation.findOne({ userId, caseId });
     if (!investigation) {
       investigation = await Investigation.create({ userId, caseId });
@@ -60,7 +61,12 @@ export async function POST(
       );
     }
 
-    const playerCase = await loadPlayerCase(caseId);
+    // Board BEFORE this turn
+    const unlockedBefore = getUnlockedIds(investigation);
+    const boardBefore = await getSuspectBoard(caseId, unlockedBefore);
+
+    // Player-safe case: hidden suspects are removed / masked
+    const playerCase = await loadPlayerCase(caseId, unlockedBefore);
 
     const { narrative, stateUpdate: rawStateUpdate } = await runNarratorTurn(
       playerCase,
@@ -75,17 +81,12 @@ export async function POST(
     );
 
     if (warnings.length > 0) {
-      // These indicate the AI hallucinated an id or skipped a
-      // prerequisite. Not fatal to the player's turn, but worth
-      // watching during testing — if these show up a lot, the system
-      // prompt likely needs tightening.
       console.warn(
         `Narrator state validation warnings for case ${caseId}:`,
         warnings
       );
     }
 
-    // Merge state update into the investigation doc (dedupe with Sets)
     const mergeUnique = (existing: string[], incoming?: string[]) =>
       Array.from(new Set([...existing, ...(incoming ?? [])]));
 
@@ -124,13 +125,22 @@ export async function POST(
       investigation.markModified("milestoneFlags");
     }
 
-    // Append this turn to conversation history
     investigation.conversationHistory.push(
       { role: "player", content: message, timestamp: new Date() },
       { role: "narrator", content: narrative, timestamp: new Date() }
     );
 
     await investigation.save();
+
+    // Board AFTER this turn: anyone not on the old board is newly unlocked
+    const boardAfter = await getSuspectBoard(
+      caseId,
+      getUnlockedIds(investigation)
+    );
+    const beforeIds = new Set(boardBefore.map((s) => s.id));
+    const newlyUnlockedSuspects = boardAfter.filter(
+      (s) => !beforeIds.has(s.id)
+    );
 
     return NextResponse.json({
       narrative,
@@ -141,6 +151,8 @@ export async function POST(
         suspectsInterrogated: investigation.suspectsInterrogated,
         targetEvidenceCount: playerCase.case.target_evidence_count,
       },
+      suspects: boardAfter,
+      newlyUnlockedSuspects,
     });
   } catch (err) {
     console.error("Investigation message error:", err);

@@ -64,7 +64,7 @@ export default function InvestigatePage() {
   const [selectedSuspect, setSelectedSuspect] = useState<string | null>(null);
   const [verdict, setVerdict] = useState<Verdict | null>(null);
   const [accusing, setAccusing] = useState(false);
-
+  const [newPersons, setNewPersons] = useState<NamedEntity[]>([]);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -89,6 +89,11 @@ export default function InvestigatePage() {
           witnessesInterviewed: data.existingProgress.witnessesInterviewed,
           suspectsInterrogated: data.existingProgress.suspectsInterrogated,
         });
+        if (data.suspects) setSuspects(data.suspects);
+        if (data.newlyUnlockedSuspects?.length > 0) {
+          setNewPersons(data.newlyUnlockedSuspects);
+          setTimeout(() => setNewPersons([]), 6000);
+        }
         setCaseStatus(data.existingProgress.status);
         setMessages(
           data.existingProgress.conversationHistory.map(
@@ -359,7 +364,20 @@ export default function InvestigatePage() {
           </button>
         </aside>
       </div>
-
+      {/* NEW PERSON OF INTEREST TOAST */}
+{newPersons.length > 0 && (
+  <div className="fixed top-20 right-6 z-40 bg-charcoal border border-brass/50 rounded px-4 py-3 shadow-lg max-w-xs">
+    <p className="font-mono text-[10px] tracking-widest text-brass mb-1">
+      NEW PERSON OF INTEREST
+    </p>
+    {newPersons.map((p) => (
+      <p key={p.id} className="text-sm text-parchment">
+        {p.name}
+        {p.role ? <span className="text-fog"> · {p.role}</span> : null}
+      </p>
+    ))}
+  </div>
+)}
       {/* ACCUSATION MODAL */}
       {showAccuse && !verdict && (
         <div className="fixed inset-0 bg-ink/90 flex items-center justify-center z-30 p-6">

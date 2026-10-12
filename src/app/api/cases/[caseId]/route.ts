@@ -2,16 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { connectDB } from "@/lib/db/connect";
 import { Investigation } from "@/models/Investigation";
-import { loadPlayerCase } from "@/lib/cases/loadCase";
+import { loadPlayerCase, getUnlockedIds } from "@/lib/cases/loadCase";
 
 /**
  * GET /api/cases/[caseId]
  *
- * Returns the player-safe case intro (via loadPlayerCase, so it's
- * already redacted — no solution, no hidden_truth). If the visitor is
- * logged in and already has an investigation in progress for this
- * case, we also return their existing status/progress so the
- * frontend can offer "continue" instead of "start."
+ * Returns the player-safe case intro. Suspects are filtered by what this
+ * player has unlocked so far (progressive reveal). Visitors who are not
+ * signed in, or have not started, only see the starting suspects.
  */
 export async function GET(
   req: NextRequest,
@@ -19,15 +17,17 @@ export async function GET(
 ) {
   try {
     const { caseId } = await params;
-    const playerCase = await loadPlayerCase(caseId);
 
     const { userId } = await auth();
 
     let existingProgress = null;
+    let unlockedIds: string[] = [];
+
     if (userId) {
       await connectDB();
       const investigation = await Investigation.findOne({ userId, caseId });
       if (investigation) {
+        unlockedIds = getUnlockedIds(investigation);
         existingProgress = {
           status: investigation.status,
           evidenceDiscovered: investigation.evidenceDiscovered,
@@ -39,6 +39,8 @@ export async function GET(
         };
       }
     }
+
+    const playerCase = await loadPlayerCase(caseId, unlockedIds);
 
     return NextResponse.json({
       case: playerCase.case,

@@ -2,27 +2,26 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@clerk/nextjs/server";
 import { connectDB } from "@/lib/db/connect";
 import { Investigation } from "@/models/Investigation";
-import { loadPlayerCase, loadMasterCase } from "@/lib/cases/loadCase";
+import { loadMasterCase, getUnlockedIds } from "@/lib/cases/loadCase";
+import { getVisibleSuspectIds } from "@/lib/cases/redact";
 
 /**
  * POST /api/investigation/[caseId]/accuse
  *
  * Body: { suspectId: string }
  *
- * This is the ONLY place in the entire app allowed to load the master
- * case and compare against `solution.killer`. The result (correct or
- * not) is computed server-side and only the verdict is returned —
- * never the raw master object before this point.
+ * This is the ONLY place in the entire app allowed to compare against
+ * `solution.killer`. Only the verdict is returned, never the raw master
+ * object before the case is concluded.
  *
  * Two-strike rule: a wrong accusation with attempts remaining keeps
- * the investigation open (no spoilers). A second wrong accusation, or
- * exhausting the limit, marks the case "cold" and reveals the truth.
+ * the investigation open. A second wrong accusation marks the case
+ * "cold" and reveals the truth.
  *
- * Evidence gate: an accusation cannot even be filed until the player
- * has discovered the case's curated key_proof_chain — prevents a
- * lucky shallow guess from succeeding without actually building the
- * case. The threshold is server-side only; the player never sees
- * which specific items count toward it.
+ * Evidence gate: the player must have discovered the case's
+ * key_proof_chain before an accusation can be filed.
+ *
+ * Progressive reveal: only suspects the player has unlocked can be accused.
  */
 export async function POST(
   req: NextRequest,
@@ -65,8 +64,20 @@ export async function POST(
       );
     }
 
-    const playerCase = await loadPlayerCase(caseId);
-    const accusedSuspect = playerCase.suspects.find((s) => s.id === suspectId);
+    // Master case: used for solution comparison only, never sent to the
+    // client until the case is concluded below.
+    const masterCase = await loadMasterCase(caseId);
+
+    // Progressive reveal: only unlocked suspects can be accused.
+    // Same error for "hidden" and "doesn't exist" so the API never
+    // confirms that a hidden suspect is real.
+    const visibleIds = getVisibleSuspectIds(
+      masterCase,
+      getUnlockedIds(investigation)
+    );
+    const accusedSuspect = masterCase.suspects.find(
+      (s) => s.id === suspectId && visibleIds.has(s.id)
+    );
     if (!accusedSuspect) {
       return NextResponse.json(
         { error: `Unknown suspect id: ${suspectId}` },
@@ -74,15 +85,9 @@ export async function POST(
       );
     }
 
-    // The one and only place the master file gets loaded during actual
-    // gameplay — for solution comparison only, never sent to the client
-    // until the case is already concluded below.
-    const masterCase = await loadMasterCase(caseId);
+    const evidenceTarget = masterCase.case.target_evidence_count;
 
-    // --- Evidence gate: an accusation can't even be filed until the
-    // player has actually built the case, not just guessed a name.
-    // Uses the case's own curated key_proof_chain as the bar — this
-    // is server-side only, the player never sees which items count.
+    // Evidence gate
     const keyProof = masterCase.solution.key_proof_chain ?? [];
     const discovered = new Set(investigation.evidenceDiscovered);
     const missingKeyEvidence = keyProof.filter((id) => !discovered.has(id));
@@ -94,16 +99,14 @@ export async function POST(
           error:
             "You don't have enough to make this stick yet, Detective. Keep digging.",
           evidenceFound: investigation.evidenceDiscovered.length,
-          evidenceTarget: playerCase.case.target_evidence_count,
+          evidenceTarget,
         },
         { status: 400 }
       );
     }
 
-    // solution.killer is stored as the killer's NAME (e.g. "Warren Pell"),
-    // not a suspect id — so we compare the accused suspect's name, not
-    // the raw id, and do it case/whitespace-insensitively to avoid
-    // silent false negatives from minor formatting differences.
+    // solution.killer is the killer's NAME, so compare names
+    // (case/whitespace-insensitive).
     const normalize = (s: string) => s.trim().toLowerCase();
     const correct =
       normalize(accusedSuspect.name) === normalize(masterCase.solution.killer);
@@ -115,9 +118,6 @@ export async function POST(
       investigation.status = "accused_correct";
     } else {
       investigation.wrongAccusationCount += 1;
-      // Two failed accusations and the file goes cold. Otherwise the
-      // investigation stays open — the player can keep gathering
-      // evidence and try again.
       investigation.status =
         investigation.wrongAccusationCount >= 2 ? "cold" : "in_progress";
     }
@@ -130,7 +130,6 @@ export async function POST(
     );
 
     const evidenceFound = investigation.evidenceDiscovered.length;
-    const evidenceTarget = playerCase.case.target_evidence_count;
     const investigationScorePercent = Math.min(
       100,
       Math.round((evidenceFound / evidenceTarget) * 100)
@@ -141,9 +140,6 @@ export async function POST(
       concluded,
       attemptsRemaining: concluded ? 0 : attemptsRemaining,
       accusedSuspectId: suspectId,
-      // Solution only revealed once the file is actually closed
-      // (correct, or out of attempts) — a wrong guess with retries
-      // left should not spoil the case.
       actualKiller: concluded ? masterCase.solution.killer : null,
       verdict: concluded
         ? {

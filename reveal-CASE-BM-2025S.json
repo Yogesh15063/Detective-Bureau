@@ -1,0 +1,1350 @@
+{
+  "case": {
+    "id": "CASE-BM-2025S",
+    "title": "The Last Séance",
+    "town": "Millhaven",
+    "population": 14200,
+    "date_body_discovered": "2025-10-18",
+    "date_of_death": "2025-10-18",
+    "central_mystery": "Five college friends held one last reunion at abandoned Blackwood Manor before life pulled them apart. During a Ouija board session, the board spelled a single word — LIAR — moments before the manor lost power. When the lights came back, Jake Whitfield was dead by the fireplace, struck once with an iron poker. Everyone swears nobody moved in the dark.",
+    "victim_name": "Jake Whitfield",
+    "why_no_direct_evidence_exists": "The blackout lasted under two minutes, was genuinely unplanned by the killer, and covered the only window in which the murder could have occurred. No camera exists inside the manor. Every other piece of the truth is buried in a three-year-old cover-up none of the friends have ever discussed outside their own circle.",
+    "target_evidence_count": 52,
+    "cover_image": ""
+  },
+  "weather": {
+    "general_pattern": "Cold, clear autumn night, no storm. Full moon obscured by high cloud after 10 PM.",
+    "log": [
+      {
+        "date": "2025-10-18",
+        "time": "20:00",
+        "condition": "Clear, 48F"
+      },
+      {
+        "date": "2025-10-18",
+        "time": "22:15",
+        "condition": "Cloud cover thickens, 41F"
+      },
+      {
+        "date": "2025-10-18",
+        "time": "23:40",
+        "condition": "Clear again, 38F"
+      }
+    ],
+    "relevance_to_case": "Clear weather rules out a storm-caused power outage, making the manor's blackout suspicious in isolation until it is traced to a genuinely mundane cause: a groundskeeper working on a failing fuse box."
+  },
+  "victim": {
+    "name": "Jake Whitfield",
+    "age": 24,
+    "occupation": "Junior copywriter, recently started therapy",
+    "physical_description": "Tall, lean, prematurely tired-looking for his age. Wore a plain silver ring he never explained.",
+    "personality": "Warm but increasingly withdrawn over the past year. The one who kept the friend group together for years; lately the one pulling away from it.",
+    "family": {
+      "mother": "Deceased, 2019",
+      "father": "Estranged, lives out of state"
+    },
+    "current_project": "Had been quietly seeing a therapist for eight months and had recently decided to go to the police about an incident from three years ago.",
+    "last_seen_alive": "Seated at the seance table in the manor's drawing room, seconds before the power failed.",
+    "missing_items": "None. His phone, wallet, and belongings were untouched."
+  },
+  "suspects": [
+    {
+      "id": "SUS1",
+      "name": "Leo Bennett",
+      "age": 25,
+      "role": "Medical student, engaged to be married in the spring",
+      "relationship_to_victim": "One of Jake's four closest friends since freshman year",
+      "personality": "Controlled, articulate, the group's natural leader. Good at staying calm, almost too good, under pressure.",
+      "motive_on_paper": "None visible. No known conflict with Jake; by all accounts they were close.",
+      "secret": "Killed Jake in the blackout to prevent him from confessing to a hit-and-run the five of them covered up three years ago, which would end Leo's medical career and engagement.",
+      "alibi_claim": "Says he was seated directly across the seance table from Jake the entire time, and ran toward the sound of Jake falling the instant the lights returned.",
+      "alibi_evidence": "No one can confirm exact positions in the dark, which is precisely why his claim has never been challenged directly.",
+      "revealed_by": [
+        "EV006",
+        "EV007",
+        "EV008",
+        "EV013",
+        "EV021",
+        "EV025",
+        "EV032",
+        "EV033",
+        "EV049",
+        "EV050",
+        "EV051",
+        "EV052",
+        "WIT1",
+        "WIT3"
+      ]
+    },
+    {
+      "id": "SUS2",
+      "name": "Sam Ostrowski",
+      "age": 24,
+      "role": "IT support technician, amateur electronics hobbyist",
+      "relationship_to_victim": "Longtime friend, known for pranks and elaborate jokes",
+      "personality": "Nervous energy, over-explains things when anxious, genuinely liked by the group.",
+      "motive_on_paper": "None for murder. Has an obvious, embarrassing reason to lie about the seance itself.",
+      "secret": "Rigged the Ouija board with a hidden wireless vibration motor as a prank. After Jake's death, panicked that he'd be blamed for planning a murder, and secretly removed the device from under the table and hid it in Priya's backpack.",
+      "alibi_claim": "Claims he never touched the board and has no idea how it moved.",
+      "alibi_evidence": "Denies everything about the device until confronted with purchase and forum evidence.",
+      "revealed_by": [
+        "EV003",
+        "EV005",
+        "EV037",
+        "EV038",
+        "EV048"
+      ]
+    },
+    {
+      "id": "SUS3",
+      "name": "Priya Anand",
+      "age": 24,
+      "role": "Paralegal, applying to law school",
+      "relationship_to_victim": "Close friend since freshman year",
+      "personality": "Precise, guarded, visibly the most anxious of the group even before the murder.",
+      "motive_on_paper": "The rigging device was found in her bag, making her the apparent architect of the seance's fear campaign, and by extension, a suspect in staging conditions for murder.",
+      "secret": "Was in the car the night of the hit-and-run three years ago and has been secretly sending money to the victim's family ever since, without telling the others.",
+      "alibi_claim": "Says she has no idea how the device got into her bag and was nowhere near the table when the lights went out.",
+      "alibi_evidence": "Her bag was on the floor near the room's entrance, several feet from the table, physically awkward for her to have planted anything under it herself.",
+      "revealed_by": [
+        "EV002",
+        "EV004",
+        "EV028",
+        "EV039",
+        "EV040"
+      ]
+    },
+    {
+      "id": "SUS4",
+      "name": "Mia Torres",
+      "age": 24,
+      "role": "Recently engaged, works in event planning",
+      "relationship_to_victim": "Close friend since freshman year",
+      "personality": "Warm in public, sharp and controlling in private moments; the most emotionally invested in the group's silence staying intact.",
+      "motive_on_paper": "Had a heated, witnessed argument with Jake the day before his death, begging him not to go to the police.",
+      "secret": "Genuinely tried to talk Jake out of confessing, out of fear for her own upcoming wedding and reputation, but did not kill him.",
+      "alibi_claim": "Says she was standing near Leo throughout the blackout.",
+      "alibi_evidence": "True, but her presence near Leo is exactly why no one thought to separate their accounts.",
+      "starts_visible": true
+    },
+    {
+      "id": "SUS5",
+      "name": "Daniel Reyes",
+      "age": 29,
+      "role": "Part-time caretaker of the Blackwood estate grounds",
+      "relationship_to_victim": "Younger brother of Elena Reyes, killed in the hit-and-run three years ago. Secretly contacted by Jake weeks before his death.",
+      "personality": "Quiet, guarded around outsiders, carries old grief without performing it.",
+      "motive_on_paper": "Once the hit-and-run is uncovered, has the single clearest revenge motive of anyone in the case, plus keys and legitimate access to the manor.",
+      "secret": "Was on the grounds that night repairing a failing fuse box, the real, mundane cause of the blackout, and had already privately forgiven Jake after receiving his apology.",
+      "alibi_claim": "Says he was in the manor's old cellar junction box the entire evening and never entered the drawing room.",
+      "alibi_evidence": "No one saw him there directly, since the seance group assumed the manor was empty aside from themselves.",
+      "starts_visible": true
+    }
+  ],
+  "witnesses": [
+    {
+      "id": "WIT1",
+      "name": "Ruth Calloway",
+      "role": "Night clerk, Millhaven Fuel and Grocery",
+      "statement": "Recognized Leo's blue sedan passing the station twice that night, once around 7:40 PM alone, and again near 9:15 PM with the full group.",
+      "truthfulness": "Fully truthful, has no reason to lie.",
+      "reliability": "High, station till receipts corroborate her timeline independently."
+    },
+    {
+      "id": "WIT2",
+      "name": "Denise Okafor",
+      "role": "Waitress, The Copper Kettle Diner",
+      "statement": "Overheard Mia and Jake arguing in a booth the afternoon before his death, Mia crying, saying 'you'll ruin everything,' Jake calm and apologetic.",
+      "truthfulness": "Truthful, recalls it clearly because it was unusually tense for the group.",
+      "reliability": "High."
+    },
+    {
+      "id": "WIT3",
+      "name": "Frank Doyle",
+      "role": "Bartender, Frank's Tavern",
+      "statement": "Leo came in alone around 8 PM, ordered a drink he barely touched, checked his phone repeatedly, and left after twenty minutes looking unsettled.",
+      "truthfulness": "Truthful.",
+      "reliability": "Medium-high, exact time is an estimate, not a till timestamp."
+    },
+    {
+      "id": "WIT4",
+      "name": "Helen Reyes",
+      "role": "Daniel's mother, Elena's mother",
+      "statement": "Confirms she has received anonymous money transfers for two years, always memo'd only with a small flower emoji, and confirms Daniel had no plan to confront anyone, he told her he'd already 'let it go' after a recent call from one of Elena's old friends.",
+      "truthfulness": "Fully truthful, speaks with quiet grief rather than anger.",
+      "reliability": "High."
+    }
+  ],
+  "vehicles": [
+    {
+      "owner": "Leo Bennett",
+      "vehicle": "Blue 2019 sedan",
+      "relevant_movement": "Passed Millhaven Fuel and Grocery alone at 7:40 PM, nearly two hours before the group's agreed 9:00 PM arrival time, then again with the group at 9:15 PM."
+    },
+    {
+      "owner": "Group (rented from Mia)",
+      "vehicle": "Silver minivan",
+      "relevant_movement": "Left Mia's apartment at 8:50 PM carrying Mia, Sam, Priya, and Jake; arrived at the manor gate at 9:12 PM."
+    }
+  ],
+  "cctv": [
+    {
+      "camera": "Millhaven Fuel and Grocery, forecourt",
+      "time_range": "19:35-19:45",
+      "footage": "Leo's sedan pulls in alone, he buys nothing, sits in the car for six minutes, then drives off toward the manor road rather than back toward town.",
+      "status": "Recovered, timestamp verified against station register."
+    },
+    {
+      "camera": "Millhaven Fuel and Grocery, forecourt",
+      "time_range": "21:10-21:20",
+      "footage": "Same sedan passes again, now with four visible passengers, consistent with the group's stated arrival time.",
+      "status": "Recovered."
+    },
+    {
+      "camera": "Frank's Tavern, interior",
+      "time_range": "20:00-20:25",
+      "footage": "Leo alone at the bar, visibly checking his phone repeatedly.",
+      "status": "Recovered, low resolution but timestamp intact."
+    }
+  ],
+  "phone_calls": [
+    {
+      "from": "Jake Whitfield",
+      "to": "Leo Bennett",
+      "time": "2025-10-16 21:47",
+      "duration": "11 minutes",
+      "content_summary": "Phone company records confirm the call occurred; content unknown, but this is the call in which Jake privately told Leo he intended to go to the police that Monday."
+    }
+  ],
+  "messages": [
+    {
+      "from": "Jake Whitfield",
+      "to": "Leo Bennett",
+      "time": "2025-10-16 22:03",
+      "text": "I know this changes everything for you especially. I'm still doing it Monday. I just needed you to hear it from me first."
+    },
+    {
+      "from": "Mia Torres",
+      "to": "Jake Whitfield",
+      "time": "2025-10-17 15:12",
+      "text": "Please don't do this. You're not the only one this destroys."
+    },
+    {
+      "from": "Jake Whitfield",
+      "to": "Mia Torres",
+      "time": "2025-10-17 15:20",
+      "text": "I've carried it for three years, Mia. I can't anymore. I'm not naming anyone who doesn't want to be named."
+    }
+  ],
+  "emails": [],
+  "bank_records": [
+    {
+      "account_holder": "Priya Anand",
+      "transaction": "Recurring transfer to Helen Reyes, memo: small flower emoji only",
+      "amount": "$200/month for 24 months",
+      "purpose_established": "Anonymous guilt payments following the hit-and-run three years ago.",
+      "relevance": "Confirms Priya's presence in the cover-up and ongoing guilt, unrelated to the murder itself, a red herring for the murder but real evidence toward the hit-and-run."
+    }
+  ],
+  "locations": [
+    {
+      "id": "LOC1",
+      "name": "The Drawing Room (Seance Room)",
+      "description": "Where the seance and murder took place. Circular table at the center, an old stone fireplace with an iron poker set along the east wall.",
+      "searchable_objects": [
+        "seance table",
+        "fireplace and poker stand",
+        "floorboards beneath the table",
+        "window latches"
+      ],
+      "possible_tests": [
+        "fingerprint dust on poker",
+        "UV light for cleaned bloodstains",
+        "luminol on floorboards"
+      ],
+      "hidden_items": [
+        "EV014",
+        "EV015",
+        "EV031"
+      ],
+      "repeat_search_changes": "A second search with better lighting reveals a faint drag mark near the fireplace inconsistent with a fall."
+    },
+    {
+      "id": "LOC2",
+      "name": "Manor Study",
+      "description": "Small side room where Mia and Leo claim to have been standing during the blackout.",
+      "searchable_objects": [
+        "dusty bookshelf",
+        "cold stove",
+        "old sofa"
+      ],
+      "possible_tests": [
+        "dust disturbance analysis on the floor"
+      ],
+      "hidden_items": [
+        "EV022"
+      ],
+      "repeat_search_changes": "None."
+    },
+    {
+      "id": "LOC3",
+      "name": "Manor Cellar and Fuse Room",
+      "description": "Where Daniel Reyes was working on the failing electrical panel the night of the murder.",
+      "searchable_objects": [
+        "fuse box",
+        "toolbox",
+        "work log notebook"
+      ],
+      "possible_tests": [
+        "timestamp check on the fuse box repair log"
+      ],
+      "hidden_items": [
+        "EV041",
+        "EV042"
+      ],
+      "repeat_search_changes": "None."
+    },
+    {
+      "id": "LOC4",
+      "name": "Manor Grounds and Driveway",
+      "description": "The gravel approach to the manor, gate, and tree line.",
+      "searchable_objects": [
+        "gate log book kept by caretaker",
+        "tire tracks",
+        "footprints near the tree line"
+      ],
+      "possible_tests": [
+        "tire tread comparison",
+        "shoe print casting"
+      ],
+      "hidden_items": [
+        "EV009",
+        "EV010"
+      ],
+      "repeat_search_changes": "None."
+    },
+    {
+      "id": "LOC5",
+      "name": "Millhaven Fuel and Grocery",
+      "description": "Gas station on the road between town and the manor.",
+      "searchable_objects": [
+        "till register logs",
+        "security camera system"
+      ],
+      "possible_tests": [
+        "timestamp verification"
+      ],
+      "hidden_items": [
+        "EV006",
+        "EV007"
+      ],
+      "repeat_search_changes": "None."
+    },
+    {
+      "id": "LOC6",
+      "name": "The Copper Kettle Diner",
+      "description": "Where Mia and Jake argued the day before his death.",
+      "searchable_objects": [
+        "seating booth records",
+        "staff schedule"
+      ],
+      "possible_tests": [],
+      "hidden_items": [
+        "EV018"
+      ],
+      "repeat_search_changes": "None."
+    },
+    {
+      "id": "LOC7",
+      "name": "Frank's Tavern",
+      "description": "Where Leo stopped alone before the manor gathering.",
+      "searchable_objects": [
+        "bar camera system",
+        "tab receipts"
+      ],
+      "possible_tests": [],
+      "hidden_items": [
+        "EV008"
+      ],
+      "repeat_search_changes": "None."
+    },
+    {
+      "id": "LOC8",
+      "name": "Reyes Family Home",
+      "description": "Helen Reyes' home, where Daniel lives.",
+      "searchable_objects": [
+        "mail and bank statements",
+        "a small memorial shelf for Elena"
+      ],
+      "possible_tests": [],
+      "hidden_items": [
+        "EV045",
+        "EV046"
+      ],
+      "repeat_search_changes": "None."
+    }
+  ],
+  "building_layout": {
+    "blackwood_manor": {
+      "ground_floor": [
+        "Drawing Room",
+        "Study",
+        "Kitchen",
+        "Entrance Hall"
+      ],
+      "cellar": [
+        "Fuse Room",
+        "Old Wine Storage"
+      ],
+      "access_summary": "Single main entrance, one side door near the kitchen usually locked from outside, cellar accessible via a hatch in the kitchen floor."
+    }
+  },
+  "crime_scene": {
+    "location": "The Drawing Room, beside the fireplace",
+    "condition_on_discovery": "Jake found face-down near the hearth, seance circle broken, candles knocked over but not burning anything.",
+    "initial_assumption": "A fall in the dark during panic when the lights failed.",
+    "actual_nature": "A single deliberate strike to the back of the skull with the fireplace poker, delivered during the blackout, then staged to look like Jake had simply fallen and struck his head.",
+    "key_scene_contradiction": "The wound pattern is inconsistent with a fall, a fall would strike the front or side of the skull as a person stumbles forward, not the precise rear strike found here."
+  },
+  "autopsy": {
+    "victim": "Jake Whitfield",
+    "cause_of_death": "Single blunt force trauma to the occipital region of the skull",
+    "time_of_death_estimate": "Within the blackout window, approximately 21:47-21:49",
+    "additional_findings": [
+      "No defensive wounds, Jake did not see the strike coming",
+      "No signs of a struggle beforehand",
+      "Death would have been rapid, within a minute or two of the blow"
+    ],
+    "conclusion": "Homicide, not an accidental fall. The strike required precision inconsistent with panic or random stumbling in the dark."
+  },
+  "forensics": [
+    {
+      "item": "Fireplace poker",
+      "finding": "Wiped clean of prints, but one partial print recovered near the handle's base, consistent with Leo Bennett's right hand once compared against a voluntarily provided sample.",
+      "plausibility_note": "Leo's explanation, that he touched the poker earlier in the evening while adding wood to the fire, is plausible on its own, which is why this alone isn't conclusive without the timeline evidence."
+    },
+    {
+      "item": "Hidden Ouija board device",
+      "finding": "A small wireless vibration motor with a phone-paired remote trigger, recovered from Priya's backpack. Fingerprint analysis shows Sam Ostrowski's prints on the device's internals, with only smudged, non-matching prints on the bag's exterior zipper.",
+      "plausibility_note": "The device's internal prints prove who built and operated it; the mismatch on the bag proves it was placed there by someone other than its owner."
+    },
+    {
+      "item": "Leo's shoes",
+      "finding": "Trace soil matching the manor's gravel driveway found in the tread, in a pattern consistent with two separate visits rather than one.",
+      "plausibility_note": "Consistent with the gas station footage showing him passing the manor road nearly two hours before the group's arrival."
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EV001",
+      "name": "Seance Table Underside Residue",
+      "description": "Faint adhesive residue on the underside of the table, consistent with tape once used to mount something.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Examine the seance table closely.",
+      "linked_evidence": [],
+      "importance": "medium",
+      "why_it_exists": "Physical remnant of Sam's original taping of the device before he removed it."
+    },
+    {
+      "id": "EV002",
+      "name": "Vibration Motor Device",
+      "description": "A small wireless-triggered vibration motor with a paired remote app, found zipped inside Priya's backpack.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Search bags left in the drawing room.",
+      "linked_evidence": [
+        "EV001"
+      ],
+      "importance": "critical",
+      "why_it_exists": "The physical object at the center of the seance mystery, planted evidence Sam moved after the murder."
+    },
+    {
+      "id": "EV003",
+      "name": "Device Internal Fingerprints",
+      "description": "Forensic analysis of the device's internal components shows fingerprints matching Sam Ostrowski.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request forensic fingerprint analysis on the recovered device.",
+      "linked_evidence": [
+        "EV002"
+      ],
+      "importance": "critical",
+      "why_it_exists": "Proves Sam built and operated the device, regardless of where it was found."
+    },
+    {
+      "id": "EV004",
+      "name": "Bag Zipper Print Mismatch",
+      "description": "The zipper pull of Priya's bag shows only smudged prints inconsistent with a clean plant by its owner.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request forensic analysis of the bag's exterior.",
+      "linked_evidence": [
+        "EV002"
+      ],
+      "importance": "high",
+      "why_it_exists": "Suggests the device was placed into the bag by someone else, after the fact."
+    },
+    {
+      "id": "EV005",
+      "name": "Online Hobbyist Forum Post",
+      "description": "A post under Sam's known username, three months prior, asking about wireless vibration motors small enough to hide under a table for a prank.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request a records check on Sam's known online accounts.",
+      "linked_evidence": [],
+      "importance": "high",
+      "why_it_exists": "Establishes premeditation of the prank, unrelated to any murder plan."
+    },
+    {
+      "id": "EV006",
+      "name": "Gas Station Till Log, 19:40",
+      "description": "Register timestamp showing no purchase, but a car matching Leo's plate idling at pump 3.",
+      "location": "LOC5",
+      "discoverable": true,
+      "required_action": "Request the gas station's till and camera records.",
+      "linked_evidence": [],
+      "importance": "high",
+      "why_it_exists": "First hard evidence Leo was near the manor far earlier than he claims."
+    },
+    {
+      "id": "EV007",
+      "name": "Gas Station CCTV, 19:35-19:45",
+      "description": "Footage of Leo's sedan passing alone, sitting briefly, then continuing toward the manor road.",
+      "location": "LOC5",
+      "discoverable": true,
+      "required_action": "Request CCTV footage from the station.",
+      "linked_evidence": [
+        "EV006"
+      ],
+      "importance": "critical",
+      "why_it_exists": "Visual confirmation of Leo's early, unexplained presence near the manor."
+    },
+    {
+      "id": "EV008",
+      "name": "Tavern Tab Receipt",
+      "description": "A single drink, mostly untouched, paid by card under Leo's name at 8:04 PM.",
+      "location": "LOC7",
+      "discoverable": true,
+      "required_action": "Request receipts from Frank's Tavern.",
+      "linked_evidence": [],
+      "importance": "medium",
+      "why_it_exists": "Corroborates the timeline of Leo's anxious solo movements before the reunion."
+    },
+    {
+      "id": "EV009",
+      "name": "Gate Log Book Entry",
+      "description": "Daniel's handwritten caretaker log shows an entry for recurring fuse box fault logged earlier that week.",
+      "location": "LOC4",
+      "discoverable": true,
+      "required_action": "Search the manor grounds for caretaker records.",
+      "linked_evidence": [],
+      "importance": "medium",
+      "why_it_exists": "Establishes the fuse box problem was real and pre-existing, not staged."
+    },
+    {
+      "id": "EV010",
+      "name": "Tire Tread Near Gate",
+      "description": "A second, earlier set of tire impressions near the gate distinct from the group's later arrival tracks.",
+      "location": "LOC4",
+      "discoverable": true,
+      "required_action": "Request a tread comparison of vehicle tracks at the gate.",
+      "linked_evidence": [
+        "EV007"
+      ],
+      "importance": "high",
+      "why_it_exists": "Physical corroboration of Leo's early visit to the property."
+    },
+    {
+      "id": "EV011",
+      "name": "Jake's Therapy Appointment Log",
+      "description": "Confirms eight months of regular sessions; content is privileged, but the pattern of increasing frequency in the final month is on record.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request Jake's appointment records with next of kin consent.",
+      "linked_evidence": [],
+      "importance": "medium",
+      "why_it_exists": "Establishes Jake's psychological state and timeline of building toward a decision."
+    },
+    {
+      "id": "EV012",
+      "name": "Jake's Personal Journal",
+      "description": "A journal entry dated one week before his death: I've decided. Monday. I owe her that much, even if it costs me everyone else.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Search Jake's belongings.",
+      "linked_evidence": [
+        "EV011"
+      ],
+      "importance": "critical",
+      "why_it_exists": "Direct evidence of Jake's decision to confess, and the timeline it was made on."
+    },
+    {
+      "id": "EV013",
+      "name": "Text Message: Jake to Leo, Oct 16",
+      "description": "I know this changes everything for you especially. I'm still doing it Monday. I just needed you to hear it from me first.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request Jake's phone message records.",
+      "linked_evidence": [
+        "EV012"
+      ],
+      "importance": "critical",
+      "why_it_exists": "Direct proof Leo specifically knew and had the strongest personal stake in stopping it."
+    },
+    {
+      "id": "EV014",
+      "name": "Poker Partial Print",
+      "description": "A partial print near the poker's handle base, not fully wiped.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request forensic analysis of the fireplace poker.",
+      "linked_evidence": [],
+      "importance": "critical",
+      "why_it_exists": "Physical link between the murder weapon and its user."
+    },
+    {
+      "id": "EV015",
+      "name": "Fireplace Ash Disturbance",
+      "description": "Ash swept slightly, as if something was quickly wiped near the hearth.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Examine the fireplace area closely.",
+      "linked_evidence": [],
+      "importance": "medium",
+      "why_it_exists": "Physical trace of the killer wiping the weapon in a hurry."
+    },
+    {
+      "id": "EV016",
+      "name": "Autopsy Report",
+      "description": "Confirms a single rear skull strike, no defensive wounds, death within the blackout window.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request the autopsy findings.",
+      "linked_evidence": [],
+      "importance": "critical",
+      "why_it_exists": "Establishes the medical reality contradicting the accidental fall assumption."
+    },
+    {
+      "id": "EV017",
+      "name": "Wound Angle Analysis",
+      "description": "The strike angle is inconsistent with a forward fall onto the hearth.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request a forensic wound-angle consultation.",
+      "linked_evidence": [
+        "EV016"
+      ],
+      "importance": "critical",
+      "why_it_exists": "Rules out the he simply fell theory conclusively."
+    },
+    {
+      "id": "EV018",
+      "name": "Diner Staff Statement",
+      "description": "Denise Okafor recalls Mia crying and saying you'll ruin everything to Jake the day before his death.",
+      "location": "LOC6",
+      "discoverable": true,
+      "required_action": "Interview diner staff about the day before the incident.",
+      "linked_evidence": [],
+      "importance": "high",
+      "why_it_exists": "Establishes Mia's motive on paper, a genuine red herring."
+    },
+    {
+      "id": "EV019",
+      "name": "Text Message: Mia to Jake, Oct 17",
+      "description": "Please don't do this. You're not the only one this destroys.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request Jake's phone message records.",
+      "linked_evidence": [
+        "EV018"
+      ],
+      "importance": "high",
+      "why_it_exists": "Direct written confirmation of Mia's desperation, deepening suspicion of her before it's cleared."
+    },
+    {
+      "id": "EV020",
+      "name": "Text Message: Jake to Mia, Oct 17",
+      "description": "I've carried it for three years, Mia. I can't anymore. I'm not naming anyone who doesn't want to be named.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request Jake's phone message records.",
+      "linked_evidence": [
+        "EV019"
+      ],
+      "importance": "high",
+      "why_it_exists": "Shows Jake intended a measured, protective confession, undercutting any theory that he was about to name Mia specifically."
+    },
+    {
+      "id": "EV021",
+      "name": "Mia's Own Alibi Statement",
+      "description": "Mia states she was standing beside Leo the entire blackout.",
+      "location": "LOC2",
+      "discoverable": true,
+      "required_action": "Interview Mia about her position during the blackout.",
+      "linked_evidence": [],
+      "importance": "medium",
+      "why_it_exists": "True, but incidentally shields Leo rather than incriminating her."
+    },
+    {
+      "id": "EV022",
+      "name": "Study Room Dust Disturbance",
+      "description": "Floor dust in the study shows two sets of stationary footprints, consistent with two people standing still.",
+      "location": "LOC2",
+      "discoverable": true,
+      "required_action": "Examine the study floor.",
+      "linked_evidence": [
+        "EV021"
+      ],
+      "importance": "medium",
+      "why_it_exists": "Physical corroboration that Mia genuinely didn't move, narrowing suspicion away from her."
+    },
+    {
+      "id": "EV023",
+      "name": "Old Police Report, 2022 Hit-and-Run",
+      "description": "Unsolved case file: Elena Reyes, 26, struck and killed by an unidentified vehicle, no arrests made.",
+      "location": "LOC8",
+      "discoverable": true,
+      "required_action": "Request archived police records for unsolved cases three years prior.",
+      "linked_evidence": [],
+      "importance": "critical",
+      "why_it_exists": "The root event the entire case pivots on."
+    },
+    {
+      "id": "EV024",
+      "name": "Elena Reyes Obituary",
+      "description": "Local newspaper obituary, confirms date and circumstances.",
+      "location": "LOC8",
+      "discoverable": true,
+      "required_action": "Search local newspaper archives.",
+      "linked_evidence": [
+        "EV023"
+      ],
+      "importance": "medium",
+      "why_it_exists": "Corroborates the timeline and identity of the victim from three years ago."
+    },
+    {
+      "id": "EV025",
+      "name": "Body Shop Repair Receipt",
+      "description": "A receipt for front bumper and headlight repair on a vehicle registered to Leo Bennett's family, dated two days after Elena's death.",
+      "location": "LOC4",
+      "discoverable": true,
+      "required_action": "Request vehicle repair records around the date of the old hit-and-run.",
+      "linked_evidence": [
+        "EV023"
+      ],
+      "importance": "critical",
+      "why_it_exists": "Direct physical link between the friend group's vehicle and the original crime."
+    },
+    {
+      "id": "EV026",
+      "name": "Group Chat Fragment (Recovered)",
+      "description": "A partially recovered deleted message thread from three years ago: We never talk about tonight again. Ever. Sent to all five friends.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request phone forensic recovery on old deleted messages, with consent or warrant.",
+      "linked_evidence": [
+        "EV025"
+      ],
+      "importance": "critical",
+      "why_it_exists": "Direct proof of the five-way pact and cover-up."
+    },
+    {
+      "id": "EV027",
+      "name": "Insurance Claim Inconsistency",
+      "description": "The claim filed for the vehicle repair describes a deer strike, inconsistent with the body shop's internal damage assessment notes.",
+      "location": "LOC4",
+      "discoverable": true,
+      "required_action": "Cross-reference the insurance claim with body shop records.",
+      "linked_evidence": [
+        "EV025"
+      ],
+      "importance": "high",
+      "why_it_exists": "Shows deliberate falsification to hide the true cause of the damage."
+    },
+    {
+      "id": "EV028",
+      "name": "Priya's Bank Transfer Records",
+      "description": "Recurring $200 monthly transfers to Helen Reyes for two years, memo'd only with a flower emoji.",
+      "location": "LOC8",
+      "discoverable": true,
+      "required_action": "Request Priya's financial records with a warrant.",
+      "linked_evidence": [
+        "EV023"
+      ],
+      "importance": "high",
+      "why_it_exists": "Confirms Priya's guilt and involvement in the old cover-up, separate from the murder."
+    },
+    {
+      "id": "EV029",
+      "name": "Helen Reyes' Witness Statement",
+      "description": "Confirms the anonymous payments and states Daniel had already let it go recently after a call from one of Elena's old friends.",
+      "location": "LOC8",
+      "discoverable": true,
+      "required_action": "Interview Helen Reyes.",
+      "linked_evidence": [
+        "EV028"
+      ],
+      "importance": "high",
+      "why_it_exists": "Both confirms Priya's payments and clears Daniel of any active revenge motive."
+    },
+    {
+      "id": "EV030",
+      "name": "Jake's Voicemail to Daniel Reyes",
+      "description": "A voicemail, saved by Daniel, in which Jake privately apologizes and says he intends to make it right through the police, the real way, not just money.",
+      "location": "LOC8",
+      "discoverable": true,
+      "required_action": "Ask Daniel directly whether Jake ever contacted him.",
+      "linked_evidence": [
+        "EV029"
+      ],
+      "importance": "critical",
+      "why_it_exists": "Proves Jake reached out to the Reyes family before his death, and that Daniel had no unresolved motive left."
+    },
+    {
+      "id": "EV031",
+      "name": "Seance Circle Position Diagram",
+      "description": "A diagram reconstructed from each friend's statement showing claimed seating positions during the blackout.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Interview all four surviving friends about exactly where they were sitting.",
+      "linked_evidence": [],
+      "importance": "high",
+      "why_it_exists": "The reconstructed map is what first reveals Leo's account doesn't match the physical distance to the body."
+    },
+    {
+      "id": "EV032",
+      "name": "Leo's Inconsistent Position Statement",
+      "description": "Leo initially says he never left his chair; later says he took a step to steady himself when the lights went out.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Re-interview Leo about his exact movements.",
+      "linked_evidence": [
+        "EV031"
+      ],
+      "importance": "critical",
+      "why_it_exists": "A small but real inconsistency that opens the door to further scrutiny of his alibi."
+    },
+    {
+      "id": "EV033",
+      "name": "Leo's Shoe Soil Analysis",
+      "description": "Soil in Leo's shoe tread matches the manor's gravel driveway in a layered pattern consistent with two separate visits.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request forensic soil analysis on Leo's shoes.",
+      "linked_evidence": [
+        "EV010"
+      ],
+      "importance": "high",
+      "why_it_exists": "Physically corroborates the earlier, unexplained visit shown on gas station footage."
+    },
+    {
+      "id": "EV034",
+      "name": "Fuse Box Repair Log",
+      "description": "Daniel's handwritten log timestamps his cellar work between 8:50 PM and 10:10 PM the night of the murder.",
+      "location": "LOC3",
+      "discoverable": true,
+      "required_action": "Search the cellar fuse room.",
+      "linked_evidence": [
+        "EV009"
+      ],
+      "importance": "high",
+      "why_it_exists": "Establishes Daniel's real, mundane presence and the genuine cause of the blackout."
+    },
+    {
+      "id": "EV035",
+      "name": "Daniel's Toolbox",
+      "description": "Contains only electrical tools, no weapon, consistent with legitimate repair work.",
+      "location": "LOC3",
+      "discoverable": true,
+      "required_action": "Search the cellar for tools.",
+      "linked_evidence": [
+        "EV034"
+      ],
+      "importance": "low",
+      "why_it_exists": "Rules out Daniel's toolbox as a weapon source."
+    },
+    {
+      "id": "EV036",
+      "name": "Manor Blackout Duration Log",
+      "description": "The fuse box's internal fault recorder shows the outage lasted exactly 94 seconds.",
+      "location": "LOC3",
+      "discoverable": true,
+      "required_action": "Request the fuse box's internal diagnostic log.",
+      "linked_evidence": [
+        "EV034"
+      ],
+      "importance": "critical",
+      "why_it_exists": "Establishes the precise, narrow window in which the murder had to occur."
+    },
+    {
+      "id": "EV037",
+      "name": "Sam's Panic Text to a Friend (Not in Group)",
+      "description": "Sent an hour after the murder: I did something stupid before all this happened and now I don't know what to do. It looks so much worse than it is.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request Sam's phone message records.",
+      "linked_evidence": [
+        "EV005"
+      ],
+      "importance": "high",
+      "why_it_exists": "Shows Sam's panic and guilt over the prank and frame-up, not the murder itself."
+    },
+    {
+      "id": "EV038",
+      "name": "Sam's Purchase Record",
+      "description": "An online order three months prior for a mini wireless vibration motor kit, delivered to Sam's address.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request Sam's online purchase history with consent or warrant.",
+      "linked_evidence": [
+        "EV005"
+      ],
+      "importance": "high",
+      "why_it_exists": "Concrete proof Sam planned the prank well before the reunion."
+    },
+    {
+      "id": "EV039",
+      "name": "Priya's Bag Position Statement",
+      "description": "Priya states her bag was left by the entrance, not near the table, when the seance began.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Interview Priya about where she left her belongings.",
+      "linked_evidence": [
+        "EV004"
+      ],
+      "importance": "medium",
+      "why_it_exists": "Supports the theory that someone moved the device to her bag after the fact, rather than her having placed it there herself."
+    },
+    {
+      "id": "EV040",
+      "name": "Corroborating Friend Statement on Bag Placement",
+      "description": "Mia independently confirms Priya's bag was by the door, not the table, all evening.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Interview Mia about where everyone's belongings were left.",
+      "linked_evidence": [
+        "EV039"
+      ],
+      "importance": "medium",
+      "why_it_exists": "Independent corroboration strengthens the frame-up theory over Priya's guilt."
+    },
+    {
+      "id": "EV041",
+      "name": "Daniel's Employment Contract",
+      "description": "Confirms his legitimate, longstanding role as part-time caretaker, predating any connection to the friend group's reunion booking.",
+      "location": "LOC3",
+      "discoverable": true,
+      "required_action": "Request Daniel's employment records for the estate.",
+      "linked_evidence": [],
+      "importance": "low",
+      "why_it_exists": "Establishes his presence that night was routine, not engineered."
+    },
+    {
+      "id": "EV042",
+      "name": "Estate Booking Record",
+      "description": "Shows the friend group booked the manor for the reunion two weeks prior, through a public listing, not arranged by or with Daniel.",
+      "location": "LOC3",
+      "discoverable": true,
+      "required_action": "Request the manor's rental booking history.",
+      "linked_evidence": [
+        "EV041"
+      ],
+      "importance": "medium",
+      "why_it_exists": "Rules out any theory that Daniel engineered the gathering to get close to the group."
+    },
+    {
+      "id": "EV043",
+      "name": "Jake's Draft Police Statement",
+      "description": "Found saved on Jake's laptop, dated four days before his death: a full, unsent account of the hit-and-run naming himself as present and offering full cooperation.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Search Jake's laptop with consent from next of kin.",
+      "linked_evidence": [
+        "EV012"
+      ],
+      "importance": "critical",
+      "why_it_exists": "Concrete proof of exactly what Jake intended to confess and when."
+    },
+    {
+      "id": "EV044",
+      "name": "Calendar Entry: Detective, Monday 9AM",
+      "description": "A calendar reminder on Jake's phone for the Monday after his death.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Examine Jake's phone calendar.",
+      "linked_evidence": [
+        "EV043"
+      ],
+      "importance": "high",
+      "why_it_exists": "Confirms the confession was imminent, not a distant hypothetical."
+    },
+    {
+      "id": "EV045",
+      "name": "Elena's Memorial Shelf",
+      "description": "A small shelf in the Reyes home with photos and a folded newspaper clipping, undisturbed and long-settled, not the shrine of someone actively planning revenge.",
+      "location": "LOC8",
+      "discoverable": true,
+      "required_action": "Examine the Reyes family home with permission.",
+      "linked_evidence": [],
+      "importance": "low",
+      "why_it_exists": "Softens and humanizes the obvious revenge suspect read on Daniel."
+    },
+    {
+      "id": "EV046",
+      "name": "Daniel's Recent Call Log",
+      "description": "Shows a call from an unlisted number nine days before Jake's death, followed by a text to his mother saying I think I can finally stop being angry about this.",
+      "location": "LOC8",
+      "discoverable": true,
+      "required_action": "Request Daniel's phone records.",
+      "linked_evidence": [
+        "EV030"
+      ],
+      "importance": "high",
+      "why_it_exists": "Corroborates that Jake's outreach genuinely resolved Daniel's anger before the murder, clearing his motive in real time, not just after the fact."
+    },
+    {
+      "id": "EV047",
+      "name": "Candle Wax Pattern",
+      "description": "Cooled wax drip patterns on the seance table are undisturbed, indicating the candles were not moved or knocked during any struggle, only after the blackout ended.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Examine the seance table's candles closely.",
+      "linked_evidence": [],
+      "importance": "medium",
+      "why_it_exists": "Supports the idea that the murder was fast, silent, and required no visible struggle."
+    },
+    {
+      "id": "EV048",
+      "name": "Group's Verbal Reactions Transcript",
+      "description": "Reconstructed from each friend's memory of who said what in the dark, everyone recalls Sam's voice shouting fearfully, but no one recalls hearing Jake make any sound at all.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Interview all four friends about what they heard during the blackout.",
+      "linked_evidence": [
+        "EV047"
+      ],
+      "importance": "high",
+      "why_it_exists": "Consistent with the autopsy's finding that Jake never saw the strike coming and could not have cried out."
+    },
+    {
+      "id": "EV049",
+      "name": "Leo's Fiancee's Statement",
+      "description": "Claire, Leo's fiancee, mentions he'd been unusually stressed about an old college thing in the week before the reunion, though she didn't know details.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Interview Leo's fiancee.",
+      "linked_evidence": [
+        "EV013"
+      ],
+      "importance": "medium",
+      "why_it_exists": "Independent, unwitting corroboration that Leo was carrying a specific, recent stress tied to the past."
+    },
+    {
+      "id": "EV050",
+      "name": "Medical School Acceptance Letter",
+      "description": "A conditional acceptance letter to Leo's medical program, contingent on a clean background check finalized the following month.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Search Leo's belongings or request his admissions records.",
+      "linked_evidence": [
+        "EV049"
+      ],
+      "importance": "high",
+      "why_it_exists": "Establishes exactly what Leo stood to lose if the hit-and-run came to light, the concrete stakes behind his motive."
+    },
+    {
+      "id": "EV051",
+      "name": "Final Forensic Poker Match",
+      "description": "A follow-up, more detailed print comparison confirms the partial print on the poker matches Leo Bennett to a high degree of certainty.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Request a full comparative fingerprint analysis once Leo is formally a suspect.",
+      "linked_evidence": [
+        "EV014",
+        "EV032"
+      ],
+      "importance": "critical",
+      "why_it_exists": "The final, conclusive physical link needed to move from suspicion to proof."
+    },
+    {
+      "id": "EV052",
+      "name": "Reconstructed 94-Second Timeline",
+      "description": "A full second-by-second reconstruction combining the fuse log, seating diagram, and witness statements, showing Leo had the only unaccounted, physically plausible path to the fireplace and back.",
+      "location": "LOC1",
+      "discoverable": true,
+      "required_action": "Cross-reference the blackout duration log with the seating diagram and all statements.",
+      "linked_evidence": [
+        "EV031",
+        "EV036",
+        "EV048"
+      ],
+      "importance": "critical",
+      "why_it_exists": "The synthesis piece, the moment all prior evidence locks into a single, provable sequence of events."
+    }
+  ],
+  "timeline": [
+    {
+      "time": "2022-10-04",
+      "event": "Elena Reyes is struck and killed by a vehicle later traced to the five friends' group; they cover it up and swear silence."
+    },
+    {
+      "time": "2025-02-01",
+      "event": "Jake begins therapy, initially for unrelated stress."
+    },
+    {
+      "time": "2025-07-15",
+      "event": "Sam orders a wireless vibration motor kit online, planning a seance prank for the upcoming reunion."
+    },
+    {
+      "time": "2025-10-09",
+      "event": "Jake privately calls Daniel Reyes and leaves a voicemail apologizing and stating his intent to go to the police."
+    },
+    {
+      "time": "2025-10-14",
+      "event": "Daniel tells his mother, Helen, that he has finally let it go."
+    },
+    {
+      "time": "2025-10-16 21:47",
+      "event": "Jake calls Leo privately and tells him he intends to confess to the police on Monday."
+    },
+    {
+      "time": "2025-10-17 15:12",
+      "event": "Mia and Jake argue by text; Mia begs him to reconsider."
+    },
+    {
+      "time": "2025-10-18 19:40",
+      "event": "Leo drives past the manor road alone, stopping briefly near the gate before continuing."
+    },
+    {
+      "time": "2025-10-18 20:04",
+      "event": "Leo stops at Frank's Tavern alone, visibly anxious, checking his phone."
+    },
+    {
+      "time": "2025-10-18 20:50",
+      "event": "Daniel Reyes begins repair work on the manor's failing fuse box, unaware anyone else is on the property yet."
+    },
+    {
+      "time": "2025-10-18 21:12",
+      "event": "The group arrives together at the manor."
+    },
+    {
+      "time": "2025-10-18 21:30",
+      "event": "The seance begins in the drawing room."
+    },
+    {
+      "time": "2025-10-18 21:46",
+      "event": "The Ouija board spells LIAR, triggered remotely by Sam."
+    },
+    {
+      "time": "2025-10-18 21:47",
+      "event": "The manor's power fails for 94 seconds due to the fuse box fault Daniel is mid-repair on."
+    },
+    {
+      "time": "2025-10-18 21:47-21:48",
+      "event": "In the dark, Leo crosses to the fireplace, strikes Jake once with the poker, and returns to his position before the lights return."
+    },
+    {
+      "time": "2025-10-18 21:49",
+      "event": "Power returns. Jake is found dead by the fireplace."
+    },
+    {
+      "time": "2025-10-18 22:15",
+      "event": "In the panic afterward, Sam quietly removes his hidden device from under the table and hides it in Priya's bag."
+    },
+    {
+      "time": "2025-10-18 23:05",
+      "event": "Police arrive; the group's statements are first taken."
+    }
+  ],
+  "relationship_graph": [
+    {
+      "from": "Jake Whitfield",
+      "to": "Leo Bennett",
+      "relationship": "College best friends; Leo has the most to lose from Jake's planned confession"
+    },
+    {
+      "from": "Jake Whitfield",
+      "to": "Sam Ostrowski",
+      "relationship": "Close friends; unrelated to Jake's death"
+    },
+    {
+      "from": "Jake Whitfield",
+      "to": "Priya Anand",
+      "relationship": "Close friends; shared guilt over the old cover-up"
+    },
+    {
+      "from": "Jake Whitfield",
+      "to": "Mia Torres",
+      "relationship": "Close friends; Mia tried to stop his confession"
+    },
+    {
+      "from": "Jake Whitfield",
+      "to": "Daniel Reyes",
+      "relationship": "No prior relationship; connected only through Elena's death and Jake's recent apology call"
+    },
+    {
+      "from": "Leo Bennett",
+      "to": "Mia Torres",
+      "relationship": "Both present during the blackout, standing together"
+    },
+    {
+      "from": "Priya Anand",
+      "to": "Helen Reyes",
+      "relationship": "Anonymous financial support for two years"
+    },
+    {
+      "from": "Daniel Reyes",
+      "to": "Helen Reyes",
+      "relationship": "Son and mother"
+    },
+    {
+      "from": "Sam Ostrowski",
+      "to": "Priya Anand",
+      "relationship": "Unknowingly framed her by planting the device in her bag"
+    }
+  ],
+  "interrogations": {
+    "SUS1": {
+      "initial_interview": "Calm, cooperative, expresses genuine grief. Sticks to a simple account: seated across the table, ran to Jake when the lights returned.",
+      "contradictions_presented_early": "When shown the gas station footage of his early solo visit, claims he was just clearing his head before the reunion and didn't want to worry anyone.",
+      "contradictions_presented_late": [
+        "Confronted with the text from Jake about the Monday confession, initially claims he forgot about the message.",
+        "Confronted with the seating diagram inconsistency about his movement during the blackout.",
+        "Confronted with the poker fingerprint match."
+      ],
+      "pressure_points": [
+        "His upcoming medical career",
+        "His fiancee and wedding",
+        "The old hit-and-run pact"
+      ],
+      "breaking_point": "When shown the full 94-second reconstructed timeline alongside the fingerprint match, Leo stops denying and admits he saw an opportunity in the dark and took it, insisting it wasn't planned in advance.",
+      "final_admission_summary": "Leo admits to striking Jake once with the poker during the blackout to prevent his confession from destroying his career, engagement, and family's reputation, stating it was a decision made in the panic of the dark rather than a premeditated plan for that specific night."
+    },
+    "SUS2": {
+      "initial_interview": "Nervous, evasive, denies any knowledge of how the board moved.",
+      "contradictions_presented_early": "When shown the forum post and purchase record, initially claims that could be anyone before admitting the account is his.",
+      "contradictions_presented_late": [
+        "Confronted with the fingerprint match inside the recovered device.",
+        "Confronted with his own panicked text to a friend outside the group."
+      ],
+      "pressure_points": [
+        "Fear of being blamed for planning the murder",
+        "Guilt over framing Priya"
+      ],
+      "breaking_point": "Once shown that the internal device fingerprints are undeniably his, Sam breaks down and admits everything about the prank and the frame-up.",
+      "final_admission_summary": "Sam admits he rigged the board as a harmless prank, panicked after Jake's death fearing he'd be blamed for planning a murder, and hid the device in Priya's bag to protect himself, insisting, truthfully, that he had no part in the killing itself."
+    },
+    "SUS3": {
+      "initial_interview": "Guarded and visibly anxious, denies knowledge of the device, insists her bag was never near the table.",
+      "contradictions_presented_early": "When asked about her financial records, initially refuses to discuss them, citing privacy.",
+      "contradictions_presented_late": [
+        "Confronted with the bank transfer records to Helen Reyes.",
+        "Confronted with the zipper print mismatch supporting her innocence regarding the device."
+      ],
+      "pressure_points": [
+        "Her law school applications",
+        "Her guilt over the old hit-and-run"
+      ],
+      "resolution_only_no_confession_summary": "Priya is innocent of the murder and the frame-up. Once confronted with the financial records, she tearfully admits to her role in the original hit-and-run cover-up and her years of anonymous guilt payments, but had no involvement in Jake's death or the device found in her bag."
+    },
+    "SUS4": {
+      "initial_interview": "Emotional, protective of the group, insists she was standing with Leo the whole time.",
+      "contradictions_presented_early": "When shown the diner witness statement and her texts to Jake, initially downplays the argument as just worry, nothing serious.",
+      "contradictions_presented_late": [
+        "Confronted with the full text exchange showing her direct plea for Jake to stay silent."
+      ],
+      "pressure_points": [
+        "Her upcoming wedding",
+        "Her fear of the old secret coming out"
+      ],
+      "resolution_only_no_confession_summary": "Mia is innocent of the murder. She admits, once confronted, to genuinely trying to talk Jake out of confessing out of fear for her own future, but her alibi standing beside Leo holds up under the study room dust analysis."
+    },
+    "SUS5": {
+      "initial_interview": "Quiet, cooperative, states plainly he was in the cellar the whole night working on the fuse box.",
+      "contradictions_presented_early": "When his connection to Elena Reyes is raised, he doesn't deny it, and volunteers the voicemail from Jake without being pressed.",
+      "contradictions_presented_late": [
+        "Asked directly whether he considered confronting anyone that night, given the motive once revealed."
+      ],
+      "pressure_points": [
+        "Grief for his sister",
+        "Suspicion falling on him once the old case is uncovered"
+      ],
+      "resolution_only_no_confession_summary": "Daniel is fully innocent. His fuse box repair log, his mother's corroborating statement, and Jake's own voicemail confirm he had already emotionally resolved his grief before the murder and had no role in it, his presence on the grounds that night was coincidental and entirely legitimate."
+    }
+  },
+  "game_state_template": {
+    "case_id": "CASE-BM-2025S",
+    "player_progress": {
+      "locations_visited": [],
+      "locations_researched_second_pass": [],
+      "evidence_discovered": [],
+      "forensic_tests_requested": [],
+      "warrants_obtained": [],
+      "witnesses_interviewed": [],
+      "witnesses_reinterviewed": [],
+      "suspects_interrogated": [],
+      "contradictions_presented_to_suspects": {},
+      "timeline_reconstructed_percent": 0,
+      "case_solved": false,
+      "accused_suspect": null,
+      "accusation_correct": null,
+      "suggested_minimum_progress_before_accusation_is_allowed_to_feel_earned": "Player should have discovered the device's true origin (Sam), cleared Priya of planting it, uncovered the old hit-and-run pact, and found at least the poker print plus the reconstructed 94-second timeline before accusing Leo.",
+      "sam_prank_uncovered": false,
+      "priya_frame_up_cleared": false,
+      "hit_and_run_uncovered": false,
+      "daniel_motive_cleared": false,
+      "leo_early_arrival_established": false
+    },
+    "available_actions": [
+      "search_location",
+      "interview_witness",
+      "interrogate_suspect",
+      "request_forensic_test",
+      "request_warrant",
+      "review_evidence",
+      "make_accusation"
+    ],
+    "win_condition": "Player accuses Leo Bennett with sufficient evidence gathered.",
+    "lose_condition": "Player accuses anyone other than Leo Bennett, or exhausts two wrong accusations."
+  },
+  "solution": {
+    "killer": "Leo Bennett",
+    "role_cover": "Devoted friend, model fiance, promising medical student, nothing about him invites suspicion",
+    "true_identity": "The one member of the friend group with the most to lose from Jake's planned confession",
+    "true_motive": "To prevent the three-year-old hit-and-run cover-up from being exposed, which would end his medical career, his engagement, and his family's standing",
+    "how_it_happened": "During the 94-second blackout caused by an unrelated, genuine electrical fault, Leo crossed the dark room to the fireplace, struck Jake once with the iron poker, and returned to his position before the lights came back, relying on the panic and darkness to cover both the act and the sound.",
+    "weapon": "Iron fireplace poker",
+    "time_of_death": "2025-10-18, approximately 21:47-21:48",
+    "why_no_direct_evidence_exists_for_this_specific_killer": "The blackout was real and unplanned by Leo, giving him a genuine, unpredictable window rather than a staged one, and the seance's own manufactured fear (from Sam's separate prank) absorbed all initial suspicion before anyone considered a mundane, personal motive.",
+    "key_proof_chain": [
+      "EV013 - Text proving Leo specifically knew about the confession two days prior",
+      "EV007 - CCTV proving Leo's unexplained early presence near the manor",
+      "EV032 - Leo's own inconsistent statement about his movement during the blackout",
+      "EV036 - The exact 94-second blackout window from the fuse box log",
+      "EV051 - Final fingerprint match on the poker",
+      "EV052 - The full reconstructed timeline tying all of the above into one sequence"
+    ],
+    "how_case_is_broken": "The case is solved by first working through and clearing the two decoy mysteries (Sam's prank, Priya's frame-up), then connecting Leo's specific, personal motive (via the hit-and-run cover-up) to his unexplained early presence and the narrow physical window the blackout provided, culminating in the fingerprint match and reconstructed timeline."
+  },
+  "hidden_truth": {
+    "full_narrative": "Three years ago, five inseparable college friends made one irreversible mistake: driving home drunk from a party, they struck and killed Elena Reyes, panicked, and made a pact of silence that all five have carried since. The guilt affected each of them differently, Priya turned it into years of anonymous financial atonement; Mia buried it beneath a carefully built new life; Sam distracted himself with humor and hobbies; Leo compartmentalized it entirely, building a future that depended on the past staying buried; and Jake, unable to carry it any longer, quietly began therapy and eventually decided to confess to police, reaching out privately first to make peace with Elena's family. He told only Leo directly, out of a mix of guilt and respect for how much it would cost him. During what was meant to be a lighthearted last reunion, Sam's harmless prank, rigging the Ouija board to spell a word and spook everyone, created an atmosphere of genuine dread completely by coincidence, moments before a real, unrelated electrical fault plunged the manor into darkness. In that narrow, genuinely unplanned window, Leo made an impulsive, desperate choice: he crossed the room and killed Jake, then returned to his position before the lights came back, letting the fear of something supernatural or someone dangerous in the dark become the story everyone else reached for first. Sam's panicked decision to hide his prank device in Priya's bag afterward very nearly sent the investigation down an entirely wrong path, and the emergence of the old hit-and-run very nearly implicated Daniel Reyes, the one person with an obvious motive who had, in fact, already made peace with the past days before the murder. The truth was never in the seance at all, it was in a car, three years earlier, and in exactly how much one person stood to lose from it finally coming out.",
+    "why_every_suspect_lied": {
+      "Leo Bennett": "Lied about his early visit to the manor and his exact movements during the blackout to conceal the murder itself.",
+      "Sam Ostrowski": "Lied about the seance device entirely, then compounded it by planting it in Priya's bag, purely to avoid being blamed for planning a murder he had no part in.",
+      "Priya Anand": "Withheld her financial records and her role in the old cover-up out of shame and fear for her career, not out of involvement in the murder.",
+      "Mia Torres": "Downplayed her argument with Jake out of embarrassment and fear the old secret would surface, not out of guilt over his death.",
+      "Daniel Reyes": "Didn't lie so much as withhold context, he saw no reason to volunteer his family history unless asked directly."
+    },
+    "why_every_red_herring_exists": "Sam's prank device created the illusion of a planned, malicious seance; its discovery in Priya's bag created a second, false suspect; Mia's argument with Jake created a third, emotionally convincing motive; and Daniel's family connection to an old tragedy created the most obvious revenge motive of all, each one real, each one investigated fairly, each one ultimately unconnected to the actual killer.",
+    "exact_reasoning_path_required_to_solve_the_case": [
+      "Discover the hidden device and trace it to Sam, not Priya, via fingerprint evidence.",
+      "Clear Priya of the device but uncover her real secret: the old hit-and-run and her guilt payments.",
+      "Follow the hit-and-run thread to uncover the five-way pact and identify all who were involved, including Leo and Jake.",
+      "Establish Jake's clear, imminent intent to confess via his journal, draft statement, and messages.",
+      "Notice Leo's unexplained early presence near the manor via gas station footage, distinct from the group's arrival.",
+      "Cross-reference the seating diagram against the precise 94-second blackout window to identify Leo as the only person with a physically plausible path to the fireplace and back unaccounted for.",
+      "Confirm with the final fingerprint match on the poker."
+    ]
+  }
+}

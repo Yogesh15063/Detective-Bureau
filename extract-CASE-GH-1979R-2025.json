@@ -1,0 +1,477 @@
+{
+ "source_file": "case_grey_harbor_MASTER_DO_NOT_OPEN_YET (1).json",
+ "case_id": "CASE-GH-1979R-2025",
+ "suspects": [
+  {
+   "id": "SUS1",
+   "name": "Grady Voss",
+   "role": "Lobsterman, third-generation, works the tidal flats near the old cannery"
+  },
+  {
+   "id": "SUS2",
+   "name": "Denise Okafor-Hale",
+   "role": "Grey Harbor Select Board chair, pushing a redevelopment deal to convert the old cannery site into a private marina"
+  },
+  {
+   "id": "SUS3",
+   "name": "Reverend Elias Cho",
+   "role": "Pastor, St. Brendan's Church"
+  },
+  {
+   "id": "SUS4",
+   "name": "Priya Deshmukh",
+   "role": "Co-owner of The Grey Harbor Beacon, Tom's business partner for eleven years"
+  },
+  {
+   "id": "SUS5",
+   "name": "Caleb Ashby",
+   "role": "Tom's estranged half-brother, recently returned to Grey Harbor after years away, currently unemployed"
+  },
+  {
+   "id": "SUS6",
+   "name": "Warren Pell",
+   "role": "Church organist at St. Brendan's and director of the Grey Harbor Community Pantry"
+  }
+ ],
+ "witnesses": [
+  {
+   "id": "WIT1",
+   "name": "Marla Osei",
+   "role": "Waitress at Moss's Diner"
+  },
+  {
+   "id": "WIT2",
+   "name": "Deckhand Ollie Frank",
+   "role": "Works Grady Voss's boat"
+  },
+  {
+   "id": "WIT3",
+   "name": "Select Board Clerk Naomi Griggs",
+   "role": "Records Select Board meeting attendance"
+  },
+  {
+   "id": "WIT4",
+   "name": "Hostess Renata Cole",
+   "role": "Works at a restaurant in Aldermere"
+  },
+  {
+   "id": "WIT5",
+   "name": "Deputy Warden at the County Lockup",
+   "role": "Logs visitor sign-ins"
+  },
+  {
+   "id": "WIT6",
+   "name": "Nurse Faye Delgado",
+   "role": "Works the evening shift at Harborview Community Hospital"
+  },
+  {
+   "id": "WIT7",
+   "name": "Store Clerk Benny Trask",
+   "role": "Works the general store in the small town near the Ashby family cabin"
+  },
+  {
+   "id": "WIT8",
+   "name": "Deputy Ronald Pike",
+   "role": "Responding deputy who checked the disputed family property two days after the murder"
+  },
+  {
+   "id": "WIT9",
+   "name": "Lobsterman Hollis Baird",
+   "role": "Found the body the morning of November 4th"
+  },
+  {
+   "id": "WIT10",
+   "name": "Neighbor Ida Marsh",
+   "role": "Lives along the cannery outflow road, near the tidal-flat trailer park"
+  },
+  {
+   "id": "WIT11",
+   "name": "Convenience Store Clerk in Aldermere",
+   "role": "Sold a prepaid burner phone three days before the murder"
+  },
+  {
+   "id": "WIT12",
+   "name": "Deputy Sarah Kwan",
+   "role": "Responding deputy, present during an informal conversation with Warren Pell days before the medical examiner's report was released"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "EV01",
+   "name": "Tom Ashby's body",
+   "location": "LOC1",
+   "importance": "critical"
+  },
+  {
+   "id": "EV02",
+   "name": "Absence of Tom's phone, recorder, and satchel",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV03",
+   "name": "Tom's parked Volvo",
+   "location": "LOC1",
+   "importance": "high"
+  },
+  {
+   "id": "EV04",
+   "name": "Wipe marks on steering wheel/door handle",
+   "location": "LOC1 (vehicle forensic sweep)",
+   "importance": "high"
+  },
+  {
+   "id": "EV05",
+   "name": "Skull contusion wound pattern",
+   "location": "Autopsy",
+   "importance": "critical"
+  },
+  {
+   "id": "EV06",
+   "name": "Mud/algae composition mismatch",
+   "location": "Autopsy/forensic lab",
+   "importance": "critical"
+  },
+  {
+   "id": "EV07",
+   "name": "Tide chart and algae-line staining at the outflow dock",
+   "location": "LOC2",
+   "importance": "critical"
+  },
+  {
+   "id": "EV08",
+   "name": "Cell tower ping at 18:55",
+   "location": "Carrier records (subpoenaed)",
+   "importance": "critical"
+  },
+  {
+   "id": "EV09",
+   "name": "Anonymous call to Tom's phone (Nov 2, 20:15)",
+   "location": "Phone call log",
+   "importance": "critical"
+  },
+  {
+   "id": "EV10",
+   "name": "Burner phone purchase record",
+   "location": "LOC13",
+   "importance": "critical"
+  },
+  {
+   "id": "EV11",
+   "name": "Convenience store clerk's limited recollection",
+   "location": "WIT11 interview",
+   "importance": "low"
+  },
+  {
+   "id": "EV12",
+   "name": "Tom's cloud-synced draft notes",
+   "location": "LOC3",
+   "importance": "critical"
+  },
+  {
+   "id": "EV13",
+   "name": "Tom's voicemail to the County Records Office",
+   "location": "LOC5 intake log",
+   "importance": "high"
+  },
+  {
+   "id": "EV14",
+   "name": "Tom's final message to Priya Deshmukh",
+   "location": "Priya's phone / carrier records",
+   "importance": "medium"
+  },
+  {
+   "id": "EV15",
+   "name": "1979 Kestrel Cannery employee badge photo of teenage Warren Pelletier",
+   "location": "LOC4",
+   "importance": "critical"
+  },
+  {
+   "id": "EV16",
+   "name": "1994 legal name-change filing, Pelletier to Pell",
+   "location": "LOC5",
+   "importance": "critical"
+  },
+  {
+   "id": "EV17",
+   "name": "Facial comparison analysis, badge photo vs. present-day Warren Pell",
+   "location": "Forensic lab analysis",
+   "importance": "critical"
+  },
+  {
+   "id": "EV18",
+   "name": "Tidal Families Relief Fund ledger",
+   "location": "LOC7 (requires warrant)",
+   "importance": "critical"
+  },
+  {
+   "id": "EV19",
+   "name": "Warren Pell's personal bank records",
+   "location": "Bank records (subpoenaed)",
+   "importance": "critical"
+  },
+  {
+   "id": "EV20",
+   "name": "Tidal-flat residents' consistent testimony about cash payments",
+   "location": "LOC8",
+   "importance": "high"
+  },
+  {
+   "id": "EV21",
+   "name": "Neighbor Ida Marsh's recollection of the pantry van near the outflow road",
+   "location": "WIT10 interview",
+   "importance": "high"
+  },
+  {
+   "id": "EV22",
+   "name": "Warren Pell's remark about 'dock pilings'",
+   "location": "WIT12 interview",
+   "importance": "critical"
+  },
+  {
+   "id": "EV23",
+   "name": "Warren Pell's unverifiable alibi",
+   "location": "Interrogation/interview",
+   "importance": "medium"
+  },
+  {
+   "id": "EV24",
+   "name": "Church after-hours access records (nonexistent)",
+   "location": "LOC6",
+   "importance": "low"
+  },
+  {
+   "id": "EV25",
+   "name": "Donation box shortfall records",
+   "location": "LOC7",
+   "importance": "medium"
+  },
+  {
+   "id": "EV26",
+   "name": "Warren's admission regarding his wife's prescription costs",
+   "location": "Interrogation",
+   "importance": "low"
+  },
+  {
+   "id": "EV27",
+   "name": "Grady Voss's public threat, witnessed",
+   "location": "LOC9",
+   "importance": "medium"
+  },
+  {
+   "id": "EV28",
+   "name": "Harbor departure/return log for Grady's boat",
+   "location": "Harbor master's office",
+   "importance": "medium"
+  },
+  {
+   "id": "EV29",
+   "name": "Deckhand Ollie Frank's corroborating statement",
+   "location": "WIT2 interview",
+   "importance": "low"
+  },
+  {
+   "id": "EV30",
+   "name": "Grady's off-the-books catch sales",
+   "location": "Interrogation",
+   "importance": "low"
+  },
+  {
+   "id": "EV31",
+   "name": "Denise Okafor-Hale's shell LLC land purchase",
+   "location": "Property records",
+   "importance": "medium"
+  },
+  {
+   "id": "EV32",
+   "name": "Select Board meeting minutes showing Denise's early departure",
+   "location": "LOC-Town Hall records",
+   "importance": "medium"
+  },
+  {
+   "id": "EV33",
+   "name": "Aldermere restaurant credit card receipt, 19:40",
+   "location": "LOC10 area / restaurant records",
+   "importance": "low"
+  },
+  {
+   "id": "EV34",
+   "name": "Priya Deshmukh's key-person insurance policy on Tom",
+   "location": "Insurance records",
+   "importance": "medium"
+  },
+  {
+   "id": "EV35",
+   "name": "Evidence of Priya's continued, unauthorized sale negotiations",
+   "location": "Priya's business email (with consent/warrant)",
+   "importance": "medium"
+  },
+  {
+   "id": "EV36",
+   "name": "Hospital visitor log confirming Priya's alibi",
+   "location": "LOC12",
+   "importance": "low"
+  },
+  {
+   "id": "EV37",
+   "name": "Nurse Faye Delgado's corroborating statement",
+   "location": "WIT6 interview",
+   "importance": "low"
+  },
+  {
+   "id": "EV38",
+   "name": "Caleb Ashby's prior criminal record",
+   "location": "County records",
+   "importance": "medium"
+  },
+  {
+   "id": "EV39",
+   "name": "Witnessed inheritance-dispute confrontation between Caleb and Tom",
+   "location": "Neighbor interview",
+   "importance": "medium"
+  },
+  {
+   "id": "EV40",
+   "name": "Caleb's initial refusal to state his whereabouts",
+   "location": "Interrogation",
+   "importance": "medium"
+  },
+  {
+   "id": "EV41",
+   "name": "Deputy Pike's observation of recent cabin occupancy",
+   "location": "LOC- family cabin",
+   "importance": "low"
+  },
+  {
+   "id": "EV42",
+   "name": "Store clerk Benny Trask's till receipt, 19:30",
+   "location": "WIT7 / LOC13-adjacent store",
+   "importance": "medium"
+  },
+  {
+   "id": "EV43",
+   "name": "Reverend Cho's public dispute with Tom over the son's arrest article",
+   "location": "Witness interviews",
+   "importance": "medium"
+  },
+  {
+   "id": "EV44",
+   "name": "Reverend Cho's initial false alibi",
+   "location": "Interrogation",
+   "importance": "medium"
+  },
+  {
+   "id": "EV45",
+   "name": "County lockup visitor log confirming Reverend Cho's true whereabouts",
+   "location": "WIT5 record",
+   "importance": "medium"
+  },
+  {
+   "id": "EV46",
+   "name": "St. Brendan's discretionary fund withdrawal",
+   "location": "LOC6",
+   "importance": "low"
+  },
+  {
+   "id": "EV47",
+   "name": "A stray set of boot prints near the town dock, degraded by fog-dampened ground",
+   "location": "LOC1",
+   "importance": "trivial"
+  },
+  {
+   "id": "EV48",
+   "name": "An anonymous tip letter received by the sheriff's office a week after the murder",
+   "location": "Sheriff's substation",
+   "importance": "low"
+  },
+  {
+   "id": "EV49",
+   "name": "Tom's old, unrelated article about a zoning dispute involving Denise Okafor-Hale from three years prior",
+   "location": "LOC4 microfilm archive",
+   "importance": "low"
+  },
+  {
+   "id": "EV50",
+   "name": "A rumor, later disproven, that Tom had been having an affair with a Select Board member's spouse",
+   "location": "Multiple witness interviews",
+   "importance": "trivial"
+  },
+  {
+   "id": "EV51",
+   "name": "Tom's own overdue library fines",
+   "location": "LOC4",
+   "importance": "trivial"
+  },
+  {
+   "id": "EV52",
+   "name": "A partial, illegible page fragment caught in dock debris",
+   "location": "LOC1",
+   "importance": "trivial"
+  },
+  {
+   "id": "EV53",
+   "name": "Tom's calendar entry for November 3rd reading only 'Outflow - 7pm - bring recorder'",
+   "location": "LOC3 (recovered alongside the cloud draft)",
+   "importance": "high"
+  },
+  {
+   "id": "EV54",
+   "name": "Warren Pell's decades of quiet community reputation-building",
+   "location": "General town knowledge / multiple witness interviews",
+   "importance": "medium"
+  },
+  {
+   "id": "EV55",
+   "name": "Warren's occasional past assistance to Tom on pantry-related community stories",
+   "location": "Old Beacon articles / Priya's recollection",
+   "importance": "medium"
+  },
+  {
+   "id": "EV56",
+   "name": "The Kestrel Cannery's original 1979 closure coverage in the Beacon's own archives",
+   "location": "LOC4",
+   "importance": "medium"
+  },
+  {
+   "id": "EV57",
+   "name": "A former cannery worker's recollection (now elderly) of the 1979 settlement being handled 'quietly, through the family, not the courts'",
+   "location": "Witness interview with a retired cannery worker",
+   "importance": "medium"
+  },
+  {
+   "id": "EV58",
+   "name": "Warren's wife's medical billing records",
+   "location": "Medical billing records (with consent)",
+   "importance": "low"
+  },
+  {
+   "id": "EV59",
+   "name": "A discrepancy between Warren's claimed modest income and his lifestyle",
+   "location": "General financial background check",
+   "importance": "medium"
+  },
+  {
+   "id": "EV60",
+   "name": "Deputy Sarah Kwan's full incident notes from the days following the discovery",
+   "location": "Sheriff's substation case file",
+   "importance": "critical"
+  },
+  {
+   "id": "EV61",
+   "name": "Medical Examiner's report release date and distribution list",
+   "location": "County Medical Examiner's office",
+   "importance": "critical"
+  }
+ ],
+ "killer": "Warren Pell",
+ "key_proof_chain": [
+  "Tide charts and algae/mud staining on the body's clothing show it entered the water at the cannery outflow, roughly a mile from where Tom's car was found at the town dock - proving the 'died where his car was found' theory is false and someone moved the vehicle after the fact.",
+  "The autopsy identifies a curved, smooth-surfaced skull contusion inconsistent with the dock pilings (square-edged timber) at the town dock and inconsistent with any structure at the outflow dock either - consistent instead with a handheld rounded object, ruling out a simple fall at both locations.",
+  "Cell tower data places Tom's last phone activity (before it went permanently dark) pinging a tower consistent with the cannery outflow road at 18:55, not the town dock.",
+  "A burner phone, purchased with cash at a convenience store in the neighboring town of Aldermere three days before the murder, is traced via the store's till receipt and a partial description from the clerk; the number matches an anonymous call placed to Tom's phone the day before his death.",
+  "Financial audit of the 'Tidal Families Relief Fund,' privately administered by Warren Pell with no oversight board, shows consistent underpayment to beneficiary families relative to the fund's known original principal and reasonable interest growth over 30 years - money unaccounted for.",
+  "A 1994 legal name-change filing recovered from county records shows Warren Pelletier becoming Warren Pell, cross-referenced with a 1979 Kestrel Cannery employee badge photo of a teenage Warren Pelletier, matched to Warren Pell via a forensic age-progression/facial-comparison analysis.",
+  "Warren's own remark, made casually to a sheriff's deputy during an informal conversation before the medical examiner's report was public, that Tom 'must have hit his head on the dock pilings' - a detail no released statement had mentioned, and which does not match either actual death scene.",
+  "A neighbor's recollection of Warren's distinctive pantry delivery van parked near the cannery outflow road the evening of the murder, initially assumed innocuous, becomes significant only once cross-referenced against the tide/cell-tower timeline."
+ ]
+}
