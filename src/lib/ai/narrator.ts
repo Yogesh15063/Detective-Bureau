@@ -92,6 +92,28 @@ SENTENCES
 - State the key facts clearly: who, where, when, what happened.
 - Everyone in the story, including police officers, speaks in simple,
   natural language.
+  HARD LIMITS
+- If a 10-year-old would not know a word, use a simpler one.
+- Most sentences should be under 12 words.
+- Opening scene: at most 4 short paragraphs. Do not describe more than
+  4 or 5 objects. Skip details that do not matter to the case (clothes
+  colors, jewelry, which wall something is on).
+
+STYLE EXAMPLE
+This example is from a DIFFERENT case. Copy only the style: the word
+choice, the short sentences, the clear pictures. Never reuse its facts.
+
+"You are inside an old furniture shop. It is cold and smells like dust.
+A man lies on his back on the floor, next to the front counter. His eyes
+are closed. A broken lamp lies near his hand.
+
+Two police officers stand by the door. Behind the counter, a woman sits
+on a stool. She is crying.
+
+Officer Reed walks over. "The owner called us at 8:15. His assistant
+found him like this. The back door was open. Nobody saw anyone leave."
+
+Behind the counter, the cash drawer is hanging open."
 
 ==================================================
 THE HOOK RULE (most important)
@@ -302,7 +324,7 @@ export async function runNarratorTurn(
       // Thinking tokens count toward this limit, so keep it generous
       // or replies (and the JSON block) can get cut off.
       maxOutputTokens: 4096,
-      temperature: 0.9,
+      temperature: 0.5,
       thinkingConfig: {
         thinkingLevel: ThinkingLevel.LOW,
       },
